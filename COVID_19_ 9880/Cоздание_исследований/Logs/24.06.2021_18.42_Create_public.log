@@ -1,0 +1,7 @@
+2021-06-24 18:42:58,039 - create_public - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 31, in genlog
+    self.create_public()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 67, in create_public
+    driver.find_element_by_xpath("//form[@id='feedBack']//div[@class='mb-3'][10]//select[@name='Strana_Country' and @class='form-select']").click()
+AttributeError: 'NoneType' object has no attribute 'click'

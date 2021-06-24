@@ -1,0 +1,17 @@
+2021-06-01 18:03:22,309 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_barcode.py", line 29, in genlog
+    self.create_barcode()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_barcode.py", line 55, in create_barcode
+    driver.find_elements_by_css_selector("#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <a href="#" class="ui-paginator-last ui-state-default ui-corner-all" aria-label="Last Page" tabindex="0">...</a> is not clickable at point (1244, 248). Other element would receive the click: <td role="gridcell" style="width:100px;">...</td>
+  (Session info: chrome=90.0.4430.212)
+

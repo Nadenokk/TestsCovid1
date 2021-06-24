@@ -1,0 +1,17 @@
+2021-06-03 11:33:50,098 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Создание_планшетов_и_партий\create_planshet_by_barcode_and_batch.py", line 31, in genlog
+    self.planshet()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Создание_планшетов_и_партий\create_planshet_by_barcode_and_batch.py", line 105, in planshet
+    driver.find_element_by_link_text(u"РџР»Р°РЅС€РµС‚С‹").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <a href="/documents/list/tablets">...</a> is not clickable at point (116, 488). Other element would receive the click: <div id="j_idt555_modal" class="ui-widget-overlay ui-dialog-mask" style="z-index: 1009;"></div>
+  (Session info: chrome=90.0.4430.212)
+

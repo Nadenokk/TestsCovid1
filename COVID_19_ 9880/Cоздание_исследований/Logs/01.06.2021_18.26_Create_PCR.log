@@ -1,0 +1,7 @@
+2021-06-01 18:27:43,553 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 31, in genlog
+    self.create_pcr()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 53, in create_pcr
+    driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+AttributeError: 'NoneType' object has no attribute 'click'

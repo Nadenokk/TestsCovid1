@@ -1,0 +1,16 @@
+2021-06-10 10:18:31,325 - __main__ - INFO - Test complete without errors
+2021-06-10 10:18:55,032 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 31, in genlog
+    self.create_public()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 43, in create_public
+    driver.refresh()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 831, in refresh
+    self.execute(Command.REFRESH)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: chrome not reachable
+  (Session info: chrome=90.0.4430.212)
+

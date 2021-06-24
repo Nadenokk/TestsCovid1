@@ -1,0 +1,17 @@
+2021-06-24 17:09:14,828 - create_Express - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_Express.py", line 31, in genlog
+    self.create_Express()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_Express.py", line 53, in create_Express
+    driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c"}
+  (Session info: chrome=91.0.4472.114)
+

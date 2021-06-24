@@ -1,0 +1,17 @@
+2021-06-08 17:55:33,834 - __main__ - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Проверка_штрихкодов\Barcode.py", line 31, in genlog
+    self.barcode()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Проверка_штрихкодов\Barcode.py", line 52, in barcode
+    driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: chrome not reachable
+  (Session info: chrome=90.0.4430.212)
+

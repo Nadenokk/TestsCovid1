@@ -1,0 +1,17 @@
+2021-06-07 18:05:57,697 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 31, in genlog
+    self.create_pcr()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 183, in create_pcr
+    driver.find_element_by_id("tableForm:main-table:j_id5").clear()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 95, in clear
+    self._execute(Command.CLEAR_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidElementStateException: Message: invalid element state
+  (Session info: chrome=90.0.4430.212)
+

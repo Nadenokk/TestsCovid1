@@ -1,0 +1,17 @@
+2021-06-03 11:26:22,040 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Создание_планшетов_и_партий\create_planshet_by_barcode_and_batch.py", line 31, in genlog
+    self.planshet()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Создание_планшетов_и_партий\create_planshet_by_barcode_and_batch.py", line 105, in planshet
+    driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text"}
+  (Session info: chrome=90.0.4430.212)
+
