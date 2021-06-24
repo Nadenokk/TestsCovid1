@@ -2,9 +2,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
+
 import unittest, time, re
 import logging, os
 
@@ -12,7 +14,8 @@ class CreatePublic(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        #self.driver = webdriver.Chrome(chrome_options=options)
+        self.driver = webdriver.Chrome(executable_path = "E:/bin/chromedriver.exe")
         self.driver.implicitly_wait(30)
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -39,7 +42,8 @@ class CreatePublic(unittest.TestCase):
         
     def create_public(self):
         driver = self.driver
-        driver.get("http://auraep.ru:9880")
+        #driver.get("http://auraep.ru:9880")
+        driver.get("https://pub.rpn19.ru/forms/33")
         driver.refresh()
         driver.find_element_by_id("Familiya_").click()
         driver.find_element_by_id("Familiya_").clear()
@@ -63,6 +67,7 @@ class CreatePublic(unittest.TestCase):
         driver.find_element_by_id("Telefon").clear()
         driver.find_element_by_id("Telefon").send_keys("89456321782")
         #driver.find_element_by_id("itemForm:tabView:country_label").click()
+        driver.find_element_by_name("Strana").c
 
         driver.find_element_by_xpath("//form[@id='feedBack']//div[@class='mb-3'][10]//select[@name='Strana_Country' and @class='form-select']").click()
 
