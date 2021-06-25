@@ -40,7 +40,7 @@ class ExpressTestStatus(unittest.TestCase):
     def express_test_status(self):
         driver = self.driver
         barcode = "7800560977"
-        iss = u"321Х24" # u - кодировка utf-8
+        iss = u"10Х396520" # u - кодировка utf-8
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -49,7 +49,7 @@ class ExpressTestStatus(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(10) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(10) > a > div").click()
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(7)

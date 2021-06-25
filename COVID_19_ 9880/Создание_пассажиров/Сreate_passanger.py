@@ -20,8 +20,8 @@ class CreatePassanger(unittest.TestCase):
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
-        if not os.path.exists("Logs"):
-            os.mkdir("Logs")
+        if not os.path.exists("../../../../Desktop/Создание_пассажиров/Logs"):
+            os.mkdir("../../../../Desktop/Создание_пассажиров/Logs")
         handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Create_passanger.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -39,7 +39,7 @@ class CreatePassanger(unittest.TestCase):
         
     def create_passanger(self):
         driver = self.driver
-        driver.get("http://127.0.0.1:18080/business/dashboard/dashboard.xhtml")
+        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -47,7 +47,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()

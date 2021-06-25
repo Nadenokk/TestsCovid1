@@ -49,7 +49,7 @@ class CreatePlanshet(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         
         # Копируем номер штрихкода
-        driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()

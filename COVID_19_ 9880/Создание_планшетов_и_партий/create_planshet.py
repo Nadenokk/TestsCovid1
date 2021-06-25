@@ -47,7 +47,7 @@ class CreatePlanshet(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
+        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         time.sleep(2)
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()

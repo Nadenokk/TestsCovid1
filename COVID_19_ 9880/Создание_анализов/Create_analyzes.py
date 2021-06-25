@@ -47,8 +47,10 @@ class CreateAnalyzes(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a > div").click()
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a > div").click()
+        driver.find_element_by_id("toolbarform:j_idt75").click()
+
+        #driver.find_element_by_css_selector("span.ui-button-icon-left ui-icon ui-c fa fa-plus").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАн")
@@ -89,11 +91,12 @@ class CreateAnalyzes(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:result").click()
         driver.find_element_by_id("itemForm:tabView:result").clear()
         driver.find_element_by_id("itemForm:tabView:result").send_keys(u"Нет")
+
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
         driver.find_element_by_css_selector("#toolbarform\:j_idt73").click()
         driver.find_element_by_css_selector("#toolbarform\:j_idt74")
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
