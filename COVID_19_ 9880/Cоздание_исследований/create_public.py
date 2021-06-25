@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
+from telnetlib import EC
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support.ui import Select
 import unittest, time, re
 import logging, os
+
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 class CreatePublic(unittest.TestCase):
     def setUp(self):
@@ -52,45 +58,50 @@ class CreatePublic(unittest.TestCase):
         driver.find_element_by_id("Otchestvo_Middle_name").send_keys(u"Евгеньевич")
         driver.find_element_by_id("date-mask").click()
         driver.find_element_by_id("date-mask").clear()
-        driver.find_element_by_id("date-mask").send_keys("11.11.1980")
+        driver.find_element_by_id("date-mask").send_keys("11111980")
         driver.find_element_by_css_selector("body").click()
         driver.find_element_by_id("0").click()
-        #driver.find_element_by_css_selector("#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("Email").click()
         driver.find_element_by_id("Email").clear()
         driver.find_element_by_id("Email").send_keys("2332@3221")
         driver.find_element_by_id("Telefon").click()
         driver.find_element_by_id("Telefon").clear()
         driver.find_element_by_id("Telefon").send_keys("89456321782")
-        #driver.find_element_by_id("itemForm:tabView:country_label").click()
+        select=Select(driver.find_element_by_name("Strana"))
+        select.select_by_visible_text(u"Россия")
+        select = Select(driver.find_element_by_name("Region"))
+        select.select_by_visible_text(u"Ярославская область")
+        time.sleep(2)
 
-        driver.find_element_by_xpath("//form[@id='feedBack']//div[@class='mb-3'][10]//select[@name='Strana_Country' and @class='form-select']").click()
 
-        #driver.find_element_by_link_text(u"Брянск").click()
 
-        driver.find_element_by_css_selector("#itemForm\:tabView\:country_panel").click()
-        driver.find_element_by_id("itemForm:tabView:country_1").click()
-        driver.find_element_by_id("itemForm:tabView:region_label").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:region_panel").click()
-        driver.find_element_by_id("itemForm:tabView:region_1").click()
-        driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("itemForm:tabView:city_input").click()
-        driver.find_element_by_id("itemForm:tabView:city_input").clear()
-        driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Ярос")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:city_panel > ul > li:nth-child(1)").click()
-        driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").click()
-        driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").clear()
-        driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").send_keys(u"Мир")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:homeAddressStreet_panel").click()
-        driver.find_element_by_id("itemForm:tabView:homeAddressBuilding_input").click()
-        driver.find_element_by_id("itemForm:tabView:homeAddressBuilding_input").clear()
-        driver.find_element_by_id("itemForm:tabView:homeAddressBuilding_input").send_keys("1")
-        driver.find_element_by_id("itemForm:tabView:homeAddressFlat").click()
-        driver.find_element_by_id("itemForm:tabView:homeAddressFlat").clear()
-        driver.find_element_by_id("itemForm:tabView:homeAddressFlat").send_keys("1231")
-        driver.find_element_by_id("itemForm:tabView:orgName").click()
-        driver.find_element_by_id("itemForm:tabView:orgName").clear()
-        driver.find_element_by_id("itemForm:tabView:orgName").send_keys(u"Институт")
+        #Не понимаю почему selector не отрабатывает город и улицу
+        driver.find_element_by_id("city").click()
+        driver.find_element_by_id("city").clear()
+        driver.find_element_by_id("city").send_keys(u"Ярос")
+        #time.sleep(2)
+        select = Select(driver.find_element_by_id("city"))
+        #select.select_by_index(1)
+        select.select_by_visible_text(u"Ярославль")
+        time.sleep(5)
+        driver.find_element_by_id("street").click()
+        driver.find_element_by_id("street").clear()
+        driver.find_element_by_id("street").send_keys(u"Мир")
+        select = Select(driver.find_element_by_name("street"))
+        select.select_by_visible_text(u"Мира")
+
+
+
+        driver.find_element_by_css_selector("building").click()
+        driver.find_element_by_id("building").click()
+        driver.find_element_by_id("building").clear()
+        driver.find_element_by_id("building").send_keys("1")
+        driver.find_element_by_id("Kvartira").click()
+        driver.find_element_by_id("Kvartira").clear()
+        driver.find_element_by_id("Kvartira").send_keys("1231")
+        driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").click()
+        driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").clear()
+        driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").send_keys(u"Институт")
         driver.find_element_by_id("itemForm:tabView:workPositionStringValue").click()
         driver.find_element_by_id("itemForm:tabView:workPositionStringValue").clear()
         driver.find_element_by_id("itemForm:tabView:workPositionStringValue").send_keys(u"Студент")
