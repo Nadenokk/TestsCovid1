@@ -74,22 +74,20 @@ class CreatePublic(unittest.TestCase):
         time.sleep(2)
 
 
-
         #Не понимаю почему selector не отрабатывает город и улицу
         driver.find_element_by_id("city").click()
-        driver.find_element_by_id("city").clear()
-        driver.find_element_by_id("city").send_keys(u"Ярос")
-        #time.sleep(2)
-        select = Select(driver.find_element_by_id("city"))
+        #driver.find_element_by_id("city").clear()
+        driver.find_element_by_id("city").send_keys(u"Ярославль")
+        time.sleep(2)
+        #select = Select(driver.find_element_by_id("city"))
         #select.select_by_index(1)
-        select.select_by_visible_text(u"Ярославль")
-        time.sleep(5)
+        #select.select_by_visible_text(u"Ярославль")
+        #time.sleep(5)
         driver.find_element_by_id("street").click()
         driver.find_element_by_id("street").clear()
-        driver.find_element_by_id("street").send_keys(u"Мир")
-        select = Select(driver.find_element_by_name("street"))
-        select.select_by_visible_text(u"Мира")
-
+        driver.find_element_by_id("street").send_keys(u"Мира")
+        #select = Select(driver.find_element_by_name("street"))
+        #select.select_by_visible_text(u"Мира")
 
 
         driver.find_element_by_css_selector("building").click()

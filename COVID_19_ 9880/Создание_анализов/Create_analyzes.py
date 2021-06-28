@@ -94,8 +94,8 @@ class CreateAnalyzes(unittest.TestCase):
 
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_css_selector("#toolbarform\:j_idt73").click()
-        driver.find_element_by_css_selector("#toolbarform\:j_idt74")
+        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("toolbarform:j_idt75")
 
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
