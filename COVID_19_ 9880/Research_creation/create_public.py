@@ -18,7 +18,7 @@ class CreatePublic(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        self.driver = webdriver.Chrome(executable_path = "E:/bin/chromedriver.exe")
         self.driver.implicitly_wait(30)
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -69,15 +69,16 @@ class CreatePublic(unittest.TestCase):
         driver.find_element_by_id("Telefon").send_keys("89456321782")
         select=Select(driver.find_element_by_name("Strana"))
         select.select_by_visible_text(u"Россия")
+
         select = Select(driver.find_element_by_name("Region"))
         select.select_by_visible_text(u"Ярославская область")
         time.sleep(2)
 
 
         #Не понимаю почему selector не отрабатывает город и улицу
-        driver.find_element_by_id("city").click()
+        #driver.find_element_by_id("city").click()
         #driver.find_element_by_id("city").clear()
-        driver.find_element_by_id("city").send_keys(u"Ярославль")
+        driver.find_element_by_id("city").send_keys(u"Ярославль"+Keys.TAB)
         time.sleep(2)
         #select = Select(driver.find_element_by_id("city"))
         #select.select_by_index(1)
@@ -85,18 +86,21 @@ class CreatePublic(unittest.TestCase):
         #time.sleep(5)
         driver.find_element_by_id("street").click()
         driver.find_element_by_id("street").clear()
-        driver.find_element_by_id("street").send_keys(u"Мира")
+        driver.find_element_by_id("street").send_keys(u"Мира"+Keys.TAB)
         #select = Select(driver.find_element_by_name("street"))
         #select.select_by_visible_text(u"Мира")
 
 
-        driver.find_element_by_css_selector("building").click()
-        driver.find_element_by_id("building").click()
+        #driver.find_element_by_id("building").click()
+       # driver.find_element_by_id("building").click()
         driver.find_element_by_id("building").clear()
         driver.find_element_by_id("building").send_keys("1")
-        driver.find_element_by_id("Kvartira").click()
+        time.sleep(2)
+       # driver.find_element_by_id("Kvartira").click()
         driver.find_element_by_id("Kvartira").clear()
         driver.find_element_by_id("Kvartira").send_keys("1231")
+        time.sleep(2)
+
         driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").click()
         driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").clear()
         driver.find_element_by_id("Naimenovanie_organizatsii_Company_name").send_keys(u"Институт")
