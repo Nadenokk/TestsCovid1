@@ -1,0 +1,10 @@
+2021-06-25 12:33:41,987 - create_public - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 37, in genlog
+    self.create_public()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 88, in create_public
+    select = Select(driver.find_element_by_name("street"))
+  File "C:\Python27\lib\site-packages\selenium\webdriver\support\select.py", line 39, in __init__
+    webelement.tag_name)
+UnexpectedTagNameException: Message: Select only works on <select> elements, not on <input>
+

@@ -20,8 +20,8 @@ class CreatePassanger(unittest.TestCase):
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
-        if not os.path.exists("../../../../Desktop/Создание_пассажиров/Logs"):
-            os.mkdir("../../../../Desktop/Создание_пассажиров/Logs")
+        if not os.path.exists("Logs"):
+            os.mkdir("Logs")
         handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Create_passanger.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -48,7 +48,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element_by_id("toolbarform:j_idt75").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинПасс")
@@ -106,7 +106,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:registerBuilding_input").send_keys("12")
         driver.find_element_by_id("itemForm:tabView:registerApartment").click()
         driver.find_element_by_id("itemForm:tabView:registerApartment").clear()
-        driver.find_element_by_id("itemForm:tabView:registerApartment").send_keys("123")
+        driver.find_element_by_id("itemForm:tabView:registerApartment").send_keys("Barcode_Verification")
         driver.find_element_by_id("itemForm:tabView:factSubjectRf_label").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:factSubjectRf_items").click()
         time.sleep(2)
@@ -125,12 +125,12 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:factBuilding_input").send_keys("2")
         driver.find_element_by_id("itemForm:tabView:factApartment").click()
         driver.find_element_by_id("itemForm:tabView:factApartment").clear()
-        driver.find_element_by_id("itemForm:tabView:factApartment").send_keys("123")
+        driver.find_element_by_id("itemForm:tabView:factApartment").send_keys("Barcode_Verification")
         driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id109']/span[2]").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_css_selector("#toolbarform\:j_idt73").click()
-        driver.find_element_by_css_selector("#toolbarform\:j_idt74")
+        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("toolbarform:j_idt75")
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

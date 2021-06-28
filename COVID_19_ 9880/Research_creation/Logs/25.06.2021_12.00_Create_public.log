@@ -1,0 +1,17 @@
+2021-06-25 12:00:16,496 - create_public - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 37, in genlog
+    self.create_public()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 77, in create_public
+    driver.find_element_by_id("city_value").clear()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: chrome not reachable
+  (Session info: chrome=91.0.4472.114)
+
