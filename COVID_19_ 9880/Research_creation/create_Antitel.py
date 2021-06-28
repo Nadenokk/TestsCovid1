@@ -176,7 +176,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:sender").clear()
         driver.find_element_by_id("itemForm:tabView:sender").send_keys(u"Иванов И.И.")
         window_before = driver.window_handles[0]
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id200").click()
+        driver.find_element_by_id("itemForm:tabView:sendInstitution_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_id("tableForm:main-table:j_id5").click()
@@ -238,7 +238,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:terapy").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_css_selector("#itemForm\:j_id5").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
         driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1")
         driver.find_element_by_css_selector("#itemForm\:j_id4").click()
