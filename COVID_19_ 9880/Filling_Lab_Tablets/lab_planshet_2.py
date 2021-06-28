@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
 
-class LabPlanshet(unittest.TestCase):
+class LabPlanshet2(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
@@ -42,10 +42,10 @@ class LabPlanshet(unittest.TestCase):
         barcode1 = "7800560977"
         barcode2 = "7800560978"
         barcode3 = "7800560979"
-        iss1 = u"321Х24"
-        iss2 = u"321Х25"
-        iss3 = u"321Х26"
-        driver.get("http://127.0.0.1:18080/business/dashboard/dashboard.xhtml")
+        iss1 = u"10Х396520"
+        iss2 = u"10Х396521"
+        iss3 = u"10Х396522"
+        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -54,27 +54,28 @@ class LabPlanshet(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("a.submenu-marker > div.layout-tabmenu-tooltip > div.layout-tabmenu-tooltip-text").click()
-        driver.find_element_by_css_selector("#j_id2\:DynamicMenuItem-137").click()
-        driver.find_element_by_id("barcodeForm:j_idt86").click()
-        driver.find_element_by_id("barcodeForm:j_idt86").click()
+        driver.find_element_by_id("j_id2:DynamicMenuItem-4").click()
+        driver.find_element_by_id("barcodeForm:j_idt96").click()
+        driver.find_element_by_id("barcodeForm:j_idt96").click()
         driver.find_element_by_css_selector("td").click()
-        driver.find_element_by_id("barcodeForm:j_idt86").clear()
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(barcode1)
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode1)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_1_content > span.content-value").text == iss1
-        driver.find_element_by_id("barcodeForm:j_idt86").clear()
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(barcode2)
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode2)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_2_content > span.content-value").text == iss2
-        driver.find_element_by_id("barcodeForm:j_idt86").clear()
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(barcode3)
-        driver.find_element_by_id("barcodeForm:j_idt86").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode3)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_3_content > span.content-value").text == iss3
-        driver.find_element_by_css_selector("#buttonsForm\:j_idt78")
-        driver.find_element_by_css_selector("#buttonsForm\:j_idt79")
+        driver.find_element_by_id("buttonsForm:j_idt87").click()
+        time.sleep(2)
+        #driver.find_element_by_css_selector("#buttonsForm\:j_idt79")
                
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

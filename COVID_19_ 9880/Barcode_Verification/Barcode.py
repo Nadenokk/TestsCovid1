@@ -61,14 +61,16 @@ class Barcode1(unittest.TestCase):
         time.sleep(7)
         driver.find_elements_by_css_selector("#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
         time.sleep(7)
-        driver.find_element_by_css_selector("#toolbarform\:j_idt71").click()
+        driver.find_element_by_id("toolbarform:j_idt78").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#genForm\:j_idt82_input").click()
-        driver.find_element_by_css_selector("#genForm\:j_idt82_input").clear()
-        driver.find_element_by_css_selector("#genForm\:j_idt82_input").send_keys("15")
-        driver.find_element_by_css_selector("#genForm\:j_idt84").click()
-        driver.find_element_by_css_selector("#growlForm\:growl_container > div.ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-helper-hidden.ui-shadow.ui-growl-info > div > div.ui-growl-message > p")
-        driver.find_element_by_css_selector("#toolbarform\:j_idt71")
+        driver.find_element_by_id("genForm:j_idt89_input").click()
+        driver.find_element_by_id("genForm:j_idt89_input").clear()
+        driver.find_element_by_id("genForm:j_idt89_input").send_keys("15")
+        time.sleep(2)
+        driver.find_element_by_id("genForm:j_idt91").click()
+        time.sleep(7)
+        #driver.find_element_by_css_selector("#growlForm\:growl_container > div.ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-helper-hidden.ui-shadow.ui-growl-info > div > div.ui-growl-message > p")
+        driver.find_element_by_id("toolbarform:j_idt78")
     
               
     def is_element_present(self, how, what):

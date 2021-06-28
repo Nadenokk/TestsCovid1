@@ -10,8 +10,11 @@ from Barcode_Verification.Barcodev2 import Barcode2
 from Check_module_express_testing_for_command_execution.Express_test_status import ExpressTestStatus
 from Create_analyses.Create_analyzes import CreateAnalyzes
 from Create_Passengers.Create_passanger import CreatePassanger
+from Filling_Lab_Tablets.lab_planshet_1 import LabPlanshet1
+from Filling_Lab_Tablets.lab_planshet_2 import LabPlanshet2
+from Filling_Lab_Tablets.lab_planshet_3 import LabPlanshet3
 
-# Get all tests from TestClass1 and TestClass2
+# Get all tests
 tc1 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitel)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(CratePcr)
 tc3 = unittest.TestLoader().loadTestsFromTestCase(CreateExpress)
@@ -22,10 +25,13 @@ tc7=unittest.TestLoader().loadTestsFromTestCase(Barcode1)
 tc8=unittest.TestLoader().loadTestsFromTestCase(Barcode2)
 tc9=unittest.TestLoader().loadTestsFromTestCase(ExpressTestStatus)
 tc10=unittest.TestLoader().loadTestsFromTestCase(CreateAnalyzes)
-tc10=unittest.TestLoader().loadTestsFromTestCase(CreatePassanger)
+tc11=unittest.TestLoader().loadTestsFromTestCase(CreatePassanger)
+tc12 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet1)
+tc13 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet2)
+tc14 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet3)
 
 
-# Create a test suite combining TestClass1 and TestClass2
-smokeTest = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10])
+# Create a test suite combining
+smokeTest = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14])
 
 unittest.TextTestRunner(verbosity=2).run(smokeTest)

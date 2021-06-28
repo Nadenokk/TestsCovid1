@@ -1,0 +1,7 @@
+2021-06-28 16:34:23,368 - lab_planshet_1 - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_1.py", line 31, in genlog
+    self.lab_planshet()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_1.py", line 67, in lab_planshet
+    assert driver.find_element_by_css_selector("#tabletForm\:tube_1_7_content > span.content-value").text == iss1
+AssertionError

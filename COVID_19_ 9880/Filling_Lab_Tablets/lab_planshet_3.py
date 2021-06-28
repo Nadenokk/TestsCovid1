@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
 
-class LabPlanshet(unittest.TestCase):
+class LabPlanshet3(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
@@ -22,7 +22,7 @@ class LabPlanshet(unittest.TestCase):
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'lab_planshet_1.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'lab_planshet_3.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -32,7 +32,7 @@ class LabPlanshet(unittest.TestCase):
         except Exception as e:
             logger.error('Error detected', exc_info=True)
         else:
-            logger.info('Test complete without errors')    
+            logger.info('Test complete without errors')     
     
     def test_lab_planshet(self):
         self.genlog()
@@ -42,9 +42,9 @@ class LabPlanshet(unittest.TestCase):
         barcode1 = "7800560977"
         barcode2 = "7800560978"
         barcode3 = "7800560979"
-        iss1 = u"321Х24"
-        iss2 = u"321Х25"
-        iss3 = u"321Х26"
+        iss1 = u"10Х396520"
+        iss2 = u"10Х396521"
+        iss3 = u"10Х396522"
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -54,32 +54,29 @@ class LabPlanshet(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("a.submenu-marker > div.layout-tabmenu-tooltip > div.layout-tabmenu-tooltip-text").click()
-        driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты\"] > span").click()
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_xpath("//button[@id='buttonsForm:j_idt84']/span[2]").click()
-        driver.find_element_by_id("barcodeForm:j_idt98").click()
-        driver.find_element_by_id("barcodeForm:j_idt98").click()
+        driver.find_element_by_id("j_id2:DynamicMenuItem-5").click()
+        driver.find_element_by_id("barcodeForm:j_idt96").click()
+        driver.find_element_by_id("barcodeForm:j_idt96").click()
         driver.find_element_by_css_selector("td").click()
-        driver.find_element_by_id("barcodeForm:j_idt98").clear()
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(barcode1)
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode1)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
-        assert driver.find_element_by_css_selector("#tabletForm\:tube_1_7_content > span.content-value").text == iss1
-        driver.find_element_by_id("barcodeForm:j_idt98").clear()
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(barcode2)
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(Keys.ENTER)
+        assert driver.find_element_by_css_selector("#tabletForm\:tube_1_content > span.content-value").text == iss1
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode2)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
-        assert driver.find_element_by_css_selector("#tabletForm\:tube_2_7_content > span.content-value").text == iss2
-        driver.find_element_by_id("barcodeForm:j_idt98").clear()
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(barcode3)
-        driver.find_element_by_id("barcodeForm:j_idt98").send_keys(Keys.ENTER)
+        assert driver.find_element_by_css_selector("#tabletForm\:tube_2_content > span.content-value").text == iss2
+        driver.find_element_by_id("barcodeForm:j_idt96").clear()
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode3)
+        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
         time.sleep(6)
-        assert driver.find_element_by_css_selector("#tabletForm\:tube_3_7_content > span.content-value").text == iss3
-        driver.find_element_by_css_selector("#buttonsForm\:j_idt88")
-        driver.find_element_by_css_selector("#buttonsForm\:j_idt89")
-        driver.find_element_by_css_selector("#buttonsForm\:j_idt82").click()
-        driver.find_elements_by_css_selector("#buttonsForm\:j_idt81")    
-        
+        assert driver.find_element_by_css_selector("#tabletForm\:tube_3_content > span.content-value").text == iss3
+        driver.find_element_by_id("buttonsForm:j_idt87").click()
+        time.sleep(2)
+        #driver.find_element_by_css_selector("#buttonsForm\:j_idt79")
+               
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
