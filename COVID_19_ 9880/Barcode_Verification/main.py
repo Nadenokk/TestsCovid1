@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import unittest
 from Barcode import Barcode1
 from Barcodev2 import Barcode2
+import sys
 
 
 

@@ -9,6 +9,7 @@ import unittest, time, re
 import logging, os
 
 class Barcode1(unittest.TestCase):
+
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
@@ -16,13 +17,13 @@ class Barcode1(unittest.TestCase):
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Barcode.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Barcode.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -36,8 +37,8 @@ class Barcode1(unittest.TestCase):
             
     def test_barcode(self):
         self.genlog()
-        
-    def barcode(self):
+    '''
+    def test_barcode(self):
         driver = self.driver
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()

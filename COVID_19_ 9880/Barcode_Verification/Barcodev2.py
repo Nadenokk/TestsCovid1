@@ -16,12 +16,12 @@ class Barcode2(unittest.TestCase):
         self.driver.implicitly_wait(10)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         path = "\Logs"
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Barcode.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Barcode.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -35,8 +35,8 @@ class Barcode2(unittest.TestCase):
         
     def test_barcode(self):
         self.genlog()
-        
-    def barcode(self):
+    '''
+    def test_barcode(self):
         driver = self.driver
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
@@ -48,7 +48,8 @@ class Barcode2(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
-        print (driver.find_element_by_css_selector("#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)    
+        #print (driver.find_element_by_css_selector("#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)
+        print (driver.find_element_by_xpath("//span[@class='ui-paginator-current']").text)
         
               
     def is_element_present(self, how, what):

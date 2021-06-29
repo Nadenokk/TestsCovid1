@@ -17,7 +17,8 @@ class CreateAntitel(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         
-    def genlog(self):    
+    def genlog(self):
+
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
@@ -33,7 +34,7 @@ class CreateAntitel(unittest.TestCase):
             logger.error('Error detected', exc_info=True)
         else:
             logger.info('Test complete without errors')    
-    
+
     def test_create_antitel(self):
         self.genlog()
         

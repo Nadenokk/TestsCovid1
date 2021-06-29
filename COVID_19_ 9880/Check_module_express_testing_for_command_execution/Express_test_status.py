@@ -56,7 +56,7 @@ class ExpressTestStatus(unittest.TestCase):
         assert driver.find_element_by_css_selector("#expressForm\:j_idt72").text == iss
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("negative")
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
-        driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
+        #driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
         assert driver.find_element_by_css_selector("#expressForm\:j_idt85").text == iss
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
