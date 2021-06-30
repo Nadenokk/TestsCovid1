@@ -21,8 +21,9 @@ class CreatePublic(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
-        self.driver = webdriver.Chrome(chrome_options=options)
-        #self.driver = webdriver.Chrome(executable_path = "E:/bin/chromedriver.exe")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver.set_window_size(1024, 600)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(30)
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -119,7 +120,7 @@ class CreatePublic(unittest.TestCase):
             select.select_by_visible_text(u"Абхазия")
             time.sleep(2)
             driver.find_element_by_id("Nomer_reysa").clear()
-            driver.find_element_by_id("Nomer_reysa").send_keys(u"7854пв")
+            driver.find_element_by_id("Nomer_reysa").send_keys("7854пв")
             driver.find_element_by_id("flexCheckDefault").click()
             driver.find_element_by_css_selector("body").send_keys(Keys.CONTROL + Keys.END)
             driver.find_element_by_xpath("//input[@value='Отправить']").click()

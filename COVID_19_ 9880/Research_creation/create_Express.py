@@ -11,18 +11,20 @@ import logging, os
 class CreateExpress(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        options.add_argument("--start-maximized")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver.set_window_size(1024, 600)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Create_Express.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Create_Express.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -36,10 +38,11 @@ class CreateExpress(unittest.TestCase):
     
     def test_create_Express(self):
         self.genlog()
-        
-    def create_Express(self):
+    '''
+    def test_create_Express(self):
         driver = self.driver
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -47,29 +50,52 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+        driver.find_element_by_css_selector(
+            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:createExpress").click()
+
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        window_before = driver.window_handles[0]
+        driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
+        window_after = driver.window_handles[1]
+        driver.switch_to.window(window_after)
+        driver.find_element_by_id("tableForm:main-table:j_id5").click()
+        driver.find_element_by_id("tableForm:main-table:j_id5").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"един")
+        driver.find_element_by_css_selector("#tableForm").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector(
+            "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable").click()
+        # driver.find_element_by_css_selector(
+        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.switch_to.window(window_before)
+        time.sleep(2)
+        driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+        driver.find_element_by_css_selector(
+            "#itemForm\:tabView\:materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        time.sleep(2)
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id49 > tbody").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
-        driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинЭкс")
+        driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")
         driver.find_element_by_id("itemForm:tabView:firstName").click()
         driver.find_element_by_id("itemForm:tabView:firstName").clear()
         driver.find_element_by_id("itemForm:tabView:firstName").send_keys(u"Роман")
         driver.find_element_by_id("itemForm:tabView:patronymicName").click()
         driver.find_element_by_id("itemForm:tabView:patronymicName").clear()
         driver.find_element_by_id("itemForm:tabView:patronymicName").send_keys(u"Евгеньевич")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
         for date in "08911111":
-          driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
+            driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
@@ -134,7 +160,7 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:tempAddressStringValue").send_keys(u"Ярославль, Мира 1 - 18")
         driver.find_element_by_css_selector("#itemForm\:tabView\:homeCityArea_label").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:homeCityArea_items").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:homeCityArea_1").click()        
+        driver.find_element_by_css_selector("#itemForm\:tabView\:homeCityArea_1").click()
         driver.find_element_by_id("itemForm:tabView:orgName").clear()
         driver.find_element_by_id("itemForm:tabView:orgName").send_keys(u"Институт")
         driver.find_element_by_id("itemForm:tabView:workPositionStringValue").click()
@@ -176,7 +202,7 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:sender").clear()
         driver.find_element_by_id("itemForm:tabView:sender").send_keys(u"Иванов И.И.")
         window_before = driver.window_handles[0]
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id200").click()
+        driver.find_element_by_id("itemForm:tabView:sendInstitution_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_id("tableForm:main-table:j_id5").click()
@@ -184,7 +210,8 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"сбер")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
+        driver.find_element_by_css_selector(
+            "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
@@ -206,8 +233,10 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:medicalAidDate_input").click()
         driver.find_element_by_id("itemForm:tabView:medicalAidDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:medicalAidDate_input").send_keys("16.02.2021")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:medicalState > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:medicalState > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#itemForm\:tabView\:medicalState > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#itemForm\:tabView\:medicalState > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:complicationStringValue").click()
         driver.find_element_by_id("itemForm:tabView:complicationStringValue").clear()
         driver.find_element_by_id("itemForm:tabView:complicationStringValue").send_keys(u"Нет")
@@ -238,11 +267,25 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:terapy").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_css_selector("#itemForm\:j_id5").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
-        driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1")
-        driver.find_element_by_css_selector("#itemForm\:j_id4").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#itemForm\:j_id21").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Влаборатории1").click()
+        driver.find_element_by_css_selector("#itemForm\:j_id31").click()
+        time.sleep(2)
+
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='3']").click()
+        driver.find_element_by_id("itemForm:tabView:expressResult").click()
+        driver.find_element_by_id("itemForm:tabView:expressResult_1").click()
+        driver.find_element_by_id("itemForm:j_id4").click()
+        time.sleep(2)
         driver.find_element_by_css_selector("#buttonsForm\:createExpress")
+
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

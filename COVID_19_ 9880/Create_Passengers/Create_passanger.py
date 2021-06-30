@@ -11,18 +11,20 @@ import logging, os
 class CreatePassanger(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        options.add_argument("--start-maximized")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver.set_window_size(1024, 600)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Create_passanger.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Create_passanger.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -36,10 +38,11 @@ class CreatePassanger(unittest.TestCase):
     
     def test_create_passanger(self):
         self.genlog()
-        
-    def create_passanger(self):
+    '''
+    def test_create_passanger(self):
         driver = self.driver
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -47,8 +50,8 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
-        driver.find_element_by_id("toolbarform:j_idt75").click()
+        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
+        driver.find_element_by_id("toolbarform:j_idt76").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинПасс")
@@ -126,11 +129,11 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:factApartment").click()
         driver.find_element_by_id("itemForm:tabView:factApartment").clear()
         driver.find_element_by_id("itemForm:tabView:factApartment").send_keys("Barcode_Verification")
-        driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id109']/span[2]").click()
+        driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id110']/span[2]").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
         driver.find_element_by_id("itemForm:j_id4").click()
-        driver.find_element_by_id("toolbarform:j_idt75")
+        driver.find_element_by_id("toolbarform:j_idt76")
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

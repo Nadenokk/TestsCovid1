@@ -11,18 +11,20 @@ import logging, os
 class LabPlanshet3(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        options.add_argument("--start-maximized")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver.set_window_size(1024, 600)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'lab_planshet_3.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'lab_planshet_3.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -36,8 +38,8 @@ class LabPlanshet3(unittest.TestCase):
     
     def test_lab_planshet(self):
         self.genlog()
-        
-    def lab_planshet(self):
+    '''
+    def test_lab_planshet(self):
         driver = self.driver
         barcode1 = "7800560977"
         barcode2 = "7800560978"
@@ -45,7 +47,8 @@ class LabPlanshet3(unittest.TestCase):
         iss1 = u"10Х396520"
         iss2 = u"10Х396521"
         iss3 = u"10Х396522"
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -53,27 +56,27 @@ class LabPlanshet3(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("a.submenu-marker > div.layout-tabmenu-tooltip > div.layout-tabmenu-tooltip-text").click()
-        driver.find_element_by_id("j_id2:DynamicMenuItem-5").click()
-        driver.find_element_by_id("barcodeForm:j_idt96").click()
-        driver.find_element_by_id("barcodeForm:j_idt96").click()
+        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav > ul > li:nth-child(4) > a > div").click()
+        driver.find_element_by_id("j_id3:DynamicMenuItem-10").click()
+        driver.find_element_by_id("barcodeForm:j_idt97").click()
+        driver.find_element_by_id("barcodeForm:j_idt97").click()
         driver.find_element_by_css_selector("td").click()
-        driver.find_element_by_id("barcodeForm:j_idt96").clear()
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode1)
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt97").clear()
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(barcode1)
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_1_content > span.content-value").text == iss1
-        driver.find_element_by_id("barcodeForm:j_idt96").clear()
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode2)
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt97").clear()
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(barcode2)
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_2_content > span.content-value").text == iss2
-        driver.find_element_by_id("barcodeForm:j_idt96").clear()
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(barcode3)
-        driver.find_element_by_id("barcodeForm:j_idt96").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt97").clear()
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(barcode3)
+        driver.find_element_by_id("barcodeForm:j_idt97").send_keys(Keys.ENTER)
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_3_content > span.content-value").text == iss3
-        driver.find_element_by_id("buttonsForm:j_idt87").click()
+        driver.find_element_by_id("buttonsForm:j_idt88").click()
         time.sleep(2)
         #driver.find_element_by_css_selector("#buttonsForm\:j_idt79")
                
