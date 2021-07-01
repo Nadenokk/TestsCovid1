@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -7,8 +6,11 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
     StaleElementReferenceException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+from selenium.webdriver import ActionChains
 import logging, os
 import sys
+import random
+import string
 
 
 class CreateOrder(unittest.TestCase):
@@ -45,38 +47,22 @@ class CreateOrder(unittest.TestCase):
         self.genlog()
     '''
 
+
     def test_create_order(self):
         driver = self.driver
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://auraep.ru:11080/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
-
+        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()
-        driver.find_element_by_id("site-selection:j_idt132").click()
-        driver.find_element_by_id("site-selection:j_idt132_1").click()
-        #driver.find_element_by_xpath("//span[@class='ui-button-text ui-c' and @text='Выбрать']").click()
-        driver.refresh()
-        driver.find_element_by_id("site-selection:j_idt135").click()
-        driver.refresh()
-        time.sleep(2)
-        driver.find_element_by_id("participantIdDataForm:inputParticipantId").send_keys("7777777")
-        driver.find_element_by_name("participantIdDataForm:j_idt83").click()
-        driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys("7801436828")
-        driver.find_element_by_name("participantDataForm:createRequest").click()
-        time.sleep(7)
-        '''
-        try:
-            driver.find_element_by_id("itemForm:j_idt135").click()
-        except StaleElementReferenceException:
-            pass
-        driver.find_element_by_id("site-selection:j_idt135").click()
-        driver.find_element_by_id("site-selection:j_idt135").click()
-        '''
-        time.sleep(2)
+            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск эпидслучаев\"] > span").click()
+        driver.find_element_by_id("filtersForm:j_idt107").send_keys("Козлов")
+        driver.find_element_by_id("filtersForm:j_idt110").send_keys("Александр")
+        driver.find_element_by_id("filtersForm:j_idt171").click()
+        time.sleep(4)
+        assert driver.find_element_by_xpath("//tr[" + str(4) + "]/td[" + str(2) + "]").text=="КОЗЛОВА"
