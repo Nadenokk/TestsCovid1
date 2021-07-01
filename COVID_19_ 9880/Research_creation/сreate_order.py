@@ -57,6 +57,16 @@ class CreateOrder(unittest.TestCase):
 
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
+            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(24) > a").click()
+        driver.find_element_by_css_selector(u"a[title=\"DB Query tool\"] > span").click()
+        driver.find_element_by_id("j_idt75:j_idt76").click()
+        driver.find_element_by_id("j_idt75:j_idt76").clear()
+        text="update doc_barcodes\nset doc_status = 'Отправлен на печать'\nwhere doc_number = '7801436828';\nupdate doc_covid_researches\nset barcode_id = null\nwhere doc_number = '621Х624486';"
+        driver.find_element_by_id("j_idt75:j_idt76").send_keys(text+Keys.TAB+Keys.ENTER)
+        time.sleep(2)
+
+        #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()
         driver.find_element_by_id("site-selection:j_idt132").click()
@@ -71,6 +81,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys("7801436828")
         driver.find_element_by_name("participantDataForm:createRequest").click()
         time.sleep(7)
+
         '''
         try:
             driver.find_element_by_id("itemForm:j_idt135").click()
