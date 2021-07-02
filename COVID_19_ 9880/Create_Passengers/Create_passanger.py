@@ -41,8 +41,8 @@ class CreatePassanger(unittest.TestCase):
     '''
     def test_create_passanger(self):
         driver = self.driver
-        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
-        driver.get("https://rpn19.ru:11443/documents/")
+        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -65,7 +65,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
         for date in "08911111":
           driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
-        driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+        driver.find_element_by_css_selector("itemForm:tabView:sex:0").click()
         driver.find_element_by_id("itemForm:tabView:flightNumber").click()
         driver.find_element_by_id("itemForm:tabView:flightNumber").clear()
         driver.find_element_by_id("itemForm:tabView:flightNumber").send_keys(u"7845ап")

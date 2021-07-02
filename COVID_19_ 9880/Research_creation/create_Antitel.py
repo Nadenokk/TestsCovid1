@@ -39,7 +39,7 @@ class CreateAntitel(unittest.TestCase):
     def test_create_pcr(self):
         self.genlog()
     '''
-    def test_create_pcr(self):
+    def test_create_antitel(self):
         driver = self.driver
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
@@ -281,7 +281,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='5']").click()
         driver.find_element_by_id("itemForm:tabView:antiValue_input").send_keys("5"+Keys.ENTER)
-        driver.find_element_by_id("itemForm:j_id4").click()
+        #driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 
         driver.find_element_by_css_selector("#buttonsForm\:createAntibodies")

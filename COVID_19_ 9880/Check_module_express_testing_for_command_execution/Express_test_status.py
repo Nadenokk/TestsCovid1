@@ -41,10 +41,10 @@ class ExpressTestStatus(unittest.TestCase):
     '''
     def test_express_status(self):
         driver = self.driver
-        barcode = "7800560977"
-        iss = u"10Х396520" # u - кодировка utf-8
-        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
-        driver.get("https://rpn19.ru:11443/documents/")
+        barcode = "7800560979"
+        iss = u"10Х396522" # u - кодировка utf-8
+        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")

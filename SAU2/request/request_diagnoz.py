@@ -112,11 +112,9 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(3)
-        #assert driver.find_element_by_xpath(
-        #    "//label[@class='ui-selectonemenu-label ui-inputfield ui-corner-all' and @id='tableFieldItemForm2:cityArea_label']").text=="Кировский"
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_label").click()
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_items").click()
-        driver.find_element_by_id("tableFieldItemForm2:cityArea_1").click()
+        assert driver.find_element_by_xpath(
+            "//label[@class='ui-selectonemenu-label ui-inputfield ui-corner-all' and @id='tableFieldItemForm2:cityArea_label']").text=="Кировский"
+
         time.sleep(2)
         driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
 
@@ -139,4 +137,37 @@ class CreateOrder(unittest.TestCase):
         assert driver.find_element_by_xpath(
                 "//span[@class='ui-dialog-title' and @id='dialogForm:j_idt114_title']").text=="Внимание"
         time.sleep(3)
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()
 

@@ -73,7 +73,6 @@ class CreateOrder(unittest.TestCase):
         old_windows = driver.window_handles
         actionChains = ActionChains(driver)
         actionChains.double_click(driver.find_element_by_id("tableForm:main-table_data")).perform()
-
         wait.until(ec.new_window_is_opened(old_windows))
         new_window = [i for i in driver.window_handles if i not in old_windows]
         driver.switch_to.window(new_window[0])

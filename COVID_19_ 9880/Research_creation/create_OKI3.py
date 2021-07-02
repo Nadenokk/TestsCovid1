@@ -41,8 +41,8 @@ class CreateOKI3(unittest.TestCase):
     '''
     def test_create_OKI3(self):
         driver = self.driver
-        #driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
-        driver.get("https://rpn19.ru:11443/documents/")
+        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
