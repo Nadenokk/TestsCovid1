@@ -10,6 +10,9 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
 import sys
+from selenium.webdriver.support import expected_conditions as ec
+
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class CreateOrder(unittest.TestCase):
@@ -64,15 +67,22 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("tableForm:j_idt91").click()
         time.sleep(7)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
-        window_before=driver.window_handles[0]
+
+        wait = WebDriverWait(driver, 10)
+        current_window = driver.current_window_handle
+        old_windows = driver.window_handles
         actionChains = ActionChains(driver)
         actionChains.double_click(driver.find_element_by_id("tableForm:main-table_data")).perform()
-        window_after = driver.window_handles[0]
-        driver.switch_to.window(window_after)
-        time.sleep(20)
+
+        wait.until(ec.new_window_is_opened(old_windows))
+        new_window = [i for i in driver.window_handles if i not in old_windows]
+        driver.switch_to.window(new_window[0])
         driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("21.07.2020 15:42")
+
+        driver.close()
+        driver.switch_to.window(current_window)
         time.sleep(3)
 
 
