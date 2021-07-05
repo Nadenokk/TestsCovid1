@@ -15,7 +15,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class CreateOrder(unittest.TestCase):
+class EditTablet(unittest.TestCase):
 
     def setUp(self):
         options = webdriver.ChromeOptions()
@@ -49,7 +49,7 @@ class CreateOrder(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_search_tablet(self):
+    def test_edit_tablet(self):
         driver = self.driver
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
@@ -78,12 +78,75 @@ class CreateOrder(unittest.TestCase):
         driver.switch_to.window(new_window[0])
         driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
-        driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("21.07.2020 15:42")
+        for date in "11111111 1111":
+            driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
+        driver.find_element_by_css_selector("body").click()
+        window_before = driver.window_handles[1]
+        driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
+        window_after = driver.window_handles[2]
+        driver.switch_to.window(window_after)
+        driver.find_element_by_id("tableForm:main-table:j_id5").click()
+        driver.find_element_by_id("tableForm:main-table:j_id5").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"един")
+        driver.find_element_by_css_selector("#tableForm").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector(
+            "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable").click()
+        # driver.find_element_by_css_selector(
+        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.switch_to.window(window_before)
+        time.sleep(2)
+        driver.find_element_by_id("itemForm:j_id4").click()
+        time.sleep(63)
 
         driver.close()
         driver.switch_to.window(current_window)
         time.sleep(3)
+        driver.refresh()
+        time.sleep(3)
+        driver.find_element_by_id("tableForm:j_idt88").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt85_input").clear()
+        driver.find_element_by_id("tableForm:j_idt91").click()
+        time.sleep(7)
+        assert driver.find_element_by_xpath(
+            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "05В102447"
 
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
 
 
 

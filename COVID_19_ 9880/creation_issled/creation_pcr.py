@@ -64,16 +64,11 @@ class CreateOrder(unittest.TestCase):
         text="update doc_barcodes\nset doc_status = 'Отправлен на печать'\nwhere doc_number = '7801436828';\nupdate doc_covid_researches\nset barcode_id = null\nwhere doc_number = '621Х624486';"
         driver.find_element_by_id("j_idt75:j_idt76").send_keys(text+Keys.TAB+Keys.ENTER)
         time.sleep(2)
-        driver.find_element_by_id("j_idt75:j_idt76").click()
-        driver.find_element_by_id("j_idt75:j_idt76").clear()
-        text = "update doc_barcodes\nset doc_status = 'Отправлен на печать'\nwhere doc_number = '7801436828';\nupdate doc_covid_researches\nset barcode_id = null\nwhere doc_number = '621Х624486';"
-        driver.find_element_by_id("j_idt75:j_idt76").send_keys(text + Keys.TAB + Keys.ENTER)
-        time.sleep(2)
+
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()
-
         driver.find_element_by_id("site-selection:j_idt132").click()
         driver.find_element_by_id("site-selection:j_idt132_1").click()
         # driver.find_element_by_xpath("//span[@class='ui-button-text ui-c' and @text='Выбрать']").click()
@@ -81,33 +76,10 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("site-selection:j_idt135").click()
         driver.refresh()
         time.sleep(2)
-        driver.find_element_by_id("participantIdDataForm:inputFindResearch").send_keys("02015983")
-        driver.find_element_by_name("participantIdDataForm:j_idt88").click()
-        time.sleep(2)
-        driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys("7801436828")
-        driver.find_element_by_id("participantDataForm:j_idt118").click()
-        time.sleep(2)
+
+        driver.find_element_by_id("createPcr").click()
+        driver.find_element_by_id("barcodeForm:j_idt147").send_keys("7801436828"+Keys.ENTER)
+        time.sleep(5)
 
 
-        driver.switch_to.window(driver.window_handles[-1])
-        time.sleep(8)
-        driver.find_element_by_css_selector(
-            "#j_idt69 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
-        #driver.find_element_by_name("itemForm:j_id7").click()
-        time.sleep(7)
-
-        #driver.find_element_by_id("tableForm:main-table:j_id5").click()
-        #driver.find_element_by_id("tableForm:main-table:j_id5").clear()
-        #driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"сбер")
-        #driver.find_element_by_css_selector("#tableForm").click()
-        #time.sleep(2)
-        #driver.find_element_by_css_selector(
-        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
-        #time.sleep(2)
-        #driver.find_element_by_css_selector("#tableForm\:choose").click()
-        #driver.switch_to.window(window_before)
-
-
-
-        #driver.find_element_by_name("participantDataForm:j_idt118").click()
-        #time.sleep(5)
+        time.sleep(4)

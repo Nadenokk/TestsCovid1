@@ -280,8 +280,12 @@ class CreateExpress(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='3']").click()
+
         driver.find_element_by_id("itemForm:tabView:expressResult").click()
-        driver.find_element_by_id("itemForm:tabView:expressResult_1").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:expressResult_label").click()
+        # driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_items").click()
+        driver.find_element_by_id("itemForm:tabView:expressResult_2").click()
+        time.sleep(2)
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#buttonsForm\:createExpress")
