@@ -1,0 +1,15 @@
+2021-06-28 16:44:54,819 - lab_planshet_2 - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_2.py", line 31, in genlog
+    self.lab_planshet()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_2.py", line 48, in lab_planshet
+    driver.get("http://127.0.0.1:18080/business/dashboard/dashboard.xhtml")
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=91.0.4472.114)
+

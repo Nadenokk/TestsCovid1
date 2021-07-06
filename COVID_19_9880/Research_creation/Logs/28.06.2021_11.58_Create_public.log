@@ -1,0 +1,17 @@
+2021-06-28 11:58:28,069 - create_public - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 37, in genlog
+    self.create_public()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 87, in create_public
+    driver.find_element_by_id("street").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <input type="text" id="street" name="street" data-type="street" placeholder="\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0443\u043b\u0438\u0446\u0443" required="" class="form-control ui-autocomplete-input" autocomplete="off"> is not clickable at point (951, 613). Other element would receive the click: <div id="ui-id-9" tabindex="-1" class="ui-menu-item-wrapper">...</div>
+  (Session info: chrome=91.0.4472.114)
+

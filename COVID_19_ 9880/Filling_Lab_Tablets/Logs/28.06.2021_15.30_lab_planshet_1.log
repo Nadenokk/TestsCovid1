@@ -1,7 +1,0 @@
-2021-06-28 15:31:23,555 - lab_planshet_1 - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_1.py", line 31, in genlog
-    self.lab_planshet()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_1.py", line 59, in lab_planshet
-    driver.find_element_by_xpath("//button[@id='buttonsForm:j_idt84']/span[2]").click()
-AttributeError: 'NoneType' object has no attribute 'click'

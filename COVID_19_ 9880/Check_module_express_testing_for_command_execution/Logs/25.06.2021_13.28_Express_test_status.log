@@ -1,7 +1,0 @@
-2021-06-25 13:29:04,903 - Express_test_status - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Проверка_модуля_экспресс_тестирования_на_выполнение_команд\Express_test_status.py", line 31, in genlog
-    self.express_test_status()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Проверка_модуля_экспресс_тестирования_на_выполнение_команд\Express_test_status.py", line 56, in express_test_status
-    assert driver.find_element_by_css_selector("#expressForm\:j_idt72").text == iss
-AttributeError: 'NoneType' object has no attribute 'text'

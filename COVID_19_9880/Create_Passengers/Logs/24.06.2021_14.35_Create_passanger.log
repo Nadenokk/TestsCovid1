@@ -1,0 +1,17 @@
+2021-06-24 14:35:34,322 - __main__ - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:/Users/Webdom16/Desktop/Питон/COVID_19_ 9880/Создание_пассажиров/Сreate_passanger.py", line 31, in genlog
+    self.create_passanger()
+  File "C:/Users/Webdom16/Desktop/Питон/COVID_19_ 9880/Создание_пассажиров/Сreate_passanger.py", line 51, in create_passanger
+    driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <span class="ui-button-text ui-c">...</span> is not clickable at point (293, 231). Other element would receive the click: <span class="ui-button-icon-left ui-icon ui-c fa fa-play"></span>
+  (Session info: chrome=91.0.4472.114)
+

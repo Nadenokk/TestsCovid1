@@ -1,7 +1,0 @@
-2021-06-25 11:51:30,292 - create_public - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 37, in genlog
-    self.create_public()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 87, in create_public
-    driver.find_element_by_id("itemForm:tabView:city_input").click()
-AttributeError: 'NoneType' object has no attribute 'click'

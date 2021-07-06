@@ -1,7 +1,0 @@
-2021-06-24 18:19:10,028 - create_OKI3 - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_OKI3.py", line 31, in genlog
-    self.create_OKI3()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_OKI3.py", line 180, in create_OKI3
-    window_after = driver.window_handles[1]
-IndexError: list index out of range

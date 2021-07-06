@@ -1,0 +1,17 @@
+2021-06-01 17:20:10,601 - __main__ - INFO - Error detected
+Traceback (most recent call last):
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 29, in genlog
+    self.create_pcr()
+  File "C:\Work\Работа\Питон\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 56, in create_pcr
+    driver.find_element_by_id("itemForm:tabView:lastName").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <input id="itemForm:tabView:lastName" name="itemForm:tabView:lastName" type="text" value="" style="width:300px;width:300px;" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" aria-required="true" maxlength="50" role="textbox" aria-disabled="false" aria-readonly="false"> is not clickable at point (458, 648). Other element would receive the click: <a class="ui-state-default" href="#">...</a>
+  (Session info: chrome=90.0.4430.212)
+

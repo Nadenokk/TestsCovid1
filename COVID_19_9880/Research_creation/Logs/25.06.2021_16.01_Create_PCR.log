@@ -1,0 +1,7 @@
+2021-06-25 16:01:42,013 - create_PCR - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 31, in genlog
+    self.create_pcr()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_PCR.py", line 53, in create_pcr
+    driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+AttributeError: 'NoneType' object has no attribute 'click'

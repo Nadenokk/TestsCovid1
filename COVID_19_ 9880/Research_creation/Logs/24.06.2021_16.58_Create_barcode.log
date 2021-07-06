@@ -1,7 +1,0 @@
-2021-06-24 16:58:14,506 - create_barcode - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_barcode.py", line 31, in genlog
-    self.create_barcode()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_barcode.py", line 52, in create_barcode
-    driver.find_element_by_css_selector("#j_idt60 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-AttributeError: 'NoneType' object has no attribute 'click'

@@ -1,9 +1,0 @@
-2021-06-25 11:17:35,138 - create_public - ERROR - Error detected
-Traceback (most recent call last):
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 32, in genlog
-    self.create_public()
-  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Cоздание_исследований\create_public.py", line 69, in create_public
-    select.select_by_value('1')
-  File "C:\Python27\lib\site-packages\selenium\webdriver\support\select.py", line 81, in select_by_value
-    for opt in opts:
-TypeError: 'NoneType' object is not iterable

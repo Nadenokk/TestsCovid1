@@ -1,0 +1,17 @@
+2021-06-28 16:46:17,322 - lab_planshet_2 - ERROR - Error detected
+Traceback (most recent call last):
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_2.py", line 31, in genlog
+    self.lab_planshet()
+  File "C:\Users\Webdom16\PycharmProjects\TestsCovid\COVID_19_ 9880\Заполнение_лабораторных_планшетов\lab_planshet_2.py", line 57, in lab_planshet
+    driver.find_element_by_css_selector("#j_id2\:DynamicMenuItem-137").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#j_id2\:DynamicMenuItem-137"}
+  (Session info: chrome=91.0.4472.114)
+
