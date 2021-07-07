@@ -11,18 +11,20 @@ import logging, os
 class CreatePlanshet(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome(chrome_options=options)
+        options.add_argument("--start-maximized")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver.set_window_size(1024, 600)
+        self.driver.maximize_window()
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-        
+    '''   
     def genlog(self):    
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         if not os.path.exists("Logs"):
             os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime('''%d.%m.%Y_%H.%M_''', (time.localtime())))  + 'Create_planshet_by_barcode_and_batch.log'))
+        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Create_planshet_by_barcode_and_batch.log'))
         handler.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
@@ -36,8 +38,8 @@ class CreatePlanshet(unittest.TestCase):
 
     def test_create_planshet(self):            
         self.genlog()
-    
-    def planshet(self):
+    '''
+    def test_planshet(self):
         driver = self.driver
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         driver.find_element_by_id("form:usernameInput").click()
@@ -49,7 +51,7 @@ class CreatePlanshet(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         
         # Копируем номер штрихкода
-        driver.find_element_by_css_selector("#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
@@ -61,12 +63,12 @@ class CreatePlanshet(unittest.TestCase):
         
         #Идем к планшетам по штрихкоду        
         driver.find_element_by_link_text(u"Планшеты").click()
-        driver.find_element_by_css_selector("#toolbarform\:j_idt90").click()
+        driver.find_element_by_id("j_idt77").click()
         time.sleep(3)
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt327").click()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt327").clear()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt327").send_keys(barcode)
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt327").send_keys(Keys.ENTER)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt123").click()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt123").clear()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt123").send_keys(barcode)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt123").send_keys(Keys.ENTER)
         time.sleep(15)
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:patientCategories_panel").click()
@@ -84,6 +86,9 @@ class CreatePlanshet(unittest.TestCase):
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
+
+
+
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#toolbarform\:j_idt68")
         driver.find_element_by_css_selector("#toolbarform\:j_idt90")

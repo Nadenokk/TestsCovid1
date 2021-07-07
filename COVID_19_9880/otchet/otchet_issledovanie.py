@@ -66,6 +66,7 @@ class OtchetIssledovanie(unittest.TestCase):
 
     def test_otchet_issledovanie(self):
         driver = self.driver
+        #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
@@ -107,4 +108,38 @@ class OtchetIssledovanie(unittest.TestCase):
 
         assert (re.match(r'(?i)' + re.sub(r'\s', '', address) + r'$', re.sub(r'\s', '', address2)))
         #os.remove('C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel\\Отчет о проведении исследований на COVID19 01.07.2021 - 31.07.2021.xlsx')
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
 

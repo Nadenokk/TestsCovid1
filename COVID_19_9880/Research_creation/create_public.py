@@ -52,6 +52,7 @@ class CreatePublic(unittest.TestCase):
     def test_create_public(self):
 
             driver = self.driver
+            #driver.get("http://195.19.96.255:8981")
             driver.get("http://auraep.ru:9880")
             driver.refresh()
             driver.find_element_by_id("Familiya_").click()

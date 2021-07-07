@@ -47,6 +47,7 @@ class LabPlanshet3(unittest.TestCase):
         iss1 = u"10Х396520"
         iss2 = u"10Х396521"
         iss3 = u"10Х396522"
+        #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()

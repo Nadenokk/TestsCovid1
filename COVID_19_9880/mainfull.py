@@ -16,6 +16,7 @@ from Filling_Lab_Tablets.lab_planshet_3 import LabPlanshet3
 from Research_creation.create_public import CreatePublic
 from otchet.otchet_issledovanie import OtchetIssledovanie
 from tabletc.edit_tablet import EditTablet
+from tabletc.new_tablet import NewTablet
 
 # Get all tests
 tc1 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitel)
@@ -35,8 +36,9 @@ tc14 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet3)
 tc15 = unittest.TestLoader().loadTestsFromTestCase(CreatePublic)
 tc16 = unittest.TestLoader().loadTestsFromTestCase(OtchetIssledovanie)
 tc17 = unittest.TestLoader().loadTestsFromTestCase(EditTablet)
+tc18 = unittest.TestLoader().loadTestsFromTestCase(NewTablet)
 
 # Create a test suite combining
-smokeTest = unittest.TestSuite([ tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15, tc16, tc17])
+smokeTest = unittest.TestSuite([ tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15, tc16, tc17, tc18])
 smokeTest._cleanup = False
 unittest.TextTestRunner(verbosity=2).run(smokeTest)

@@ -51,6 +51,7 @@ class EditTablet(unittest.TestCase):
 
     def test_edit_tablet(self):
         driver = self.driver
+        #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()

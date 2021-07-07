@@ -302,7 +302,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:terapy").send_keys(u"Нет")
         driver.find_element_by_id("covidResearchForm:tabView:issueDate_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:issueDate_input").clear()
-        driver.find_element_by_id("covidResearchForm:tabView:issueDate_input").send_keys("22.02.2021")
+        driver.find_element_by_id("covidResearchForm:tabView:issueDate_input").send_keys("22.02.2021 8:52")
         driver.find_element_by_id("covidResearchForm:tabView:description").click()
         driver.find_element_by_id("covidResearchForm:tabView:description").clear()
         driver.find_element_by_id("covidResearchForm:tabView:description").send_keys(u"Нет")
@@ -323,12 +323,47 @@ class NewTablet(unittest.TestCase):
         #time.sleep(2)
         driver.find_element_by_id("covidResearchForm:j_idt541").click()
         time.sleep(30)
+
         driver.find_element_by_id("itemForm:j_id4").click()
 
-        #driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
         time.sleep(2)
 
         driver.find_element_by_id("j_idt76")
+
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
 
 
 
