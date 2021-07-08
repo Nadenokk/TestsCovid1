@@ -67,6 +67,23 @@ class CreateOrder(unittest.TestCase):
         time.sleep(2)
 
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        '''
+
+        driver.find_element_by_css_selector(
+            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
+        driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
+        driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
+        time.sleep(50)
+        driver.find_elements_by_css_selector(
+            "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
+        time.sleep(25)
+        barcode = \
+            driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
+                0].text
+        iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
+            0].text
+        '''
         driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()

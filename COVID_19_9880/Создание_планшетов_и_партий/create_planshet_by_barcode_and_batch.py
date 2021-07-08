@@ -88,7 +88,8 @@ class CreatePlanshet(unittest.TestCase):
         time.sleep(2)
 
 
-
+        #print( driver.find_element_by_xpath("//input[@id='itemForm:docNumber' and @value='721UEF226']").text)
+        #time.sleep(2)
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#toolbarform\:j_idt68")
         driver.find_element_by_css_selector("#toolbarform\:j_idt90")
