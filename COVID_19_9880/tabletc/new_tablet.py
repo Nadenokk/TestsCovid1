@@ -110,8 +110,8 @@ class NewTablet(unittest.TestCase):
         #проба
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt114").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt311").send_keys(element+Keys.ENTER)
+        driver.find_element_by_id("itemForm:tabView:j_idt122").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt319").send_keys(element+Keys.ENTER)
         time.sleep(10)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
@@ -321,7 +321,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt541").click()
+        driver.find_element_by_id("covidResearchForm:j_idt549").click()
         time.sleep(30)
 
         driver.find_element_by_id("itemForm:j_id4").click()
