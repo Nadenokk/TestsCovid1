@@ -17,10 +17,10 @@ import os.path
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class CreateOrder(unittest.TestCase):
+class Cart(unittest.TestCase):
 
     def setUp(self):
-        download_dir = "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\AURA\\downloads_pdf"
+        download_dir = "/AURA/downloads_pdf"
         chrome_options = webdriver.ChromeOptions()
         preferences = {"download.default_directory": download_dir,
                        "directory_upgrade": True,
@@ -60,7 +60,7 @@ class CreateOrder(unittest.TestCase):
         rand_string = ''.join(random.choice(letters) for i in range(8))
         return rand_string
 
-    def test_create_order(self):
+    def test_create_cart(self):
         driver = self.driver
         driver.get("http://auraep.ru:8180/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
@@ -208,8 +208,9 @@ class CreateOrder(unittest.TestCase):
 
         #счет на оплату
         driver.find_element_by_id("orderForm:j_idt100").click()
-        time.sleep(3)
-        file = glob('C:\\Users\\user\\PycharmProjects\\TestsCovid1\\AURA\\downloads_pdf\\*.pdf')
+        time.sleep(4)
+        file = glob('/AURA/reestr/downloads_pdf\\*.pdf')
+        time.sleep(2)
         namefile=str(file)[2:-2]
         f=open(namefile,'r')
         f.close()
@@ -218,7 +219,7 @@ class CreateOrder(unittest.TestCase):
         #visa
         order1 = driver.find_element_by_xpath("//span[@style = 'font-size:large;margin-right:32px']").text
         order1 = order1.partition('№ ')[2]
-        print(order1)
+        #print(order1)
         driver.find_element_by_id("orderForm:j_idt107").click()
         driver.find_element_by_xpath("/html/body/div[2]/div/div/div[2]/div/div/div[2]/div/span").click()
         inputCC = WebDriverWait(driver, 15).until(
@@ -257,7 +258,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("topbarForm:cartCount").click()
         driver.find_element_by_id("headerForm:j_idt74").click()
         driver.find_element_by_id("offeringForm:j_idt17:0:j_idt25").click()
-        driver.find_element_by_id("cartForm:j_idt103:1:j_idt104").click()
+        driver.find_element_by_id("cartForm:j_idt103:0:j_idt104").click()
         time.sleep(2)
         driver.find_element_by_id("cartForm:j_idt115").click()
         driver.find_element_by_id("orderForm:j_idt114").click()
@@ -266,12 +267,11 @@ class CreateOrder(unittest.TestCase):
         #со счета
         order2 = driver.find_element_by_xpath("//span[@style = 'font-size:large;margin-right:32px']").text
         order2 = order2.partition('№ ')[2]
-        print(order2)
+        #print(order2)
         driver.find_element_by_id("orderForm:j_idt121").click()
         time.sleep(3)
         assert driver.find_element_by_xpath(
             "//span[@class='ui-messages-info-summary']").text == "Заказ оплачен"
-
 
         #Биллинг
         driver.find_element_by_css_selector(
@@ -279,14 +279,14 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_css_selector(u"a[title=\"Заказы\"] > span").click()
         driver.find_element_by_id("tableForm:main-table:j_id3").click()
         time.sleep(2)
-        print(driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").text)
-        print(driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(1) + "]").text)
+        #print(driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").text)
+        #print(driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(1) + "]").text)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").text == order1
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(8) + "]").text == "Тульпова Марина"
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(1) + "]").text == order2
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(8) + "]").text == name3
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(8) + "]").text == "ООО тульпова"
         #удаление заказов и клиентов
         driver.find_element_by_id("tableForm:main-table:0:j_idt82").click()
         driver.find_element_by_id("j_idt104:j_idt105").click()
