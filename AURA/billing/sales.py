@@ -139,3 +139,6 @@ class DiscountNaznach(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("tableForm:j_idt75")
 
+
+
+
