@@ -8,6 +8,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
 
+
 class CreateAntitel(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
@@ -18,6 +19,7 @@ class CreateAntitel(unittest.TestCase):
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
+
     '''    
     def genlog(self):    
         logger = logging.getLogger(__name__)
@@ -35,15 +37,16 @@ class CreateAntitel(unittest.TestCase):
             logger.error('Error detected', exc_info=True)
         else:
             logger.info('Test complete without errors')    
-    
+
     def test_create_pcr(self):
         self.genlog()
     '''
+
     def test_create_antitel(self):
         driver = self.driver
-        #driver.get("http://195.19.96.255:8981/documents/")
+        # driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
-        #driver.get("https://rpn19.ru:11443/documents/")
+        # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -54,7 +57,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
-        driver.find_element_by_css_selector("#buttonsForm\:createAntibodies").click()
+        driver.find_element_by_css_selector("#buttonsForm\:createAntibodiesM").click()
 
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
         window_before = driver.window_handles[0]
@@ -281,22 +284,31 @@ class CreateAntitel(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='5']").click()
-        driver.find_element_by_id("itemForm:tabView:antiValue_input").send_keys("5"+Keys.ENTER)
-        #driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("itemForm:tabView:antiValueG_input").send_keys("5")
+        driver.find_element_by_id("itemForm:tabView:antiValueM_input").send_keys("6")
+        driver.find_element_by_id("itemForm:tabView:antiValueSum_input").send_keys("10")
+        driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_label").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_items").click()
+        driver.find_element_by_id("itemForm:tabView:antiResult_1").click()
+        driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 
-        driver.find_element_by_css_selector("#buttonsForm\:createAntibodies")
-    
+        driver.find_element_by_css_selector("#buttonsForm\:createAntibodiesG")
+
     def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
         return True
-    
+
     def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -306,11 +318,13 @@ class CreateAntitel(unittest.TestCase):
             else:
                 alert.dismiss()
             return alert_text
-        finally: self.accept_next_alert = True
-    
+        finally:
+            self.accept_next_alert = True
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()
