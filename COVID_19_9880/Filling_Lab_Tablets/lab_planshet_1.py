@@ -101,7 +101,7 @@ class LabPlanshet1(unittest.TestCase):
         driver.find_element_by_id("barcodeForm:j_idt109").clear()
         driver.find_element_by_id("barcodeForm:j_idt109").send_keys(barcode3)
         driver.find_element_by_id("barcodeForm:j_idt109").send_keys(Keys.ENTER)
-        time.sleep(6)
+        time.sleep(12)
         #assert driver.find_element_by_css_selector("#tabletForm\:tube_3_7_content > span.content-value").text == iss3
         driver.find_element_by_name("buttonsForm:j_idt100").click()
         driver.find_element_by_id("buttonsForm:j_idt101").click()

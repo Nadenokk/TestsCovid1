@@ -66,7 +66,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(50)
+        time.sleep(90)
         '''
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
@@ -81,7 +81,6 @@ class NewTablet(unittest.TestCase):
         #    "#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
         # time.sleep(7)
         element = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[0].text
-
 
         #планшеты
         driver.find_element_by_css_selector(
@@ -110,8 +109,8 @@ class NewTablet(unittest.TestCase):
         #проба
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt122").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt319").send_keys(element+Keys.ENTER)
+        driver.find_element_by_id("itemForm:tabView:j_idt114").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt311").send_keys(element+Keys.ENTER)
         time.sleep(10)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
@@ -159,7 +158,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-phone").send_keys("89546521456")
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-snils").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-snils").clear()
-        driver.find_element_by_id("covidResearchForm:tabView:covid-researches-snils").send_keys("789452123")
+        driver.find_element_by_id("covidResearchForm:tabView:covid-researches-snils").send_keys("78945212399")
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-polisOmsSeria").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-polisOmsSeria").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-polisOmsSeria").send_keys("745631")
@@ -321,8 +320,8 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt549").click()
-        time.sleep(30)
+        driver.find_element_by_id("covidResearchForm:j_idt541").click()
+        time.sleep(50)
 
         driver.find_element_by_id("itemForm:j_id4").click()
 

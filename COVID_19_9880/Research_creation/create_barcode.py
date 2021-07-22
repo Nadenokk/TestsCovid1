@@ -57,7 +57,7 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(50)
+        time.sleep(90)
         '''
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
@@ -132,7 +132,7 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:phone").send_keys("89546521456")
         driver.find_element_by_id("itemForm:tabView:snils").click()
         driver.find_element_by_id("itemForm:tabView:snils").clear()
-        driver.find_element_by_id("itemForm:tabView:snils").send_keys("789452123")
+        driver.find_element_by_id("itemForm:tabView:snils").send_keys("78945212399")
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").click()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").clear()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").send_keys("745631")
@@ -307,23 +307,33 @@ class CreatePcrBarcode(unittest.TestCase):
         time.sleep(2)
 
         driver.find_element_by_xpath(
-            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='2']").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("11111")
-
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
+        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").click()
+        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").clear()
+        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").send_keys("22.05.2021 8:52")
+        driver.find_element_by_css_selector("body.main-body").click()
+        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").click()
+        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").clear()
+        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").send_keys("23.05.2021 8:52")
+        driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_label").click()
         # driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_items").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchResult_2").click()
         time.sleep(2)
+        '''driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").click()
+        driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
+        driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").send_keys("24.05.2021 8:52")'''
+        driver.find_element_by_css_selector("body.main-body").click()
+        driver.find_element_by_id("itemForm:tabView:controlPcr").click()
+        driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
+        driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("1111")
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#buttonsForm\:createAntibodies")
 
-        '''
+
         driver.find_element_by_css_selector("#buttonsForm\:prepareBarcodeDialog")
-        '''
+
 
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

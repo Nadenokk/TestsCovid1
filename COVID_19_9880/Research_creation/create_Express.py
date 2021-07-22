@@ -106,7 +106,7 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:phone").send_keys("89546521456")
         driver.find_element_by_id("itemForm:tabView:snils").click()
         driver.find_element_by_id("itemForm:tabView:snils").clear()
-        driver.find_element_by_id("itemForm:tabView:snils").send_keys("789452123")
+        driver.find_element_by_id("itemForm:tabView:snils").send_keys("78945212399")
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").click()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").clear()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").send_keys("745631")
@@ -280,7 +280,7 @@ class CreateExpress(unittest.TestCase):
         time.sleep(2)
 
         driver.find_element_by_xpath(
-            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='3']").click()
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='2']").click()
 
         driver.find_element_by_id("itemForm:tabView:expressResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:expressResult_label").click()

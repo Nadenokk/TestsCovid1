@@ -57,7 +57,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
-        driver.find_element_by_css_selector("#buttonsForm\:createAntibodies").click()
+        driver.find_element_by_css_selector("#buttonsForm\:createAntibodiesG").click()
         print(driver.find_element_by_id("itemForm:docNumber").get_attribute("value"))
 
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
@@ -110,7 +110,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:phone").send_keys("89546521456")
         driver.find_element_by_id("itemForm:tabView:snils").click()
         driver.find_element_by_id("itemForm:tabView:snils").clear()
-        driver.find_element_by_id("itemForm:tabView:snils").send_keys("789452123")
+        driver.find_element_by_id("itemForm:tabView:snils").send_keys("78945212399")
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").click()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").clear()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").send_keys("745631")

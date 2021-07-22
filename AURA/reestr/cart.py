@@ -20,7 +20,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class Cart(unittest.TestCase):
 
     def setUp(self):
-        download_dir = "/AURA/downloads_pdf"
+        download_dir = "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\AURA\\reestr\\downloads_pdf"
         chrome_options = webdriver.ChromeOptions()
         preferences = {"download.default_directory": download_dir,
                        "directory_upgrade": True,
@@ -187,10 +187,9 @@ class Cart(unittest.TestCase):
 
         #корзина
         driver.find_element_by_id("topbarForm:cartCount").click()
-
         assert driver.find_element_by_xpath("//a[@id='cartForm:j_idt97']//span[@style='color:#333333']").text == "Тульпова Марина"
-        assert driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:1:j_idt104']//span[@style='color:#333333']").text == name3
-        assert driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:2:j_idt104']//span[@style='color:#333333']").text == name4
+        assert driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:0:j_idt104']//span[@style='color:#333333']").text or driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:1:j_idt104']//span[@style='color:#333333']").text or driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:2:j_idt104']//span[@style='color:#333333']").text== name3
+        assert driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:0:j_idt104']//span[@style='color:#333333']").text or driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:1:j_idt104']//span[@style='color:#333333']").text or driver.find_element_by_xpath("//a[@id='cartForm:j_idt103:2:j_idt104']//span[@style='color:#333333']").text == name4
         driver.find_element_by_id("cartForm:j_idt107").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#selectTypeForm\:j_idt119_label").click()
@@ -209,7 +208,7 @@ class Cart(unittest.TestCase):
         #счет на оплату
         driver.find_element_by_id("orderForm:j_idt100").click()
         time.sleep(4)
-        file = glob('/AURA/reestr/downloads_pdf\\*.pdf')
+        file = glob('C:\\Users\\user\\PycharmProjects\\TestsCovid1\\AURA\\reestr\\downloads_pdf\\*.pdf')
         time.sleep(2)
         namefile=str(file)[2:-2]
         f=open(namefile,'r')
@@ -258,7 +257,17 @@ class Cart(unittest.TestCase):
         driver.find_element_by_id("topbarForm:cartCount").click()
         driver.find_element_by_id("headerForm:j_idt74").click()
         driver.find_element_by_id("offeringForm:j_idt17:0:j_idt25").click()
-        driver.find_element_by_id("cartForm:j_idt103:0:j_idt104").click()
+        if driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:0:j_idt104']//span[@style='color:#333333']").text == "ООО тульпова": driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:0:j_idt104']//span[@style='color:#333333']").click()
+        if driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:1:j_idt104']//span[@style='color:#333333']").text == "ООО тульпова": driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:1:j_idt104']//span[@style='color:#333333']").click()
+        if driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:2:j_idt104']//span[@style='color:#333333']").text == "ООО тульпова": driver.find_element_by_xpath(
+            "//a[@id='cartForm:j_idt103:2:j_idt104']//span[@style='color:#333333']").click()
+
+        #driver.find_element_by_id("cartForm:j_idt103:0:j_idt104").click()
         time.sleep(2)
         driver.find_element_by_id("cartForm:j_idt115").click()
         driver.find_element_by_id("orderForm:j_idt114").click()

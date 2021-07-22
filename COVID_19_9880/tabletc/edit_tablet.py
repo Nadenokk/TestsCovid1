@@ -66,7 +66,7 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("tableForm:j_idt88").send_keys("05В102447")
         driver.find_element_by_id("tableForm:j_idt85_input").clear()
         driver.find_element_by_id("tableForm:j_idt91").click()
-        time.sleep(7)
+        time.sleep(11)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
 
         wait = WebDriverWait(driver, 10)
@@ -111,7 +111,7 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("tableForm:j_idt88").send_keys("05В102447")
         driver.find_element_by_id("tableForm:j_idt85_input").clear()
         driver.find_element_by_id("tableForm:j_idt91").click()
-        time.sleep(7)
+        time.sleep(11)
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "05В102447"
 
@@ -148,7 +148,6 @@ class EditTablet(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
 
 
 

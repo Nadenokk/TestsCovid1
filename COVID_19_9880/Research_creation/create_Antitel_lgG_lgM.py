@@ -9,7 +9,7 @@ import unittest, time, re
 import logging, os
 
 
-class CreateAntitel(unittest.TestCase):
+class CreateAntitellGglGm(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
@@ -42,7 +42,7 @@ class CreateAntitel(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_create_antitel(self):
+    def test_create_antitel_lGglGm(self):
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
@@ -109,7 +109,7 @@ class CreateAntitel(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:phone").send_keys("89546521456")
         driver.find_element_by_id("itemForm:tabView:snils").click()
         driver.find_element_by_id("itemForm:tabView:snils").clear()
-        driver.find_element_by_id("itemForm:tabView:snils").send_keys("789452123")
+        driver.find_element_by_id("itemForm:tabView:snils").send_keys("78945212399")
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").click()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").clear()
         driver.find_element_by_id("itemForm:tabView:polisOmsSeria").send_keys("745631")
@@ -283,7 +283,7 @@ class CreateAntitel(unittest.TestCase):
         time.sleep(2)
 
         driver.find_element_by_xpath(
-            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='5']").click()
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='4']").click()
         driver.find_element_by_id("itemForm:tabView:antiValueG_input").send_keys("5")
         driver.find_element_by_id("itemForm:tabView:antiValueM_input").send_keys("6")
         driver.find_element_by_id("itemForm:tabView:antiValueSum_input").send_keys("11")
