@@ -62,21 +62,20 @@ class NewTablet(unittest.TestCase):
 
         # Копируем номер штрихкода
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(90)
+        time.sleep(70)
         '''
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").send_keys("04.03.2021")
         driver.find_element_by_css_selector("body").click()
         '''
-        time.sleep(7)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(30)
+        time.sleep(63)
         # driver.find_elements_by_css_selector(
         #    "#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
         # time.sleep(7)
@@ -84,9 +83,9 @@ class NewTablet(unittest.TestCase):
 
         #планшеты
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_id("j_idt76").click()
+        driver.find_element_by_id("j_idt74").click()
         time.sleep(3)
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:patientCategories_panel").click()
@@ -109,9 +108,9 @@ class NewTablet(unittest.TestCase):
         #проба
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt114").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt311").send_keys(element+Keys.ENTER)
-        time.sleep(10)
+        driver.find_element_by_id("itemForm:tabView:j_idt119").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt316").send_keys(element+Keys.ENTER)
+        time.sleep(12)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
         window_before = driver.window_handles[0]
@@ -320,14 +319,14 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt541").click()
+        driver.find_element_by_id("covidResearchForm:j_idt546").click()
         time.sleep(50)
 
         driver.find_element_by_id("itemForm:j_id4").click()
 
         time.sleep(2)
 
-        driver.find_element_by_id("j_idt76")
+        driver.find_element_by_id("j_idt74")
 
     def is_element_present(self, how, what):
         try:

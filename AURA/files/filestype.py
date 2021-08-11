@@ -120,7 +120,8 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:validUntil_input").send_keys("07.09.2021 09:48")
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id56").click()
+        driver.find_element_by_id("itemForm:tabView:j_id58").click()
+        time.sleep(6)
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -164,7 +165,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:validUntil_input").send_keys("07.09.2021 09:48")
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id56").click()
+        driver.find_element_by_id("itemForm:tabView:j_id58").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -209,7 +210,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:validUntil_input").send_keys("07.09.2021 09:48")
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id58").click()
+        driver.find_element_by_id("itemForm:tabView:j_id60").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -256,7 +257,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:outDate_input").send_keys("07.09.2021")
         driver.find_element_by_id("itemForm:tabView:validUntil_input").send_keys("07.09.2021 09:48")
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id60").click()
+        driver.find_element_by_id("itemForm:tabView:j_id62").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -305,7 +306,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:workType_label").click()
         driver.find_element_by_id("itemForm:tabView:workType_1").click()
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id64").click()
+        driver.find_element_by_id("itemForm:tabView:j_id66").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -356,7 +357,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:reportDateTo_input").send_keys("07.09.2022")
         driver.find_element_by_id("itemForm:tabView:validUntil_input").send_keys("07.09.2021 09:48")
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id66").click()
+        driver.find_element_by_id("itemForm:tabView:j_id68").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
@@ -407,7 +408,7 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").click()
         window_before = driver.window_handles[0]
         driver.find_element_by_xpath(
-            "//button[@id='itemForm:tabView:j_id64' and @type='button']").click()
+            "//button[@id='itemForm:tabView:j_id66' and @type='button']").click()
         #driver.find_element_by_id("itemForm:tabView:j_id64").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)

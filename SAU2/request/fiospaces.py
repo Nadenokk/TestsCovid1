@@ -63,7 +63,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Сформировать экстренное извещение\"] > span").click()
         driver.find_element_by_id("searchForm:lastName").send_keys(" " + self.generate_random_string())
         driver.find_element_by_id("searchForm:firstName").send_keys(" " + self.generate_random_string())
@@ -137,6 +137,8 @@ class CreateOrder(unittest.TestCase):
         assert driver.find_element_by_xpath(
                 "//span[@class='ui-dialog-title' and @id='dialogForm:j_idt114_title']").text=="Внимание"
         time.sleep(3)
+
+
 
     def is_element_present(self, how, what):
         try:

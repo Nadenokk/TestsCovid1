@@ -52,7 +52,7 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:createPcr").click()
 
@@ -78,7 +78,10 @@ class CreatePCR(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
-        driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
+        for date in "000112028030":
+          driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
+
         driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
@@ -100,7 +103,7 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:email").send_keys("shamkin@proweb.ru")
         driver.find_element_by_id("itemForm:tabView:phone").click()
         driver.find_element_by_id("itemForm:tabView:phone").clear()
-        driver.find_element_by_id("itemForm:tabView:phone").send_keys("89546521456")
+        driver.find_element_by_id("itemForm:tabView:phone").send_keys("+7(812)123-12-12")
         driver.find_element_by_id("itemForm:tabView:snils").click()
         driver.find_element_by_id("itemForm:tabView:snils").clear()
         driver.find_element_by_id("itemForm:tabView:snils").send_keys("78945212399")
@@ -267,6 +270,7 @@ class CreatePCR(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1").click()
         time.sleep(2)
+
         driver.find_element_by_css_selector("#itemForm\:j_id21").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Влаборатории1").click()
@@ -277,16 +281,20 @@ class CreatePCR(unittest.TestCase):
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
         driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").click()
         driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").clear()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").send_keys("22.05.2021 8:52")
+        for date in "002112028030":
+            driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").click()
         driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").clear()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").send_keys("23.05.2021 8:52")
+        for date in "002112028030":
+            driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_label").click()
         # driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_items").click()
-        driver.find_element_by_id("itemForm:tabView:controlResearchResult_2").click()
+        driver.find_element_by_id("itemForm:tabView:controlResearchResult_1").click()
         time.sleep(2)
         '''driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
@@ -295,6 +303,15 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:controlPcr").click()
         driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
         driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("1111")
+        #driver.find_element_by_id("itemForm:j_id5").click()
+        time.sleep(2)
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
+        button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
+        button.send_keys(
+            "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
+        time.sleep(5)
+
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 

@@ -59,12 +59,12 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск эпидслучаев\"] > span").click()
-        driver.find_element_by_id("filtersForm:j_idt107").send_keys("Козлов")
-        driver.find_element_by_id("filtersForm:j_idt110").send_keys("Александр")
-        driver.find_element_by_id("filtersForm:j_idt171").click()
-        time.sleep(4)
+        driver.find_element_by_id("filtersForm:j_idt105").send_keys("Козлов")
+        driver.find_element_by_id("filtersForm:j_idt108").send_keys("Александр")
+        driver.find_element_by_id("filtersForm:j_idt168").click()
+        time.sleep(10)
         assert driver.find_element_by_xpath("//tr[" + str(4) + "]/td[" + str(2) + "]").text=="КОЗЛОВА"
 
     def is_element_present(self, how, what):

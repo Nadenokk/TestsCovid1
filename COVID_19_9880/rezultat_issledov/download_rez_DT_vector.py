@@ -55,10 +55,10 @@ class DownloadDTVector(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Загрузка результатов\"] > span").click()
-        driver.find_element_by_id("toolbarform:j_idt76").click()
-        button = driver.find_element_by_id("j_idt88:j_idt90_input")
+        driver.find_element_by_id("toolbarform:j_idt74").click()
+        button = driver.find_element_by_id("j_idt86:j_idt88_input")
         button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
         time.sleep(5)
         string=driver.find_element_by_id("messageInError").text

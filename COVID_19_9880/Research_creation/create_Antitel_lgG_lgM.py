@@ -55,7 +55,7 @@ class CreateAntitellGglGm(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:createAntibodiesSum").click()
 

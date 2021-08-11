@@ -47,7 +47,7 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        #driver.get("http://195.19.96.255:8981/documents/")
+        # driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -57,7 +57,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
 
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-
+        '''
         driver.find_element_by_css_selector(
             "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(24) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"DB Query tool\"] > span").click()
@@ -66,51 +66,46 @@ class CreateOrder(unittest.TestCase):
         text="update doc_barcodes\nset doc_status = 'Отправлен на печать'\nwhere doc_number = '7801436828';\nupdate doc_covid_researches\nset barcode_id = null\nwhere doc_number = '621Х624486';"
         driver.find_element_by_id("j_idt75:j_idt76").send_keys(text+Keys.TAB+Keys.ENTER)
         time.sleep(2)
+
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         '''
 
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(50)
+        time.sleep(70)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(25)
+        time.sleep(60)
         barcode = \
             driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
                 0].text
         iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
             0].text
-        '''
+
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()
 
-        driver.find_element_by_id("site-selection:j_idt132").click()
-        driver.find_element_by_id("site-selection:j_idt132_1").click()
-        #driver.find_element_by_xpath("//span[@class='ui-button-text ui-c' and @text='Выбрать']").click()
+        driver.find_element_by_id("site-selection:j_idt160_label").click()
+        driver.find_element_by_id("site-selection:j_idt160_1").click()
+        # driver.find_element_by_xpath("//span[@class='ui-button-text ui-c' and @text='Выбрать']").click()
         driver.refresh()
-        driver.find_element_by_id("site-selection:j_idt135").click()
+        driver.find_element_by_id("site-selection:j_idt163").click()
         driver.refresh()
         time.sleep(2)
-        driver.find_element_by_id("participantIdDataForm:inputParticipantId").send_keys("7777777")
-        driver.find_element_by_name("participantIdDataForm:j_idt83").click()
-        driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys("7801436828")
-        driver.find_element_by_name("participantDataForm:createRequest").click()
-        time.sleep(5)
-        assert driver.find_element_by_id("j_idt138").text == "Заявка на исследование создана"
-        driver.find_element_by_id("j_idt140").click()
+        driver.find_element_by_id("participantIdDataForm:inputFindResearch").send_keys("02015983")
+        driver.find_element_by_id("participantIdDataForm:j_idt86").click()
         time.sleep(2)
+        driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys(barcode)
+        driver.find_element_by_id("participantDataForm:j_idt116").click()
+        time.sleep(10)
+
+        driver.switch_to.window(driver.window_handles[-1])
+        numberiss = driver.find_element_by_id("itemForm:docNumber").get_attribute('value')
+        assert numberiss==iss
 
 
-        '''
-        try:
-            driver.find_element_by_id("itemForm:j_idt135").click()
-        except StaleElementReferenceException:
-            pass
-        driver.find_element_by_id("site-selection:j_idt135").click()
-        driver.find_element_by_id("site-selection:j_idt135").click()
-        '''
-        time.sleep(2)
+

@@ -79,13 +79,13 @@ class LabPlanshet1(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav > ul > li:nth-child(4) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(4) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты\"] > span").click()
-        driver.find_element_by_id("buttonsForm:j_idt92").click()
-        driver.find_element_by_id("buttonsForm:j_idt95").click()
-        driver.find_element_by_id("barcodeForm:j_idt109").click()
-        driver.find_element_by_id("barcodeForm:j_idt109").click()
-        driver.find_element_by_css_selector("td").click()
+        driver.find_element_by_id("buttonsForm:j_idt90").click()
+        driver.find_element_by_id("buttonsForm:j_idt93").click()
+        #driver.find_element_by_id("barcodeForm:j_idt109").click()
+        #driver.find_element_by_id("barcodeForm:j_idt109").click()
+        #driver.find_element_by_css_selector("td").click()
         '''
         driver.find_element_by_id("barcodeForm:j_idt109").clear()
         driver.find_element_by_id("barcodeForm:j_idt109").send_keys(barcode1)
@@ -98,13 +98,13 @@ class LabPlanshet1(unittest.TestCase):
         time.sleep(6)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_2_7_content > span.content-value").text == iss2
         '''
-        driver.find_element_by_id("barcodeForm:j_idt109").clear()
-        driver.find_element_by_id("barcodeForm:j_idt109").send_keys(barcode3)
-        driver.find_element_by_id("barcodeForm:j_idt109").send_keys(Keys.ENTER)
+        driver.find_element_by_id("barcodeForm:j_idt107").clear()
+        driver.find_element_by_id("barcodeForm:j_idt107").send_keys(barcode3)
+        driver.find_element_by_id("barcodeForm:j_idt107").send_keys(Keys.ENTER)
         time.sleep(12)
-        #assert driver.find_element_by_css_selector("#tabletForm\:tube_3_7_content > span.content-value").text == iss3
-        driver.find_element_by_name("buttonsForm:j_idt100").click()
-        driver.find_element_by_id("buttonsForm:j_idt101").click()
+        assert driver.find_element_by_css_selector("#tabletForm\:tube_1_7_content > span.content-value").text == iss3
+        driver.find_element_by_name("buttonsForm:j_idt98").click()
+        driver.find_element_by_id("buttonsForm:j_idt99").click()
 
         time.sleep(2)
 

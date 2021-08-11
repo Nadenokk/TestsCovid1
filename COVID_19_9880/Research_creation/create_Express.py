@@ -52,7 +52,7 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:createExpress").click()
 
@@ -80,7 +80,9 @@ class CreateExpress(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
-        driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
+        for date in "000112028030":
+          driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
@@ -281,12 +283,17 @@ class CreateExpress(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='2']").click()
-
         driver.find_element_by_id("itemForm:tabView:expressResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:expressResult_label").click()
         # driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_items").click()
         driver.find_element_by_id("itemForm:tabView:expressResult_2").click()
         time.sleep(2)
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
+        button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
+        button.send_keys(
+            "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
+        time.sleep(5)
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#buttonsForm\:createExpress")

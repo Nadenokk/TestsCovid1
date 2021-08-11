@@ -61,11 +61,11 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_id("tableForm:j_idt88").send_keys("05В102447")
-        driver.find_element_by_id("tableForm:j_idt85_input").clear()
-        driver.find_element_by_id("tableForm:j_idt91").click()
+        driver.find_element_by_id("tableForm:j_idt86").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt83_input").clear()
+        driver.find_element_by_id("tableForm:j_idt89").click()
         time.sleep(11)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
 
@@ -108,9 +108,9 @@ class EditTablet(unittest.TestCase):
         time.sleep(3)
         driver.refresh()
         time.sleep(3)
-        driver.find_element_by_id("tableForm:j_idt88").send_keys("05В102447")
-        driver.find_element_by_id("tableForm:j_idt85_input").clear()
-        driver.find_element_by_id("tableForm:j_idt91").click()
+        driver.find_element_by_id("tableForm:j_idt86").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt83_input").clear()
+        driver.find_element_by_id("tableForm:j_idt89").click()
         time.sleep(11)
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "05В102447"

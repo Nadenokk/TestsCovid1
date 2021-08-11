@@ -61,7 +61,7 @@ class CreatePlanshet(unittest.TestCase):
         barcode = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[0].text
         iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[0].text
         
-        #Идем к планшетам по штрихкоду        
+        # Идем к планшетам по штрихкоду
         driver.find_element_by_link_text(u"Планшеты").click()
         driver.find_element_by_id("j_idt77").click()
         time.sleep(3)

@@ -53,11 +53,11 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         
         # Копируем номер штрихкода
-        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(90)
+        time.sleep(60)
         '''
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
@@ -74,13 +74,13 @@ class CreatePcrBarcode(unittest.TestCase):
         element = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[0].text
         
         #Идем к исследованию по штрихкоду                     
-        driver.find_element_by_css_selector("#j_idt68 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:prepareBarcodeDialog").click()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt82").click()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt82").clear()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt82").send_keys(element)
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt82").send_keys(Keys.ENTER)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").click()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").clear()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").send_keys(element)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").send_keys(Keys.ENTER)
 
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
         window_before = driver.window_handles[0]
@@ -106,7 +106,9 @@ class CreatePcrBarcode(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
-        driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
+        for date in "000112028030":
+          driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
@@ -319,7 +321,7 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:controlResearchResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_label").click()
         # driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_items").click()
-        driver.find_element_by_id("itemForm:tabView:controlResearchResult_2").click()
+        driver.find_element_by_id("itemForm:tabView:controlResearchResult_1").click()
         time.sleep(2)
         '''driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
@@ -328,6 +330,13 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:controlPcr").click()
         driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
         driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("1111")
+        time.sleep(2)
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
+        button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
+        button.send_keys(
+            "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
+        time.sleep(5)
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 

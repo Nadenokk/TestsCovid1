@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import glob
-
+#COV-854 Не выгружается список ролей
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -77,12 +77,12 @@ class OtchetIssledovanie(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav > ul > li:nth-child(25) > a > div").click()
+            "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(25) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Пользователи\"] > span").click()
 
         rol=driver.find_element_by_xpath("//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(5) + "]").text
         email=driver.find_element_by_xpath("//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(6) + "]").text
-        driver.find_element_by_id("tableForm:j_idt79").click()
+        driver.find_element_by_id("tableForm:j_idt77").click()
 
         time.sleep(4)
 
@@ -98,5 +98,6 @@ class OtchetIssledovanie(unittest.TestCase):
                 if cell.value == email:
                     nr=str(cell.row)
                     #nc=cell.column
-        rol2 = sheet_ranges['L'+nr].value
+        rol2 = sheet_ranges['M'+nr].value
+
         assert (re.match(r'(?i)' + re.sub(r'\s', '', rol) + r'$', re.sub(r'\s', '', rol2)))

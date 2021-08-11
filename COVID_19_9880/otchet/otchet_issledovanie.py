@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import glob
+#COV-1010 Не выгружаются адреса в отчет /reports/covid-research-by-institution
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -77,21 +78,37 @@ class OtchetIssledovanie(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt68 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
-        driver.find_element_by_id("reportsForm:j_idt77:11:j_idt79").click()
-        driver.find_element_by_id("buildForm:sendInstitutions").click()
-        time.sleep(7)
+            "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+        driver.find_element_by_id("reportsForm:j_idt75:12:j_idt77").click()
+        #driver.find_element_by_id("buildForm:sendInstitutions").click()
+        #time.sleep(7)
         #driver.find_element_by_id("buildForm:sendInstitutions_label").click()
-        driver.find_element_by_css_selector("#buildForm\:sendInstitutions_panel").click()
+        #driver.find_element_by_css_selector("#buildForm\:sendInstitutions_panel").click()
         #driver.find_element_by_xpath("//label[@value='Администрация Адмиралтейского района Санкт-Петербурга']").click()
-        driver.find_element_by_css_selector(
-            "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
-            "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        #driver.find_element_by_css_selector(
+        #    "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        #driver.find_element_by_css_selector(
+        #    "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        window_before = driver.window_handles[0]
+        driver.find_element_by_id("buildForm:j_idt82:j_idt85").click()
+        time.sleep(2)
+        #window_after = driver.window_handles[1]
+        #driver.switch_to.window(window_after)
+        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt91").click()
+        #driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:1:filter").clear()
+        #driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:1:filter").send_keys(u"сбер")
+        #driver.find_element_by_css_selector("#tableForm").click()
+        time.sleep(2)
+        #driver.find_element_by_css_selector(
+        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
+        #time.sleep(2)
+        driver.find_element_by_id("buildForm:j_idt82:j_idt95").click()
+        #driver.switch_to.window(window_before)
+
         driver.find_element_by_css_selector("body.main-body").click()
-        driver.find_element_by_id("buildForm:j_idt94").click()
+        driver.find_element_by_id("buildForm:j_idt79").click()
         time.sleep(4)
-        address=driver.find_element_by_id("dataForm:j_idt103").text
+        address=driver.find_element_by_id("dataForm:j_idt117").text
         driver.find_element_by_id("buildForm:exportBtn").click()
         time.sleep(4)
 
