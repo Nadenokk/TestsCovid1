@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -12,6 +11,7 @@ import logging, os
 import sys
 import random
 import string
+
 
 class CreateOrder(unittest.TestCase):
 
@@ -54,22 +54,21 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        driver.get("http://auraep.ru:11080/documents/")
+        driver.get("https://sau.rpn19.ru/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("baryshnikova.m@sau.com")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
+        driver.find_element_by_id("form:passwordInput").send_keys("baryshnikova.m@sau.com")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(3) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Сформировать экстренное извещение\"] > span").click()
         driver.find_element_by_id("searchForm:lastName").send_keys(self.generate_random_string())
         driver.find_element_by_id("searchForm:firstName").send_keys(self.generate_random_string())
         driver.find_element_by_id("searchForm:patronymicName").send_keys(self.generate_random_string())
         driver.find_element_by_id("searchForm:dateFrom_input").click()
-        driver.find_element_by_id("searchForm:dateFrom_input").clear()
         time.sleep(2)
         driver.find_element_by_id("searchForm:dateFrom_input").send_keys("11")
         time.sleep(1)
@@ -102,41 +101,50 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("tableFieldItemForm2:orgName_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id5").click()
-        driver.find_element_by_id("tableForm:main-table:j_id5").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"сбер")
-        driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector(
-            "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
+        #driver.find_element_by_id("tableForm:main-table:j_id5").click()
+        #driver.find_element_by_id("tableForm:main-table:j_id5").clear()
+        #driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"сбер")
+        driver.find_element_by_css_selector("#tableForm").click()
+        #time.sleep(2)
+        #driver.find_element_by_css_selector(
+        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(3)
-        assert driver.find_element_by_xpath(
-            "//label[@class='ui-selectonemenu-label ui-inputfield ui-corner-all' and @id='tableFieldItemForm2:cityArea_label']").text=="Кировский"
-        time.sleep(2)
-        '''
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_label").click()
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_items").click()
-        driver.find_element_by_id("tableFieldItemForm2:cityArea_1").click()
-        '''
-        driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
+        #assert driver.find_element_by_xpath(
+        #    "//label[@class='ui-selectonemenu-label ui-inputfield ui-corner-all' and @id='tableFieldItemForm2:cityArea_label']").text=="Кировский"
 
+        driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
+        time.sleep(2)
 
         #заполнение диагноза
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='3']").click()
+
         driver.find_element_by_id("j_idt73:j_idt92:tf_diagnoses_add").click()
         driver.find_element_by_id("tableFieldItemForm2:diagnose_input").send_keys("головокружение")
         driver.find_element_by_id("tableFieldItemForm2:diagnose_panel").click()
+        driver.find_element_by_id("tableFieldItemForm2:diagnose_input").clear()
+        time.sleep(2)
+
+        driver.find_element_by_id("tableFieldItemForm2:codeMkb10_input").clear()
+        driver.find_element_by_id("tableFieldItemForm2:codeMkb10_input").send_keys("J05.1")
+        driver.find_element_by_id("tableFieldItemForm2:codeMkb10_panel").click()
+        time.sleep(2)
         driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
 
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
+        driver.find_element_by_id("j_idt73:j_idt92:receiptPerson").send_keys("Test")
+        driver.find_element_by_id("j_idt73:j_idt92:receiptInstitutionStr").send_keys("Test")
+
         driver.find_element_by_id("j_idt73:j_idt76").click()
-        time.sleep(4)
+        time.sleep(2)
         assert driver.find_element_by_xpath(
                 "//span[@class='ui-dialog-title' and @id='dialogForm:j_idt186_title']").text=="Внимание"
-        time.sleep(3)
+
 
     def is_element_present(self, how, what):
         try:
@@ -170,3 +178,4 @@ class CreateOrder(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
