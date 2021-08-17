@@ -13,7 +13,7 @@ import unittest, time, re
 import logging, os
 from openpyxl import load_workbook
 
-class OtchetIssledovanie(unittest.TestCase):
+class CovidResearchByInstitution(unittest.TestCase):
     def setUp(self):
         download_dir = "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel"
         chrome_options = webdriver.ChromeOptions()
@@ -65,7 +65,7 @@ class OtchetIssledovanie(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_otchet_issledovanie(self):
+    def test_covid_research_by_institution(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
@@ -80,51 +80,79 @@ class OtchetIssledovanie(unittest.TestCase):
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
         driver.find_element_by_id("reportsForm:j_idt75:12:j_idt77").click()
-        #driver.find_element_by_id("buildForm:sendInstitutions").click()
-        #time.sleep(7)
-        #driver.find_element_by_id("buildForm:sendInstitutions_label").click()
-        #driver.find_element_by_css_selector("#buildForm\:sendInstitutions_panel").click()
-        #driver.find_element_by_xpath("//label[@value='Администрация Адмиралтейского района Санкт-Петербурга']").click()
-        #driver.find_element_by_css_selector(
-        #    "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        #driver.find_element_by_css_selector(
-        #    "#buildForm\:sendInstitutions_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        window_before = driver.window_handles[0]
+
+        #фильтры
+        driver.find_element_by_id("buildForm:j_idt76_input").click()
+        driver.find_element_by_id("buildForm:j_idt76_input").clear()
+        for date in "1202.80.10":
+            driver.find_element_by_id("buildForm:j_idt76_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("buildForm:j_idt78_input").click()
+        driver.find_element_by_id("buildForm:j_idt78_input").clear()
+        for date in "1202.80.61":
+            driver.find_element_by_id("buildForm:j_idt78_input").send_keys(Keys.HOME, date)
+
         driver.find_element_by_id("buildForm:j_idt82:j_idt85").click()
         time.sleep(2)
-        #window_after = driver.window_handles[1]
-        #driver.switch_to.window(window_after)
-        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt91").click()
-        #driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:1:filter").clear()
-        #driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:1:filter").send_keys(u"сбер")
-        #driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
-        #driver.find_element_by_css_selector(
-        #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
-        #time.sleep(2)
+        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").click()
+        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").clear()
+        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").send_keys("Сбербанк")
+        time.sleep(2)
+        # driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
+        driver.find_element_by_xpath("//td[contains(text(), 'Ветеранов 114 корпус 1')]").click()
         driver.find_element_by_id("buildForm:j_idt82:j_idt95").click()
-        #driver.switch_to.window(window_before)
 
-        driver.find_element_by_css_selector("body.main-body").click()
+        driver.find_element_by_id("buildForm:j_idt98").click()
+        # driver.find_element_by_id("buildForm:j_idt79_label").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt98_panel").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt98_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
+
+        driver.find_element_by_id("buildForm:j_idt100").click()
+        # driver.find_element_by_id("buildForm:j_idt79_label").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt100_panel").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt100_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
         driver.find_element_by_id("buildForm:j_idt79").click()
-        time.sleep(4)
-        address=driver.find_element_by_id("dataForm:j_idt117").text
+        time.sleep(2)
+
+        assert (driver.find_element_by_id("dataForm:j_idt113").text == "01.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt115").text == "16.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt117").text == "НИИ Пастера; 5, Северный; ФБУЗ \"Центр гигиены и эпидемиологии в городе Санкт-Петербург\", ул. Оборонная, д. 35")
+        assert (driver.find_element_by_id("dataForm:j_idt119").text == "Определение наличия РНК SARS-CoV-2")
+        assert (driver.find_element_by_id("dataForm:j_idt121").text == "Набор реагентов для выявления РНК коронавируса SARS-CoV-2 методом ОТ-ПЦР в режиме реального времени \"РеалБест РНК SARS-CoV-2\"")
+        assert (driver.find_element_by_id("dataForm:j_idt125").text == "4")
+
         driver.find_element_by_id("buildForm:exportBtn").click()
-        time.sleep(4)
+        time.sleep(3)
 
         rootpath = 'C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel'
         filelist = [os.path.join(rootpath, f) for f in os.listdir(rootpath)]
         filelist = [f for f in filelist if os.path.isfile(f)]
         newest = max(filelist, key=lambda x: os.stat(x).st_mtime)
 
-
-        #wb = load_workbook('C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel\\Отчет о проведении исследований на COVID19 01.07.2021 - 31.07.2021.xlsx')
         wb = load_workbook(newest)
         sheet_ranges = wb['1']
-        address2 = sheet_ranges['X11'].value
+        str1 = sheet_ranges['A23'].value
+        status1 = sheet_ranges['A24'].value
+        status2 = sheet_ranges['A28'].value
+        status22 = sheet_ranges['A30'].value
 
-        assert (re.match(r'(?i)' + re.sub(r'\s', '', address) + r'$', re.sub(r'\s', '', address2)))
-        #os.remove('C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel\\Отчет о проведении исследований на COVID19 01.07.2021 - 31.07.2021.xlsx')
+        assert (str1 == "Учреждение, направившее материал: ПАО \"Сбербанк\" (Ветеранов 114 корпус 1)")
+        assert (status1 or status2 or status22 == "SARS-CoV-2 - подтверждено")
+        assert (status2 or status1 or status22 == "На исследовании")
 
     def is_element_present(self, how, what):
         try:
@@ -159,4 +187,3 @@ class OtchetIssledovanie(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -59,12 +59,12 @@ class DownloadDTVector(unittest.TestCase):
         driver.find_element_by_css_selector(u"a[title=\"Загрузка результатов\"] > span").click()
         driver.find_element_by_id("toolbarform:j_idt74").click()
         button = driver.find_element_by_id("j_idt86:j_idt88_input")
-        button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
+        button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\test.xlsx")
         time.sleep(5)
         string=driver.find_element_by_id("messageInError").text
         str = string.split("\n")
         assert str[0] == 'Пожалуйста, не закрывайте диалоговое окно до завершения работы'
-        time.sleep(705)
+        time.sleep(4)
         driver.find_element_by_xpath("//span[@id='messageInError' and contains(text(), "'Результат'")]")
 
     def is_element_present(self, how, what):

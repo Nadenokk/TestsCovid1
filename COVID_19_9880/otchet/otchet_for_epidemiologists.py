@@ -13,7 +13,7 @@ import unittest, time, re
 import logging, os
 from openpyxl import load_workbook
 
-class OtchetIssledovanie(unittest.TestCase):
+class OtchetForEpidemiologists(unittest.TestCase):
     def setUp(self):
         download_dir = "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel"
         chrome_options = webdriver.ChromeOptions()
@@ -65,7 +65,7 @@ class OtchetIssledovanie(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_otchet_issledovanie(self):
+    def test_otchet_for_epidemiologists(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
@@ -82,17 +82,20 @@ class OtchetIssledovanie(unittest.TestCase):
         driver.find_element_by_id("reportsForm:j_idt75:8:j_idt77").click()
 
         #фильтры
+
         driver.find_element_by_id("buildForm:j_idt76_input").click()
         driver.find_element_by_id("buildForm:j_idt76_input").clear()
-        driver.find_element_by_id("buildForm:j_idt76_input").send_keys("12.08.2021")
+        for date in "12028021":
+            driver.find_element_by_id("buildForm:j_idt76_input").send_keys(Keys.HOME, date)
 
         driver.find_element_by_id("buildForm:j_idt78_input").click()
         driver.find_element_by_id("buildForm:j_idt78_input").clear()
-        driver.find_element_by_id("buildForm:j_idt78_input").send_keys("13.08.2021")
+        for date in "12028031":
+            driver.find_element_by_id("buildForm:j_idt78_input").send_keys(Keys.HOME, date)
 
         driver.find_element_by_id("buildForm:j_idt79").click()
         time.sleep(2)
-        driver.find_element_by_id("buildForm:j_idt79_label").click()
+        #driver.find_element_by_id("buildForm:j_idt79_label").click()
         driver.find_element_by_css_selector("#buildForm\:j_idt79_panel").click()
         #driver.find_element_by_xpath("//label[@value='Ярославская область']").click()
         driver.find_element_by_css_selector(
@@ -118,7 +121,7 @@ class OtchetIssledovanie(unittest.TestCase):
         '''
         driver.find_element_by_id("buildForm:j_idt89:j_idt102").click()
         driver.find_element_by_id("buildForm:j_idt86").click()
-        time.sleep(1)
+        time.sleep(3)
         driver.find_element_by_id("buildForm:j_idt85").click()
         time.sleep(2)
 
@@ -137,5 +140,38 @@ class OtchetIssledovanie(unittest.TestCase):
         assert (number2 == "821UEF898")
         assert (number3 == "821UEF899")
 
+    def is_element_present(self, how, what):
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
+        return True
+
+    def is_alert_present(self):
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
+        return True
+
+    def close_alert_and_get_its_text(self):
+        try:
+            alert = self.driver.switch_to_alert()
+            alert_text = alert.text
+            if self.accept_next_alert:
+                alert.accept()
+            else:
+                alert.dismiss()
+            return alert_text
+        finally:
+            self.accept_next_alert = True
+
+    def tearDown(self):
+        self.driver.quit()
+        self.assertEqual([], self.verificationErrors)
+
+
+if __name__ == "__main__":
+    unittest.main()
 
 
