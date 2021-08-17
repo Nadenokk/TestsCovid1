@@ -121,7 +121,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
         '''
         driver.find_element_by_id("buildForm:j_idt89:j_idt102").click()
         driver.find_element_by_id("buildForm:j_idt86").click()
-        time.sleep(3)
+        time.sleep(4)
         driver.find_element_by_id("buildForm:j_idt85").click()
         time.sleep(2)
 
