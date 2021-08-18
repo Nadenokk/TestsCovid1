@@ -11,7 +11,7 @@ import logging, os
 import sys
 
 
-class CreateOrder(unittest.TestCase):
+class CreateOrderNumber(unittest.TestCase):
 
     def setUp(self):
         options = webdriver.ChromeOptions()
@@ -45,7 +45,7 @@ class CreateOrder(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_create_order(self):
+    def test_create_order_number(self):
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")

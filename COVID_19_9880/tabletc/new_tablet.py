@@ -132,7 +132,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").send_keys("21.02.2021 10:00")
-        driver.find_element_by_css_selector("#covidResearchForm\:tabView\:j_id179 > tbody").click()
+        driver.find_element_by_css_selector("#covidResearchForm\:tabView\:j_id176").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").send_keys(u"СаблинАнтител")
@@ -148,7 +148,8 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").clear()
         for date in "08911111":
             driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").send_keys(Keys.HOME, date)
-        driver.find_element_by_id("covidResearchForm:tabView:j_id150_content").click()
+        driver.find_element_by_css_selector("body.main-body").click()
+        #driver.find_element_by_id("covidResearchForm:tabView:j_id150_content").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-email").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-email").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-email").send_keys("shamkin@proweb.ru")

@@ -84,7 +84,7 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")

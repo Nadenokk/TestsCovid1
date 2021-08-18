@@ -9,7 +9,7 @@ import unittest, time, re
 import logging, os
 
 
-class CreateAntitellGg(unittest.TestCase):
+class SearchIssled(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
@@ -42,7 +42,8 @@ class CreateAntitellGg(unittest.TestCase):
         self.genlog()
     '''
 
-    def test_create_antitel_lGg(self):
+
+    def test_search_issled(self):
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
@@ -161,13 +162,11 @@ class CreateAntitellGg(unittest.TestCase):
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt231:j_idt233:filter").clear()
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt231:j_idt233:filter").send_keys("Хеликс")
         time.sleep(2)
-        # driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
         driver.find_element_by_xpath("//td[contains(text(), '7802122535')]").click()
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt243").click()
         time.sleep(2)
 
         driver.find_element_by_id("filtersForm:j_idt160").click()
-        # driver.find_element_by_id("buildForm:j_idt79_label").click()
         driver.find_element_by_css_selector("#filtersForm\:j_idt160_panel").click()
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt160_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
@@ -176,7 +175,6 @@ class CreateAntitellGg(unittest.TestCase):
         driver.find_element_by_css_selector("body").click()
 
         driver.find_element_by_id("filtersForm:j_idt164").click()
-        # driver.find_element_by_id("buildForm:j_idt79_label").click()
         driver.find_element_by_css_selector("#filtersForm\:j_idt164_panel").click()
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt164_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
@@ -225,7 +223,6 @@ class CreateAntitellGg(unittest.TestCase):
         driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").clear()
         driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").send_keys("Хеликс")
         time.sleep(2)
-        # driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
         driver.find_element_by_xpath("//tbody[@id='selectLabContractorForm:j_idt248_data']//tr[" + str(2) + "]/td[" + str(2) + "]").click()
         driver.find_element_by_id("selectLabContractorForm:j_idt266").click()
         time.sleep(2)

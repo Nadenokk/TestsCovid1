@@ -135,7 +135,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:factApartment").click()
         driver.find_element_by_id("itemForm:tabView:factApartment").clear()
         driver.find_element_by_id("itemForm:tabView:factApartment").send_keys("Barcode_Verification")
-        driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id110']/span[2]").click()
+        #driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id110']/span[2]").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
         driver.find_element_by_id("itemForm:j_id4").click()

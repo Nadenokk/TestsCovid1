@@ -57,7 +57,7 @@ class LabPlanshet2(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(4) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(3) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты. Версия 2.0.\"] > span").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()

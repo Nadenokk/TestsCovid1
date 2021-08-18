@@ -83,7 +83,7 @@ class CreateOKI3(unittest.TestCase):
         for date in "000112028030":
           driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys(Keys.HOME, date)
         time.sleep(2)
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id75 > tbody").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")

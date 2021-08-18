@@ -19,6 +19,14 @@ from Research_creation.create_public import CreatePublic
 from tabletc.edit_tablet import EditTablet
 from tabletc.new_tablet import NewTablet
 from rezultat_issledov.download_rez_DT_vector import DownloadDTVector
+from creation_issled.create_order_id import CreateOrder
+#from creation_issled.сreate_order_number import CreateOrderNumber
+from otchet.covid_research_by_institution import CovidResearchByInstitution
+from otchet.covid_research_by_institution_new import CovidResearchByInstitutionNew
+from otchet.covid_research_by_institution_new_by_sections import CovidResearchByInstitutionNewBySections
+from otchet.otchet_for_epidemiologists import OtchetForEpidemiologists
+from otchet.passengers_violators import PassengersViolators
+from search.search_issledovanie import SearchIssled
 # Get all tests
 tc1 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitellGg)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitellGglGm)
@@ -37,11 +45,20 @@ tc14 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet1)
 tc15 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet2)
 tc16 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet3)
 tc17 = unittest.TestLoader().loadTestsFromTestCase(CreatePublic)
-tc19 = unittest.TestLoader().loadTestsFromTestCase(EditTablet)
-tc20 = unittest.TestLoader().loadTestsFromTestCase(NewTablet)
-tc21 = unittest.TestLoader().loadTestsFromTestCase(DownloadDTVector)
+tc18 = unittest.TestLoader().loadTestsFromTestCase(EditTablet)
+tc19 = unittest.TestLoader().loadTestsFromTestCase(NewTablet)
+tc20 = unittest.TestLoader().loadTestsFromTestCase(DownloadDTVector)
+tc21 = unittest.TestLoader().loadTestsFromTestCase(CreateOrder)
+#tc22 = unittest.TestLoader().loadTestsFromTestCase(CreateOrderNumber)
+tc23 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitution)
+tc24 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitutionNew)
+tc25 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitutionNewBySections)
+tc26 = unittest.TestLoader().loadTestsFromTestCase(OtchetForEpidemiologists)
+tc27 = unittest.TestLoader().loadTestsFromTestCase(PassengersViolators)
+tc28 = unittest.TestLoader().loadTestsFromTestCase(SearchIssled)
 
 # Create a test suite combining
-smokeTest = unittest.TestSuite([ tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15, tc16, tc17, tc19, tc20, tc21])
+smokeTest = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15,
+                                 tc16, tc17, tc18, tc19, tc20, tc21, tc23, tc24, tc25, tc26, tc27, tc28])
 smokeTest._cleanup = False
 unittest.TextTestRunner(verbosity=2).run(smokeTest)
