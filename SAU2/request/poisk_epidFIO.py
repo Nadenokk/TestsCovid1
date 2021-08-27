@@ -50,7 +50,8 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        driver.get("http://auraep.ru:11080/documents/")
+        #driver.get("http://auraep.ru:11080/documents/")
+        driver.get("http://46.61.193.136:8383/documents/projects-list#")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
@@ -59,7 +60,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
+            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск эпидслучаев\"] > span").click()
         driver.find_element_by_id("filtersForm:j_idt105").send_keys("Козлов")
         driver.find_element_by_id("filtersForm:j_idt108").send_keys("Александр")

@@ -55,7 +55,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("toolbarform:j_idt74").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
-        driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинПасс")
+        driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинПасс89")
         driver.find_element_by_id("itemForm:tabView:firstName").click()
         driver.find_element_by_id("itemForm:tabView:firstName").clear()
         driver.find_element_by_id("itemForm:tabView:firstName").send_keys(u"Роман")

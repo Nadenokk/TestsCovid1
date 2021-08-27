@@ -60,7 +60,7 @@ class DownloadDTVector(unittest.TestCase):
         driver.find_element_by_id("toolbarform:j_idt74").click()
         button = driver.find_element_by_id("j_idt86:j_idt88_input")
         button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\test.xlsx")
-        time.sleep(5)
+        time.sleep(8)
         string=driver.find_element_by_id("messageInError").text
         str = string.split("\n")
         assert str[0] == 'Пожалуйста, не закрывайте диалоговое окно до завершения работы'

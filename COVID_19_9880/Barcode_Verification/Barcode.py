@@ -8,6 +8,10 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
 import sys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+
 class Barcode1(unittest.TestCase):
 
     def setUp(self):
@@ -57,7 +61,10 @@ class Barcode1(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id9_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         time.sleep(70)
+        #wait = WebDriverWait(driver, 200)
+        #element = wait.until(EC.element_to_be_clickable((By.ID, '#tableForm\:main-table\:j_id5_input')))
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
+
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").send_keys("04.03.2021")
         driver.find_element_by_css_selector("body").click()

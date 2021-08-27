@@ -73,14 +73,14 @@ class BankDetails(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
 
         driver.find_element_by_css_selector(
-            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(13) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(13) > a").click()
 
-        driver.find_element_by_id("files-form:j_idt82").click()
+        driver.find_element_by_id("files-form:j_idt81").click()
         time.sleep(2)
         driver.find_element_by_xpath("//ul[@class='ui-tree-container']/li[last()]/span").click()
         time.sleep(2)
         #редактировать папку
-        driver.find_element_by_id("files-form:j_idt83").click()
+        driver.find_element_by_id("files-form:j_idt82").click()
         driver.find_element_by_id("files-form:edit-folder-tabView:name").click()
         driver.find_element_by_id("files-form:edit-folder-tabView:name").clear()
         namefile = self.generate_random_string()
@@ -281,7 +281,7 @@ class BankDetails(unittest.TestCase):
             "//tbody[@id='files-form:file-datatable_data']/tr[" + str(4) + "]/td[" + str(5) + "]").text
         order2 = order2.partition(' -')[0]
         assert order2 == "ИСХОДЯЩИЙ ДОКУМЕНТ"
-        '''
+
         #договор
         driver.find_element_by_id("files-form:j_idt95").click()
         time.sleep(2)
@@ -331,7 +331,7 @@ class BankDetails(unittest.TestCase):
             "//tbody[@id='files-form:file-datatable_data']/tr[" + str(5) + "]/td[" + str(5) + "]").text
         order2 = order2.partition(' -')[0]
         assert order2 == "ДОГОВОР"
-        '''
+
         #счет
         driver.find_element_by_id("files-form:j_idt95").click()
         time.sleep(2)

@@ -72,12 +72,12 @@ class DiscountNaznach(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("tuilp")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Выданные скидки\"] > span").click()
-        driver.find_element_by_id("tableForm:j_idt75").click()
+        driver.find_element_by_id("tableForm:j_idt73").click()
 
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("itemForm:tabView:j_id60").click()
+        driver.find_element_by_id("itemForm:tabView:j_id62").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.find_element_by_css_selector("#tableForm").click()
