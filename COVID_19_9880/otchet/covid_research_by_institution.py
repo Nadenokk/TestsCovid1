@@ -84,15 +84,12 @@ class CovidResearchByInstitution(unittest.TestCase):
         #фильтры
         driver.find_element_by_id("buildForm:j_idt76_input").click()
         driver.find_element_by_id("buildForm:j_idt76_input").clear()
-        for date in "1202.80.10":
-            driver.find_element_by_id("buildForm:j_idt76_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("buildForm:j_idt76_input").send_keys("01.08.2021")
         driver.find_element_by_id("buildForm:j_idt78_input").click()
         driver.find_element_by_id("buildForm:j_idt78_input").clear()
-        for date in "1202.80.61":
-            driver.find_element_by_id("buildForm:j_idt78_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("buildForm:j_idt78_input").send_keys("16.08.2021")
 
         driver.find_element_by_id("buildForm:j_idt82:j_idt85").click()
-        time.sleep(2)
         time.sleep(2)
         driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").click()
         driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").clear()
@@ -118,12 +115,20 @@ class CovidResearchByInstitution(unittest.TestCase):
         driver.find_element_by_id("buildForm:j_idt100").click()
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
         driver.find_element_by_css_selector("#buildForm\:j_idt100_panel").click()
+        #driver.find_element_by_css_selector(
+        #    "#buildForm\:j_idt100_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+        #time.sleep(2)
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+
         driver.find_element_by_css_selector("body").click()
         driver.find_element_by_id("buildForm:j_idt79").click()
         time.sleep(2)

@@ -126,8 +126,8 @@ class SearchIssled(unittest.TestCase):
         driver.find_element_by_id("filtersForm:j_idt137").send_keys("36")
 
         driver.find_element_by_id("filtersForm:region_label").click()
-        driver.find_element_by_css_selector("#filtersForm\:region_items").click()
-        time.sleep(2)
+        #driver.find_element_by_css_selector("#filtersForm\:region_items").click()
+        #time.sleep(2)
         driver.find_element_by_id("filtersForm:region_48").click()
         time.sleep(2)
         driver.find_element_by_id("filtersForm:j_idt187").click()
@@ -150,8 +150,8 @@ class SearchIssled(unittest.TestCase):
         driver.find_element_by_id("filtersForm:j_idt137").click()
         driver.find_element_by_id("filtersForm:j_idt137").clear()
         driver.find_element_by_id("filtersForm:region_label").click()
-        driver.find_element_by_css_selector("#filtersForm\:region_items").click()
-        time.sleep(2)
+        #driver.find_element_by_css_selector("#filtersForm\:region_items").click()
+        #time.sleep(2)
         driver.find_element_by_id("filtersForm:region_0").click()
         time.sleep(2)
 

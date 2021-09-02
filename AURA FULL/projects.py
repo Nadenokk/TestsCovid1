@@ -14,9 +14,7 @@ import string
 from glob import glob
 import os.path
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.support.wait import WebDriverWait
-
 
 class Cart(unittest.TestCase):
 

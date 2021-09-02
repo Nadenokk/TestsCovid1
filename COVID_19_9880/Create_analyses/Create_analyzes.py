@@ -73,7 +73,7 @@ class CreateAnalyzes(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:phone").click()
         driver.find_element_by_id("itemForm:tabView:phone").click()
         driver.find_element_by_id("itemForm:tabView:phone").clear()
-        driver.find_element_by_id("itemForm:tabView:phone").send_keys("+74569851245")
+        driver.find_element_by_id("itemForm:tabView:phone").send_keys("745698512457777")
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
         driver.find_element_by_id("itemForm:tabView:email").send_keys("123@321")

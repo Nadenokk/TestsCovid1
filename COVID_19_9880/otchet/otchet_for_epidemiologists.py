@@ -85,13 +85,10 @@ class OtchetForEpidemiologists(unittest.TestCase):
 
         driver.find_element_by_id("buildForm:j_idt76_input").click()
         driver.find_element_by_id("buildForm:j_idt76_input").clear()
-        for date in "12028021":
-            driver.find_element_by_id("buildForm:j_idt76_input").send_keys(Keys.HOME, date)
-
+        driver.find_element_by_id("buildForm:j_idt76_input").send_keys("12082021")
         driver.find_element_by_id("buildForm:j_idt78_input").click()
         driver.find_element_by_id("buildForm:j_idt78_input").clear()
-        for date in "12028031":
-            driver.find_element_by_id("buildForm:j_idt78_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("buildForm:j_idt78_input").send_keys("13082021")
 
         driver.find_element_by_id("buildForm:j_idt79").click()
         time.sleep(2)
@@ -123,7 +120,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
         driver.find_element_by_id("buildForm:j_idt86").click()
         time.sleep(4)
         driver.find_element_by_id("buildForm:j_idt85").click()
-        time.sleep(2)
+        time.sleep(3)
 
         rootpath = 'C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel'
         filelist = [os.path.join(rootpath, f) for f in os.listdir(rootpath)]
@@ -132,13 +129,13 @@ class OtchetForEpidemiologists(unittest.TestCase):
 
         wb = load_workbook(newest)
         sheet_ranges = wb['information_note']
-        number1 = sheet_ranges['B6'].value
-        number2 = sheet_ranges['B9'].value
-        number3 = sheet_ranges['B10'].value
+        number1 = sheet_ranges['B5'].value
+        number2 = sheet_ranges['B7'].value
+        number3 = sheet_ranges['B8'].value
 
         assert (number1 == "821UEF939")
-        assert (number2 == "821UEF898")
-        assert (number3 == "821UEF899")
+        assert (number2 == "821UEF898" or number2 == "821UEF899")
+        assert (number3 == "821UEF899" or number3 == "821UEF898")
 
     def is_element_present(self, how, what):
         try:

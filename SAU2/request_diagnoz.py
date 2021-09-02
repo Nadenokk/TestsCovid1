@@ -54,16 +54,16 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        driver.get("https://sau.rpn19.ru/documents/")
+        driver.get("http://auraep.ru:11080/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("baryshnikova.m@sau.com")
+        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("baryshnikova.m@sau.com")
+        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(3) > a").click()
+            "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Сформировать экстренное извещение\"] > span").click()
         driver.find_element_by_id("searchForm:lastName").send_keys(self.generate_random_string())
         driver.find_element_by_id("searchForm:firstName").send_keys(self.generate_random_string())

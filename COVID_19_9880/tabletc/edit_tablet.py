@@ -87,9 +87,9 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[2]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id5").click()
-        driver.find_element_by_id("tableForm:main-table:j_id5").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"един")
+        driver.find_element_by_id("tableForm:main-table:j_id15").click()
+        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(

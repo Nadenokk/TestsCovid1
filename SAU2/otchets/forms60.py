@@ -70,6 +70,10 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("buildForm:j_idt88").click()
         driver.find_element_by_id("buildForm:j_idt88").send_keys("964599")
 
+        driver.find_element_by_id("buildForm:j_idt97_input").send_keys("Лагерь при школе 69")
+        driver.find_element_by_id("buildForm:j_idt97_panel").click()
+        time.sleep(2)
+
         driver.find_element_by_css_selector("#buildForm\:j_idt92_label").click()
         driver.find_element_by_css_selector("#buildForm\:j_idt92_items").click()
         driver.find_element_by_id("buildForm:j_idt92_1").click()
@@ -77,6 +81,8 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_id("buildForm:j_idt103_input").send_keys("Острый эпиглоттит")
         driver.find_element_by_id("buildForm:j_idt103_panel").click()
         time.sleep(2)
+
+
 
         driver.find_element_by_id("buildForm:j_idt73").click()
         time.sleep(2)
@@ -96,7 +102,7 @@ class CreateOrder(unittest.TestCase):
         wb = load_workbook(newest)
         sheet_ranges = wb['information_note']
         rol = sheet_ranges['B3'].value
-        rol2 = "Проект САУ, Супервизор С. "
+        rol2 = "Лагерь при школе 69, Супервизор С. "
         #print(rol)
         #print(rol2)
         assert (re.match(r'(?i)' + re.sub(r'\s', '', rol) + r'$', re.sub(r'\s', '', rol2)))
