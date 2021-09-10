@@ -78,6 +78,7 @@ class CreateOrder(unittest.TestCase):
         driver.find_element_by_css_selector("#buildForm\:j_idt92_items").click()
         driver.find_element_by_id("buildForm:j_idt92_1").click()
 
+        driver.find_element_by_id("buildForm:j_idt103").click()
         driver.find_element_by_id("buildForm:j_idt103_input").send_keys("Острый эпиглоттит")
         driver.find_element_by_id("buildForm:j_idt103_panel").click()
         time.sleep(2)
@@ -85,7 +86,7 @@ class CreateOrder(unittest.TestCase):
 
 
         driver.find_element_by_id("buildForm:j_idt73").click()
-        time.sleep(2)
+        time.sleep(4)
 
         '''
         rol = driver.find_element_by_xpath(

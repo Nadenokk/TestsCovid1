@@ -126,9 +126,9 @@ class SearchIssled(unittest.TestCase):
         driver.find_element_by_id("filtersForm:j_idt137").send_keys("36")
 
         driver.find_element_by_id("filtersForm:region_label").click()
-        #driver.find_element_by_css_selector("#filtersForm\:region_items").click()
-        #time.sleep(2)
-        driver.find_element_by_id("filtersForm:region_48").click()
+        driver.find_element_by_css_selector("#filtersForm\:region_items").click()
+        driver.find_element_by_css_selector("#filtersForm\:region_items > li:nth-child(49)").click()
+
         time.sleep(2)
         driver.find_element_by_id("filtersForm:j_idt187").click()
         time.sleep(2)
@@ -204,7 +204,6 @@ class SearchIssled(unittest.TestCase):
             "#filtersForm\:j_idt164 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li > span").click()
         driver.find_element_by_id("filtersForm:j_idt171_label").click()
         driver.find_element_by_css_selector("#filtersForm\:j_idt171_items").click()
-        time.sleep(2)
         driver.find_element_by_id("filtersForm:j_idt171_7").click()
         time.sleep(2)
         driver.find_element_by_id("filtersForm:j_idt176_input").click()

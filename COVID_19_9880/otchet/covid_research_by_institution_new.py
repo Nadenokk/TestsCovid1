@@ -106,9 +106,19 @@ class CovidResearchByInstitutionNew(unittest.TestCase):
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
         driver.find_element_by_css_selector("#buildForm\:j_idt81_panel").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt81_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(4) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt81_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+
+
         driver.find_element_by_css_selector("body").click()
         driver.find_element_by_id("buildForm:j_idt91").click()
         time.sleep(3)
