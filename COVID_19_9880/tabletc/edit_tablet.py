@@ -66,7 +66,7 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("tableForm:j_idt86").send_keys("05В102447")
         driver.find_element_by_id("tableForm:j_idt83_input").clear()
         driver.find_element_by_id("tableForm:j_idt89").click()
-        time.sleep(11)
+        time.sleep(30)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
 
         wait = WebDriverWait(driver, 10)

@@ -64,9 +64,9 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id15").click()
-        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
+        driver.find_element_by_id("tableForm:main-table:j_id16").click()
+        driver.find_element_by_id("tableForm:main-table:j_id16").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id16").send_keys(u"един")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(
@@ -78,8 +78,11 @@ class CreateAntitellGm(unittest.TestCase):
         driver.switch_to.window(window_before)
         time.sleep(2)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
-        driver.find_element_by_css_selector(
-            "#itemForm\:tabView\:materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        #driver.find_element_by_css_selector(
+        #    "#itemForm\:tabView\:materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("itemForm:tabView:materialType_label").click()
+        driver.find_element_by_css_selector("#itemForm\:tabView\:materialType_items").click()
+        driver.find_element_by_id("itemForm:tabView:materialType_2").click()
         time.sleep(2)
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
@@ -209,9 +212,9 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:sendInstitution_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id9").click()
-        driver.find_element_by_id("tableForm:main-table:j_id9").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id9").send_keys(u"сбер")
+        driver.find_element_by_id("tableForm:main-table:j_id10").click()
+        driver.find_element_by_id("tableForm:main-table:j_id10").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id10").send_keys(u"сбер")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(

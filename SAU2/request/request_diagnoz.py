@@ -55,13 +55,13 @@ class CreateOrder(unittest.TestCase):
     def test_create_order(self):
         driver = self.driver
         #driver.get("http://auraep.ru:11080/documents/")
-        driver.get("http://46.61.193.136:8383/documents/projects-list#")
+        driver.get("http://auraep.ru:11080/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("vOBaQSuS")
+        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
@@ -84,7 +84,33 @@ class CreateOrder(unittest.TestCase):
         #заполнение карточки
         driver.find_element_by_xpath(
             "//label[@for='j_idt73:j_idt92:sex:0']").click()
+        driver.find_element_by_id("j_idt73:j_idt92:inn").click()
+        driver.find_element_by_id("j_idt73:j_idt92:inn").clear()
+        driver.find_element_by_id("j_idt73:j_idt92:inn").send_keys("123")
+        driver.find_element_by_id("j_idt73:j_idt92:snils").click()
+        driver.find_element_by_id("j_idt73:j_idt92:snils").clear()
+        driver.find_element_by_id("j_idt73:j_idt92:snils").send_keys("78945212399")
+        driver.find_element_by_id("j_idt73:j_idt92:citizenship_label").click()
+        driver.find_element_by_css_selector("#j_idt73\:j_idt92\:citizenship_panel").click()
+        driver.find_element_by_css_selector("#j_idt73\:j_idt92\:citizenship_129").click()
+        window_before = driver.window_handles[0]
+        driver.find_element_by_id("j_idt73:j_idt92:contractor_selectBtn").click()
+        window_after = driver.window_handles[1]
+        driver.switch_to.window(window_after)
+        driver.find_element_by_id("tableForm:main-table:j_id14").click()
+        driver.find_element_by_id("tableForm:main-table:j_id14").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id14").send_keys(u"леруа")
+        driver.find_element_by_css_selector("#tableForm").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#tableForm\:main-table_data > tr:nth-child(7)").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.switch_to.window(window_before)
+        time.sleep(10)
+
+
         driver.find_element_by_id("j_idt73:j_idt92:tf_addressesList_add").click()
+
 
         driver.find_element_by_css_selector("#tableFieldItemForm\:cityArea_label").click()
         driver.find_element_by_css_selector("#tableFieldItemForm\:cityArea_items").click()

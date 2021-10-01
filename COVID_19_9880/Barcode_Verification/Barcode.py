@@ -66,11 +66,11 @@ class Barcode1(unittest.TestCase):
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id7_input").click()
 
         driver.find_element_by_css_selector("#tableForm\:main-table\:j_id7_input").clear()
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id7_input").send_keys("04.03.2021")
+        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id7_input").send_keys("12.05.2020 11:11")
         driver.find_element_by_css_selector("body").click()
         time.sleep(80)
         driver.find_elements_by_css_selector("#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(120)
+        time.sleep(52)
         driver.find_elements_by_css_selector("#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
         time.sleep(52)
         driver.find_element_by_id("toolbarform:j_idt77").click()

@@ -108,8 +108,8 @@ class NewTablet(unittest.TestCase):
         #проба
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt119").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt317").send_keys(element+Keys.ENTER)
+        driver.find_element_by_id("itemForm:tabView:j_idt112").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt310").send_keys(element+Keys.ENTER)
         time.sleep(12)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
@@ -126,8 +126,11 @@ class NewTablet(unittest.TestCase):
 
         time.sleep(2)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
-        driver.find_element_by_css_selector(
-            "#covidResearchForm\:tabView\:covid-researches-materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        #driver.find_element_by_css_selector(
+        #    "#covidResearchForm\:tabView\:covid-researches-materialType > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialType_label").click()
+        driver.find_element_by_css_selector("#covidResearchForm\:tabView\:covid-researches-materialType_items").click()
+        driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialType_2").click()
         time.sleep(2)
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").clear()
@@ -259,9 +262,9 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-sendInstitution_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id9").click()
-        driver.find_element_by_id("tableForm:main-table:j_id9").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id9").send_keys(u"сбер")
+        driver.find_element_by_id("tableForm:main-table:j_id10").click()
+        driver.find_element_by_id("tableForm:main-table:j_id10").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id10").send_keys(u"сбер")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(
@@ -321,7 +324,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt548").click()
+        driver.find_element_by_id("covidResearchForm:j_idt541").click()
         time.sleep(50)
 
         driver.find_element_by_id("itemForm:j_id4").click()

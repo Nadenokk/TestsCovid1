@@ -170,6 +170,9 @@ class SearchIssled(unittest.TestCase):
         driver.find_element_by_css_selector("#filtersForm\:j_idt160_panel").click()
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt160_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
+
+        driver.find_element_by_css_selector("#filtersForm\:j_idt160_panel").click()
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt160_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector("body").click()
@@ -214,8 +217,7 @@ class SearchIssled(unittest.TestCase):
         driver.find_element_by_id("filtersForm:j_idt179_input").clear()
         for date in "00:12 1202.80.71":
             driver.find_element_by_id("filtersForm:j_idt179_input").send_keys(Keys.HOME, date)
-
-        driver.find_element_by_css_selector("body").click()
+        #driver.find_element_by_css_selector("body").click()
         driver.find_element_by_id("filtersForm:j_idt183").click()
         time.sleep(2)
         driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").click()
