@@ -39,13 +39,13 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        driver.get("http://auraep.ru:11080/documents/")
+        driver.get("http://sau.rpn19.ru:11080/documents")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
+        driver.find_element_by_id("form:passwordInput").send_keys("zgA8SlfS")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(3) > a").click()

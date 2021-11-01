@@ -39,13 +39,13 @@ class CreateOrder(unittest.TestCase):
 
     def test_create_order(self):
         driver = self.driver
-        driver.get("http://auraep.ru:11080/documents/")
+        driver.get("http://sau.rpn19.ru:11080/documents")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
+        driver.find_element_by_id("form:passwordInput").send_keys("zgA8SlfS")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(7) > a").click()
@@ -65,21 +65,21 @@ class CreateOrder(unittest.TestCase):
 
         driver.find_element_by_id("buildForm:j_idt85").click()
         driver.find_element_by_id("buildForm:j_idt85").click()
-        driver.find_element_by_id("buildForm:j_idt85").send_keys("964587")
+        driver.find_element_by_id("buildForm:j_idt85").send_keys("1193383")
         driver.find_element_by_id("buildForm:j_idt88").click()
         driver.find_element_by_id("buildForm:j_idt88").click()
-        driver.find_element_by_id("buildForm:j_idt88").send_keys("964599")
+        driver.find_element_by_id("buildForm:j_idt88").send_keys("1193395")
 
-        driver.find_element_by_id("buildForm:j_idt97_input").send_keys("Лагерь при школе 69")
+        driver.find_element_by_id("buildForm:j_idt97_input").send_keys("Медсвисс Ме")
         driver.find_element_by_id("buildForm:j_idt97_panel").click()
         time.sleep(2)
 
         driver.find_element_by_css_selector("#buildForm\:j_idt92_label").click()
         driver.find_element_by_css_selector("#buildForm\:j_idt92_items").click()
-        driver.find_element_by_id("buildForm:j_idt92_1").click()
+        driver.find_element_by_id("buildForm:j_idt92_37").click()
 
         driver.find_element_by_id("buildForm:j_idt103").click()
-        driver.find_element_by_id("buildForm:j_idt103_input").send_keys("Острый эпиглоттит")
+        driver.find_element_by_id("buildForm:j_idt103_input").send_keys("COVID-19 с проявлениями ОРВИ")
         driver.find_element_by_id("buildForm:j_idt103_panel").click()
         time.sleep(2)
 
@@ -103,7 +103,7 @@ class CreateOrder(unittest.TestCase):
         wb = load_workbook(newest)
         sheet_ranges = wb['information_note']
         rol = sheet_ranges['B3'].value
-        rol2 = "Лагерь при школе 69, Супервизор С. "
+        rol2 = "Медсвисс Медилюкс, Кольцова Е.П"
         #print(rol)
         #print(rol2)
         assert (re.match(r'(?i)' + re.sub(r'\s', '', rol) + r'$', re.sub(r'\s', '', rol2)))

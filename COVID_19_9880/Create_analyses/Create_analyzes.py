@@ -42,17 +42,17 @@ class CreateAnalyzes(unittest.TestCase):
     def test_create_analyzes(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a > div").click()
-        driver.find_element_by_id("toolbarform:j_idt74").click()
+        driver.find_element_by_id("toolbarform:j_idt73").click()
 
         #driver.find_element_by_css_selector("span.ui-button-icon-left ui-icon ui-c fa fa-plus").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
@@ -99,7 +99,7 @@ class CreateAnalyzes(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
         driver.find_element_by_id("itemForm:j_id4").click()
-        driver.find_element_by_id("toolbarform:j_idt74")
+        driver.find_element_by_id("toolbarform:j_idt73")
 
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

@@ -41,18 +41,20 @@ class Barcode2(unittest.TestCase):
     def test_barcode(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         #print (driver.find_element_by_css_selector("#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)
+        driver.find_element_by_id("filtersform:j_idt81").click()
+        time.sleep(25)
         print (driver.find_element_by_xpath("//span[@class='ui-paginator-current']").text)
         
               

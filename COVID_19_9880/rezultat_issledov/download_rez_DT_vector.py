@@ -45,22 +45,22 @@ class DownloadDTVector(unittest.TestCase):
     def test_download_rez_DT_vector(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Загрузка результатов\"] > span").click()
-        driver.find_element_by_id("toolbarform:j_idt74").click()
-        button = driver.find_element_by_id("j_idt86:j_idt88_input")
+        driver.find_element_by_id("toolbarform:j_idt73").click()
+        button = driver.find_element_by_id("j_idt85:j_idt87_input")
         button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\test.xlsx")
-        time.sleep(8)
+        time.sleep(10)
         string=driver.find_element_by_id("messageInError").text
         str = string.split("\n")
         assert str[0] == 'Пожалуйста, не закрывайте диалоговое окно до завершения работы'

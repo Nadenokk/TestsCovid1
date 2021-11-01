@@ -52,22 +52,26 @@ class EditTablet(unittest.TestCase):
     def test_edit_tablet(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_id("tableForm:j_idt86").send_keys("05В102447")
-        driver.find_element_by_id("tableForm:j_idt83_input").clear()
-        driver.find_element_by_id("tableForm:j_idt89").click()
-        time.sleep(30)
+        driver.find_element_by_id("tableForm:j_idt82_input").clear()
+        driver.find_element_by_id("tableForm:j_idt82_input").send_keys("11.11.1111")
+        driver.find_element_by_id("tableForm:j_idt85").send_keys("05В102447")
+        time.sleep(1)
+        driver.find_element_by_id("tableForm:j_idt88").click()
+        time.sleep(2)
         assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
+        assert driver.find_element_by_xpath(
+            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(4) + "]").text == "11.11.11 11:11"
 
         wait = WebDriverWait(driver, 10)
         current_window = driver.current_window_handle
@@ -87,9 +91,9 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[2]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id15").click()
-        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
+        driver.find_element_by_id("tableForm:main-table:j_id16").click()
+        driver.find_element_by_id("tableForm:main-table:j_id16").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id16").send_keys(u"един")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(
@@ -101,16 +105,15 @@ class EditTablet(unittest.TestCase):
         driver.switch_to.window(window_before)
         time.sleep(2)
         driver.find_element_by_id("itemForm:j_id4").click()
-        time.sleep(63)
-
+        time.sleep(40)
         driver.close()
         driver.switch_to.window(current_window)
         time.sleep(3)
         driver.refresh()
         time.sleep(3)
-        driver.find_element_by_id("tableForm:j_idt86").send_keys("05В102447")
-        driver.find_element_by_id("tableForm:j_idt83_input").clear()
-        driver.find_element_by_id("tableForm:j_idt89").click()
+        driver.find_element_by_id("tableForm:j_idt85").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt82_input").clear()
+        driver.find_element_by_id("tableForm:j_idt88").click()
         time.sleep(11)
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "05В102447"

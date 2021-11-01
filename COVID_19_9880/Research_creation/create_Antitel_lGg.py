@@ -42,14 +42,14 @@ class CreateAntitellGg(unittest.TestCase):
     def test_create_antitel_lGg(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
@@ -84,7 +84,8 @@ class CreateAntitellGg(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("030820211000")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
+        #driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
+        driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")
@@ -98,8 +99,7 @@ class CreateAntitellGg(unittest.TestCase):
             "#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
-        for date in "08911111":
-            driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys("08.08.1999")
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
@@ -284,19 +284,22 @@ class CreateAntitellGg(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='4']").click()
-        driver.find_element_by_id("itemForm:tabView:antiValueG").send_keys("5")
-        driver.find_element_by_id("itemForm:tabView:antiValueM").send_keys("6")
-        driver.find_element_by_id("itemForm:tabView:antiValueSum").send_keys("10")
+
+        driver.find_element_by_id("itemForm:tabView:antiValueG_input").send_keys("5")
+        driver.find_element_by_id("itemForm:tabView:antiValueM_input").send_keys("6")
+        driver.find_element_by_id("itemForm:tabView:antiValueSum_input").send_keys("10")
         driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_label").click()
         #driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_items").click()
         driver.find_element_by_id("itemForm:tabView:antiResult_1").click()
         time.sleep(2)
+        '''
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
         button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
         button.send_keys(
             "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
         time.sleep(5)
+        '''
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 

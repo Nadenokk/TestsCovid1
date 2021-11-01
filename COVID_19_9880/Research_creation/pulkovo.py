@@ -49,7 +49,7 @@ class CreatePCR(unittest.TestCase):
     def test_create_pcr(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -87,8 +87,7 @@ class CreatePCR(unittest.TestCase):
             "#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
-        for date in "08911111":
-            driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys("08.08.1999")
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
@@ -162,12 +161,12 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(2) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск исследований\"] > span").click()
-        driver.find_element_by_id("filtersForm:j_idt101").click()
-        driver.find_element_by_id("filtersForm:j_idt101").clear()
-        driver.find_element_by_id("filtersForm:j_idt101").send_keys(numberIss)
+        driver.find_element_by_id("filtersForm:j_idt100").click()
+        driver.find_element_by_id("filtersForm:j_idt100").clear()
+        driver.find_element_by_id("filtersForm:j_idt100").send_keys(numberIss)
 
-        driver.find_element_by_id("filtersForm:j_idt187").click()
-        time.sleep(30)
+        driver.find_element_by_id("filtersForm:j_idt191").click()
+        time.sleep(15)
         driver.execute_script("window.scrollTo(0, window.scrollY + 200)")
         #driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").click()
         wait = WebDriverWait(driver, 10)

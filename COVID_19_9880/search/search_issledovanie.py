@@ -46,109 +46,116 @@ class SearchIssled(unittest.TestCase):
     def test_search_issled(self):
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск исследований\"] > span").click()
         #по виду исследования
-        driver.find_element_by_id("filtersForm:j_idt80_input").click()
-        driver.find_element_by_id("filtersForm:j_idt80_input").clear()
+        driver.find_element_by_id("filtersForm:j_idt79_input").click()
+        driver.find_element_by_id("filtersForm:j_idt79_input").clear()
         for date in "00:00 1202.80.71":
-            driver.find_element_by_id("filtersForm:j_idt80_input").send_keys(Keys.HOME, date)
+            driver.find_element_by_id("filtersForm:j_idt79_input").send_keys(Keys.HOME, date)
 
-        driver.find_element_by_id("filtersForm:j_idt83_input").click()
-        driver.find_element_by_id("filtersForm:j_idt83_input").clear()
+        driver.find_element_by_id("filtersForm:j_idt82_input").click()
+        driver.find_element_by_id("filtersForm:j_idt82_input").clear()
         for date in "00:00 1202.80.81":
-            driver.find_element_by_id("filtersForm:j_idt83_input").send_keys(Keys.HOME, date)
+            driver.find_element_by_id("filtersForm:j_idt82_input").send_keys(Keys.HOME, date)
 
-        driver.find_element_by_id("filtersForm:j_idt86").click()
-        driver.find_element_by_id("filtersForm:j_idt86_label").click()
-        driver.find_element_by_id("filtersForm:j_idt86_1").click()
+        driver.find_element_by_id("filtersForm:j_idt85").click()
+        driver.find_element_by_id("filtersForm:j_idt85_label").click()
+        driver.find_element_by_id("filtersForm:j_idt85_1").click()
 
-        driver.find_element_by_id("filtersForm:j_idt91").click()
-        driver.find_element_by_id("filtersForm:j_idt91_label").click()
-        driver.find_element_by_id("filtersForm:j_idt91_3").click()
+        driver.find_element_by_id("filtersForm:j_idt90").click()
+        driver.find_element_by_id("filtersForm:j_idt90_label").click()
+        driver.find_element_by_id("filtersForm:j_idt90_3").click()
 
-        driver.find_element_by_id("filtersForm:j_idt96").click()
-        driver.find_element_by_id("filtersForm:j_idt96_label").click()
-        driver.find_element_by_id("filtersForm:j_idt96_5").click()
+        driver.find_element_by_id("filtersForm:j_idt95").click()
+        driver.find_element_by_id("filtersForm:j_idt95_label").click()
+        driver.find_element_by_id("filtersForm:j_idt95_5").click()
 
-        driver.find_element_by_id("filtersForm:j_idt187").click()
+        driver.find_element_by_id("filtersForm:j_idt191").click()
         time.sleep(2)
-        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text=="821Ч960"
+        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text=="821А23614183"
         #по номеру исследования
-        driver.find_element_by_id("filtersForm:j_idt96").click()
-        driver.find_element_by_id("filtersForm:j_idt96_label").click()
-        driver.find_element_by_id("filtersForm:j_idt96_1").click()
+        driver.find_element_by_id("filtersForm:j_idt95").click()
+        driver.find_element_by_id("filtersForm:j_idt95_label").click()
+        driver.find_element_by_id("filtersForm:j_idt95_1").click()
 
-        driver.find_element_by_id("filtersForm:j_idt101").click()
-        driver.find_element_by_id("filtersForm:j_idt101").clear()
-        driver.find_element_by_id("filtersForm:j_idt101").send_keys("821Ч958")
+        driver.find_element_by_id("filtersForm:j_idt100").click()
+        driver.find_element_by_id("filtersForm:j_idt100").clear()
+        driver.find_element_by_id("filtersForm:j_idt100").send_keys("8213621889")
 
-        driver.find_element_by_id("filtersForm:j_idt187").click()
+        driver.find_element_by_id("filtersForm:j_idt191").click()
         time.sleep(2)
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821Ч958"
-        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(4) + "]").text=="ТЕСТИМ"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "8213621889"
+        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(4) + "]").text=="Орлов"
         #по данным пациента
-        driver.find_element_by_id("filtersForm:j_idt101").click()
-        driver.find_element_by_id("filtersForm:j_idt101").clear()
+        driver.find_element_by_id("filtersForm:j_idt100").click()
+        driver.find_element_by_id("filtersForm:j_idt100").clear()
 
-        driver.find_element_by_id("filtersForm:j_idt119").click()
-        driver.find_element_by_id("filtersForm:j_idt122").click()
-        driver.find_element_by_id("filtersForm:j_idt122").clear()
-        driver.find_element_by_id("filtersForm:j_idt122").send_keys("Автотестов")
-        driver.find_element_by_id("filtersForm:j_idt125").click()
-        driver.find_element_by_id("filtersForm:j_idt125").clear()
-        driver.find_element_by_id("filtersForm:j_idt125").send_keys("Автотест")
-        driver.find_element_by_id("filtersForm:j_idt128").click()
-        driver.find_element_by_id("filtersForm:j_idt128").clear()
-        driver.find_element_by_id("filtersForm:j_idt128").send_keys("Петрович")
+        driver.find_element_by_id("filtersForm:j_idt123").click()
+        driver.find_element_by_id("filtersForm:j_idt126").click()
+        driver.find_element_by_id("filtersForm:j_idt126").clear()
+        driver.find_element_by_id("filtersForm:j_idt126").send_keys("Объедков")
+        driver.find_element_by_id("filtersForm:j_idt129").click()
+        driver.find_element_by_id("filtersForm:j_idt129").clear()
+        driver.find_element_by_id("filtersForm:j_idt129").send_keys("Петр")
+        driver.find_element_by_id("filtersForm:j_idt132").click()
+        driver.find_element_by_id("filtersForm:j_idt132").clear()
+        driver.find_element_by_id("filtersForm:j_idt132").send_keys("Владимирович")
 
-        driver.find_element_by_id("filtersForm:j_idt131_input").click()
-        driver.find_element_by_id("filtersForm:j_idt131_input").clear()
-        for date in "58913020":
-            driver.find_element_by_id("filtersForm:j_idt131_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("filtersForm:j_idt135_input").click()
+        driver.find_element_by_id("filtersForm:j_idt135_input").clear()
+        for date in "08910171":
+            driver.find_element_by_id("filtersForm:j_idt135_input").send_keys(Keys.HOME, date)
 
-        driver.find_element_by_id("filtersForm:j_idt134").click()
-        driver.find_element_by_id("filtersForm:j_idt134").clear()
-        driver.find_element_by_id("filtersForm:j_idt134").send_keys("78967878678")
-        driver.find_element_by_id("filtersForm:j_idt137").click()
-        driver.find_element_by_id("filtersForm:j_idt137").clear()
-        driver.find_element_by_id("filtersForm:j_idt137").send_keys("36")
+        driver.find_element_by_id("filtersForm:j_idt138").click()
+        driver.find_element_by_id("filtersForm:j_idt138").clear()
+        driver.find_element_by_id("filtersForm:j_idt138").send_keys("78967878678")
+        driver.find_element_by_id("filtersForm:j_idt141").click()
+        driver.find_element_by_id("filtersForm:j_idt141").clear()
+        driver.find_element_by_id("filtersForm:j_idt141").send_keys("40")
 
         driver.find_element_by_id("filtersForm:region_label").click()
         driver.find_element_by_css_selector("#filtersForm\:region_items").click()
         driver.find_element_by_css_selector("#filtersForm\:region_items > li:nth-child(49)").click()
 
         time.sleep(2)
-        driver.find_element_by_id("filtersForm:j_idt187").click()
+        driver.find_element_by_id("filtersForm:j_idt191").click()
         time.sleep(2)
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821Ч959"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821А23601873"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(4) + "]").text == "АВТОТЕСТОВ"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(4) + "]").text == "Объедков"
         #по направляющему учреждению
-        driver.find_element_by_id("filtersForm:j_idt122").click()
-        driver.find_element_by_id("filtersForm:j_idt122").clear()
-        driver.find_element_by_id("filtersForm:j_idt125").click()
-        driver.find_element_by_id("filtersForm:j_idt125").clear()
-        driver.find_element_by_id("filtersForm:j_idt128").click()
-        driver.find_element_by_id("filtersForm:j_idt128").clear()
-        driver.find_element_by_id("filtersForm:j_idt131_input").click()
-        driver.find_element_by_id("filtersForm:j_idt131_input").clear()
-        driver.find_element_by_id("filtersForm:j_idt134").click()
-        driver.find_element_by_id("filtersForm:j_idt134").clear()
-        driver.find_element_by_id("filtersForm:j_idt137").click()
-        driver.find_element_by_id("filtersForm:j_idt137").clear()
+        driver.find_element_by_id("filtersForm:j_idt79_input").click()
+        driver.find_element_by_id("filtersForm:j_idt79_input").clear()
+        driver.find_element_by_id("filtersForm:j_idt82_input").click()
+        driver.find_element_by_id("filtersForm:j_idt82_input").clear()
+        driver.find_element_by_id("filtersForm:j_idt85").click()
+        driver.find_element_by_id("filtersForm:j_idt85_label").click()
+        driver.find_element_by_id("filtersForm:j_idt85_0").click()
+        driver.find_element_by_id("filtersForm:j_idt126").click()
+        driver.find_element_by_id("filtersForm:j_idt126").clear()
+        driver.find_element_by_id("filtersForm:j_idt129").click()
+        driver.find_element_by_id("filtersForm:j_idt129").clear()
+        driver.find_element_by_id("filtersForm:j_idt132").click()
+        driver.find_element_by_id("filtersForm:j_idt132").clear()
+        driver.find_element_by_id("filtersForm:j_idt135_input").click()
+        driver.find_element_by_id("filtersForm:j_idt135_input").clear()
+        driver.find_element_by_id("filtersForm:j_idt138").click()
+        driver.find_element_by_id("filtersForm:j_idt138").clear()
+        driver.find_element_by_id("filtersForm:j_idt141").click()
+        driver.find_element_by_id("filtersForm:j_idt141").clear()
         driver.find_element_by_id("filtersForm:region_label").click()
         #driver.find_element_by_css_selector("#filtersForm\:region_items").click()
         #time.sleep(2)
@@ -156,87 +163,88 @@ class SearchIssled(unittest.TestCase):
         time.sleep(2)
 
         driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("filtersForm:j_idt156").click()
+        driver.find_element_by_id("filtersForm:j_idt160").click()
         time.sleep(2)
-        driver.find_element_by_id("selectSendInstitutionsForm:j_idt231:j_idt233:filter").click()
-        driver.find_element_by_id("selectSendInstitutionsForm:j_idt231:j_idt233:filter").clear()
-        driver.find_element_by_id("selectSendInstitutionsForm:j_idt231:j_idt233:filter").send_keys("Хеликс")
+        driver.find_element_by_id("selectSendInstitutionsForm:j_idt235:j_idt237:filter").click()
+        driver.find_element_by_id("selectSendInstitutionsForm:j_idt235:j_idt237:filter").clear()
+        driver.find_element_by_id("selectSendInstitutionsForm:j_idt235:j_idt237:filter").send_keys("Хеликс")
         time.sleep(2)
         driver.find_element_by_xpath("//td[contains(text(), '7802122535')]").click()
-        driver.find_element_by_id("selectSendInstitutionsForm:j_idt243").click()
+        driver.find_element_by_id("selectSendInstitutionsForm:j_idt247").click()
         time.sleep(2)
-
-        driver.find_element_by_id("filtersForm:j_idt160").click()
-        driver.find_element_by_css_selector("#filtersForm\:j_idt160_panel").click()
-        driver.find_element_by_css_selector(
-            "#filtersForm\:j_idt160_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector("body").click()
-
-        driver.find_element_by_css_selector("#filtersForm\:j_idt160_panel").click()
-        driver.find_element_by_css_selector(
-            "#filtersForm\:j_idt160_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector("body").click()
 
         driver.find_element_by_id("filtersForm:j_idt164").click()
         driver.find_element_by_css_selector("#filtersForm\:j_idt164_panel").click()
         driver.find_element_by_css_selector(
-            "#filtersForm\:j_idt164_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#filtersForm\:j_idt164_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector("body").click()
 
-        driver.find_element_by_id("filtersForm:j_idt187").click()
-        time.sleep(2)
+        driver.find_element_by_css_selector("#filtersForm\:j_idt164_panel").click()
+        driver.find_element_by_css_selector(
+            "#filtersForm\:j_idt164_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
+
+        driver.find_element_by_id("filtersForm:j_idt168").click()
+        driver.find_element_by_css_selector("#filtersForm\:j_idt168_panel").click()
+        driver.find_element_by_css_selector(
+            "#filtersForm\:j_idt168_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
+
+        driver.find_element_by_id("filtersForm:j_idt191").click()
+        time.sleep(15)
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821Ч961"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "1Ц189782"
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(11) + "]").text == "ООО \"НПФ \"ХЕЛИКС\""
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(2) + "]").text == "821Ч963"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(2) + "]").text == "1Ц202636"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(10) + "]").text == "Самотек"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(10) + "]").text == "4, Центральный"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "821Ч964"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "1Ц318971"
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(9) + "]").text == "Добровольцы"
 
         #по результату исследования
         driver.find_element_by_css_selector(
-            "#filtersForm\:j_idt160 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li:nth-child(1) > span").click()
-        driver.find_element_by_css_selector(
-            "#filtersForm\:j_idt160 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li > span").click()
+            "#filtersForm\:j_idt164 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li:nth-child(1) > span").click()
+        time.sleep(2)
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt164 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li > span").click()
-        driver.find_element_by_id("filtersForm:j_idt171_label").click()
-        driver.find_element_by_css_selector("#filtersForm\:j_idt171_items").click()
-        driver.find_element_by_id("filtersForm:j_idt171_7").click()
+        driver.find_element_by_css_selector(
+            "#filtersForm\:j_idt168 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li > span").click()
+        driver.find_element_by_id("filtersForm:j_idt175_label").click()
+        driver.find_element_by_css_selector("#filtersForm\:j_idt175_items").click()
+        driver.find_element_by_id("filtersForm:j_idt175_7").click()
         time.sleep(2)
-        driver.find_element_by_id("filtersForm:j_idt176_input").click()
-        driver.find_element_by_id("filtersForm:j_idt176_input").clear()
-        for date in "00:00 1202.80.71":
-            driver.find_element_by_id("filtersForm:j_idt176_input").send_keys(Keys.HOME, date)
-        driver.find_element_by_id("filtersForm:j_idt179_input").click()
-        driver.find_element_by_id("filtersForm:j_idt179_input").clear()
-        for date in "00:12 1202.80.71":
-            driver.find_element_by_id("filtersForm:j_idt179_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("filtersForm:j_idt180_input").click()
+        driver.find_element_by_id("filtersForm:j_idt180_input").clear()
+        for date in "00:00 1202.90.10":
+            driver.find_element_by_id("filtersForm:j_idt180_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("filtersForm:j_idt183_input").click()
+        driver.find_element_by_id("filtersForm:j_idt183_input").clear()
+        for date in "00:21 1202.90.10":
+            driver.find_element_by_id("filtersForm:j_idt183_input").send_keys(Keys.HOME, date)
         #driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("filtersForm:j_idt183").click()
-        time.sleep(2)
-        driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").click()
-        driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").clear()
-        driver.find_element_by_id("selectLabContractorForm:j_idt248:j_idt250:filter").send_keys("Хеликс")
-        time.sleep(2)
-        driver.find_element_by_xpath("//tbody[@id='selectLabContractorForm:j_idt248_data']//tr[" + str(2) + "]/td[" + str(2) + "]").click()
-        driver.find_element_by_id("selectLabContractorForm:j_idt266").click()
-        time.sleep(2)
         driver.find_element_by_id("filtersForm:j_idt187").click()
         time.sleep(2)
+        driver.find_element_by_id("selectLabContractorForm:j_idt252:j_idt254:filter").click()
+        driver.find_element_by_id("selectLabContractorForm:j_idt252:j_idt254:filter").clear()
+        driver.find_element_by_id("selectLabContractorForm:j_idt252:j_idt254:filter").send_keys("Хеликс")
+        time.sleep(2)
+        driver.find_element_by_xpath("//tbody[@id='selectLabContractorForm:j_idt252_data']//tr[" + str(3) + "]/td[" + str(2) + "]").click()
+        driver.find_element_by_id("selectLabContractorForm:j_idt270").click()
+        time.sleep(2)
+        driver.find_element_by_id("filtersForm:j_idt191").click()
+        time.sleep(2)
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821Ч959"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == "821Ч4089977"
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(13) + "]").text == "Брак"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(2) + "]").text == "821Ч961"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(2) + "]").text == "821Ч4090034"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "821Ч964"
+            "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "821Ч4090173"
 
 
 

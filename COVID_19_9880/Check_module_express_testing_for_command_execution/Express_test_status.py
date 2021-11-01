@@ -44,35 +44,36 @@ class ExpressTestStatus(unittest.TestCase):
         barcode = "7800560979"
         iss = u"10Х396522" # u - кодировка utf-8
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(10) > a > div").click()
 
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(10)
-        assert driver.find_element_by_id("expressForm:j_idt78").text == iss
+        assert driver.find_element_by_id("expressForm:j_idt77").text == iss
+
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("negative")
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(5)
         #driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt91").text == iss
+        assert driver.find_element_by_css_selector("#expressForm\:j_idt90").text == iss
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(10)
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt78").text == iss
+        assert driver.find_element_by_css_selector("#expressForm\:j_idt77").text == iss
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("positive")
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(5)
         #driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt83").text == iss
+        assert driver.find_element_by_css_selector("#expressForm\:j_idt82").text == iss
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("clear-lists")
         driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(3)

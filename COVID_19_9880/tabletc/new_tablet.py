@@ -51,42 +51,44 @@ class NewTablet(unittest.TestCase):
 
     def test_new_tablet(self):
         driver = self.driver
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
 
         # Копируем номер штрихкода
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
-        driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(70)
-        '''
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").send_keys("04.03.2021")
-        driver.find_element_by_css_selector("body").click()
-        '''
+        driver.find_element_by_css_selector(
+            "#filtersform\:j_idt79_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("filtersform:j_idt81").click()
+        time.sleep(25)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(63)
-        # driver.find_elements_by_css_selector(
-        #    "#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
-        # time.sleep(7)
-        element = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[0].text
-
+        time.sleep(25)
+        barcode = \
+            driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
+                0].text
+        iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
+            0].text
         #планшеты
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_id("j_idt74").click()
+        driver.find_element_by_id("j_idt73").click()
         time.sleep(3)
+        driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
+        driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
+        for date in "0101 12021110":
+            driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys(Keys.HOME, date)
+        time.sleep(2)
+        #driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.11.2021 10:10")
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:patientCategories_panel").click()
         driver.find_element_by_css_selector(
@@ -105,11 +107,13 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
+
+        driver.find_element_by_css_selector("body.main-body").click()
         #проба
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt112").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt310").send_keys(element+Keys.ENTER)
+        driver.find_element_by_id("itemForm:tabView:j_idt119").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt317").send_keys(barcode+Keys.ENTER)
         time.sleep(12)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
@@ -149,8 +153,9 @@ class NewTablet(unittest.TestCase):
             "#covidResearchForm\:tabView\:covid-researches-sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").clear()
-        for date in "08911111":
-            driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").send_keys("11.02.1999")
+        #for date in "08911111":
+        #    driver.find_element_by_id("covidResearchForm:tabView:covid-researches-birthDate_input").send_keys(Keys.HOME, date)
         driver.find_element_by_css_selector("body.main-body").click()
         #driver.find_element_by_id("covidResearchForm:tabView:j_id150_content").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-email").click()
@@ -197,6 +202,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-city_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-city_input").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-city_input").send_keys(u"Ярослав")
+        time.sleep(1)
         driver.find_element_by_xpath("//span[@id='covidResearchForm:tabView:covid-researches-city_panel']/ul[1]/li[1]/span").click()
         #driver.find_element_by_css_selector("span.ui-autocomplete-query").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-homeAddressStreet_input").click()
@@ -324,8 +330,8 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt541").click()
-        time.sleep(50)
+        driver.find_element_by_id("covidResearchForm:j_idt548").click()
+        time.sleep(20)
 
         driver.find_element_by_id("itemForm:j_id4").click()
 

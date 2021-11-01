@@ -48,13 +48,13 @@ class CreateOrder(unittest.TestCase):
     def test_create_order_number(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
 
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         '''
@@ -72,13 +72,14 @@ class CreateOrder(unittest.TestCase):
 
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
-        driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(70)
+        driver.find_element_by_css_selector("#filtersform\:j_idt79_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("filtersform:j_idt81").click()
+        time.sleep(25)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(60)
+        time.sleep(25)
         barcode = \
             driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
                 0].text
@@ -89,20 +90,20 @@ class CreateOrder(unittest.TestCase):
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки\"] > span").click()
 
-        driver.find_element_by_id("site-selection:j_idt160_label").click()
-        driver.find_element_by_id("site-selection:j_idt160_1").click()
+        driver.find_element_by_id("site-selection:j_idt159_label").click()
+        driver.find_element_by_id("site-selection:j_idt159_1").click()
         # driver.find_element_by_xpath("//span[@class='ui-button-text ui-c' and @text='Выбрать']").click()
         driver.refresh()
-        driver.find_element_by_id("site-selection:j_idt163").click()
+        driver.find_element_by_id("site-selection:j_idt162").click()
         driver.refresh()
         time.sleep(2)
         driver.find_element_by_id("participantIdDataForm:inputParticipantId").send_keys("1597898")
-        driver.find_element_by_name("participantIdDataForm:j_idt81").click()
+        driver.find_element_by_name("participantIdDataForm:j_idt80").click()
         time.sleep(2)
         driver.find_element_by_id("participantDataForm:barcodeNumber").send_keys(barcode)
         driver.find_element_by_id("participantDataForm:createRequest").click()
         time.sleep(10)
-        assert (driver.find_element_by_id("j_idt166").text) == "Заявка на исследование создана"
+        assert (driver.find_element_by_id("j_idt165").text) == "Заявка на исследование создана"
 
 
 

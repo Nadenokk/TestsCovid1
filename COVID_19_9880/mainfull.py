@@ -15,7 +15,7 @@ from Create_Passengers.Create_passanger import CreatePassanger
 from Filling_Lab_Tablets.lab_planshet_1 import LabPlanshet1
 from Filling_Lab_Tablets.lab_planshet_2 import LabPlanshet2
 from Filling_Lab_Tablets.lab_planshet_3 import LabPlanshet3
-from Research_creation.create_public import CreatePublic
+#from Research_creation.create_public import CreatePublic
 from tabletc.edit_tablet import EditTablet
 from tabletc.new_tablet import NewTablet
 from rezultat_issledov.download_rez_DT_vector import DownloadDTVector
@@ -44,7 +44,7 @@ tc13 = unittest.TestLoader().loadTestsFromTestCase(CreatePassanger)
 tc14 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet1)
 tc15 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet2)
 tc16 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet3)
-tc17 = unittest.TestLoader().loadTestsFromTestCase(CreatePublic)
+#tc17 = unittest.TestLoader().loadTestsFromTestCase(CreatePublic)
 tc18 = unittest.TestLoader().loadTestsFromTestCase(EditTablet)
 tc19 = unittest.TestLoader().loadTestsFromTestCase(NewTablet)
 tc20 = unittest.TestLoader().loadTestsFromTestCase(DownloadDTVector)
@@ -59,6 +59,6 @@ tc28 = unittest.TestLoader().loadTestsFromTestCase(SearchIssled)
 
 # Create a test suite combining
 smokeTest = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15,
-                                 tc16, tc17, tc18, tc19, tc20, tc21, tc23, tc24, tc25, tc26, tc27, tc28])
+                                 tc16, tc18, tc19, tc20, tc21, tc23, tc24, tc25, tc26, tc27, tc28])
 smokeTest._cleanup = False
 unittest.TextTestRunner(verbosity=2).run(smokeTest)

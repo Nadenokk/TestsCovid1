@@ -43,44 +43,40 @@ class CreatePcrBarcode(unittest.TestCase):
     def test_create_barcode(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         
         # Копируем номер штрихкода
-        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Штрих-коды\"] > span").click()
+        driver.find_element_by_css_selector(
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
-        driver.find_element_by_xpath("/html/body/div[9]/div[2]/ul/li[2]/div/div[2]/span").click()
-        time.sleep(60)
-        '''
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").click()
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").clear()
-        driver.find_element_by_css_selector("#tableForm\:main-table\:j_id5_input").send_keys("04.03.2021")
-        driver.find_element_by_css_selector("body").click()
-        '''
-        time.sleep(7)
+        driver.find_element_by_css_selector(
+            "#filtersform\:j_idt79_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("filtersform:j_idt81").click()
+        time.sleep(25)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
-        time.sleep(30)
-        #driver.find_elements_by_css_selector(
-        #    "#tableForm\:main-table_paginator_bottom > a.ui-paginator-first.ui-state-default.ui-corner-all")[0].click()
-        #time.sleep(7)
-        element = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[0].text
-        
+        time.sleep(25)
+        barcode = \
+            driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
+                0].text
+        iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
+            0].text
         #Идем к исследованию по штрихкоду                     
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:prepareBarcodeDialog").click()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").click()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").clear()
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").send_keys(element)
-        driver.find_element_by_css_selector("#barcodeForm\:j_idt81").send_keys(Keys.ENTER)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt80").click()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt80").clear()
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt80").send_keys(barcode)
+        driver.find_element_by_css_selector("#barcodeForm\:j_idt80").send_keys(Keys.ENTER)
 
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
         window_before = driver.window_handles[0]
@@ -110,7 +106,7 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:materialDate_input").click()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys("21.02.2021 10:00")
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
+        driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")
@@ -124,8 +120,7 @@ class CreatePcrBarcode(unittest.TestCase):
             "#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
-        for date in "08911111":
-            driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys("08.08.1999")
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
@@ -171,6 +166,7 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:city_input").click()
         driver.find_element_by_id("itemForm:tabView:city_input").clear()
         driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Ярослав")
+        time.sleep(1)
         driver.find_element_by_xpath("//span[@id='itemForm:tabView:city_panel']/ul[1]/li[1]/span").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").clear()
@@ -311,13 +307,6 @@ class CreatePcrBarcode(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").click()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").clear()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").send_keys("22.05.2021 8:52")
-        driver.find_element_by_css_selector("body.main-body").click()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").click()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").clear()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").send_keys("23.05.2021 8:52")
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_label").click()
@@ -328,16 +317,18 @@ class CreatePcrBarcode(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").send_keys("24.05.2021 8:52")'''
         driver.find_element_by_css_selector("body.main-body").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("1111")
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").click()
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").clear()
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").send_keys("1111")
         time.sleep(2)
+        '''
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
         button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
         button.send_keys(
             "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
         time.sleep(5)
+        '''
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 

@@ -43,14 +43,14 @@ class CreatePCR(unittest.TestCase):
     def test_create_pcr(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
@@ -86,7 +86,7 @@ class CreatePCR(unittest.TestCase):
         #  driver.find_element_by_id("itemForm:tabView:materialDate_input").send_keys(Keys.HOME, date)
         #time.sleep(2)
 
-        driver.find_element_by_css_selector("#itemForm\:tabView\:j_id72").click()
+        driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинАнтител")
@@ -99,8 +99,7 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_css_selector("#itemForm\:tabView\:sex > tbody > tr > td:nth-child(1) > div > div.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").click()
         driver.find_element_by_id("itemForm:tabView:birthDate_input").clear()
-        for date in "08911111":
-          driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:birthDate_input").send_keys("08.08.1999")
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:email").click()
         driver.find_element_by_id("itemForm:tabView:email").clear()
@@ -145,8 +144,9 @@ class CreatePCR(unittest.TestCase):
 
         driver.find_element_by_id("itemForm:tabView:city_input").click()
         driver.find_element_by_id("itemForm:tabView:city_input").clear()
-        driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Челябинск")
-        driver.find_element_by_css_selector("span.ui-autocomplete-query").click()
+        driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Ярослав")
+        driver.find_element_by_xpath("//span[@id='itemForm:tabView:city_panel']/ul[1]/li[1]/span").click()
+        #driver.find_element_by_css_selector("span.ui-autocomplete-query").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").clear()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").send_keys(u"Мира")
@@ -284,17 +284,6 @@ class CreatePCR(unittest.TestCase):
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").click()
-        driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").clear()
-        for date in "003212028030":
-            driver.find_element_by_id("itemForm:tabView:sentToControlTimestamp_input").send_keys(Keys.HOME, date)
-        time.sleep(2)
-        driver.find_element_by_css_selector("body.main-body").click()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").click()
-        driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").clear()
-        for date in "003212028030":
-            driver.find_element_by_id("itemForm:tabView:deliveryToControlTimestamp_input").send_keys(Keys.HOME, date)
-        time.sleep(2)
         driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchResult").click()
         driver.find_element_by_css_selector("#itemForm\:tabView\:controlResearchResult_label").click()
@@ -305,9 +294,9 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").send_keys("24.05.2021 8:52")'''
         driver.find_element_by_css_selector("body.main-body").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").click()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").clear()
-        driver.find_element_by_id("itemForm:tabView:controlPcr").send_keys("1111")
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").click()
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").clear()
+        driver.find_element_by_id("itemForm:tabView:controlPcr_input").send_keys("1111")
         '''
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").click()
         driver.find_element_by_id("itemForm:tabView:controlResearchDate_input").clear()
@@ -318,13 +307,14 @@ class CreatePCR(unittest.TestCase):
 
         #driver.find_element_by_id("itemForm:j_id5").click()
         time.sleep(2)
+        '''
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='8']").click()
         button = driver.find_element_by_id("itemForm:tabView:j_idt137_input")
         button.send_keys(
             "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
         time.sleep(5)
-
+        '''
         driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
 

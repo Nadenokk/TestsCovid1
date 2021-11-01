@@ -63,26 +63,39 @@ class LabPlanshet1(unittest.TestCase):
     '''
     def test_lab_planshet(self):
         driver = self.driver
-        barcode1 = "7800560977"
-        barcode2 = "7800560978"
-        barcode3 = "7800560979"
-        iss1 = u"10Х396520"
-        iss2 = u"10Х396521"
-        iss3 = u"10Х396522"
+
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element_by_css_selector(
+            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
+        driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
+        driver.find_element_by_css_selector(
+            "#filtersform\:j_idt79_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("filtersform:j_idt81").click()
+        time.sleep(25)
+        driver.find_elements_by_css_selector(
+            "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
+        time.sleep(25)
+        barcode = \
+            driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(1)")[
+                0].text
+        iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
+            0].text
+
+
         driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(3) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты\"] > span").click()
-        driver.find_element_by_id("buttonsForm:j_idt90").click()
-        driver.find_element_by_id("buttonsForm:j_idt93").click()
+        driver.find_element_by_id("buttonsForm:j_idt89").click()
+        driver.find_element_by_id("buttonsForm:j_idt92").click()
         #driver.find_element_by_id("barcodeForm:j_idt109").click()
         #driver.find_element_by_id("barcodeForm:j_idt109").click()
         #driver.find_element_by_css_selector("td").click()
@@ -99,12 +112,12 @@ class LabPlanshet1(unittest.TestCase):
         assert driver.find_element_by_css_selector("#tabletForm\:tube_2_7_content > span.content-value").text == iss2
         '''
         driver.find_element_by_id("barcodeForm:barcode-input").clear()
-        driver.find_element_by_id("barcodeForm:barcode-input").send_keys(barcode3)
+        driver.find_element_by_id("barcodeForm:barcode-input").send_keys(barcode)
         driver.find_element_by_id("barcodeForm:barcode-input").send_keys(Keys.ENTER)
-        time.sleep(12)
-        assert driver.find_element_by_css_selector("#tabletForm\:tube_1_7_content > span.content-value").text == iss3
-        driver.find_element_by_name("buttonsForm:j_idt98").click()
-        driver.find_element_by_id("buttonsForm:j_idt99").click()
+        time.sleep(10)
+        assert driver.find_element_by_css_selector("#tabletForm\:tube_1_7_content > span.content-value").text == iss
+        driver.find_element_by_name("buttonsForm:j_idt97").click()
+        driver.find_element_by_id("buttonsForm:j_idt98").click()
 
         time.sleep(2)
 

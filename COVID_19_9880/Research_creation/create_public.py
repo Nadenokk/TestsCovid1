@@ -53,7 +53,7 @@ class CreatePublic(unittest.TestCase):
 
             driver = self.driver
             #driver.get("http://195.19.96.255:8981")
-            driver.get("http://auraep.ru:9880")
+            driver.get("http://rpn19.ru:9880")
             driver.refresh()
             driver.find_element_by_id("Familiya_").click()
             driver.find_element_by_id("Familiya_").clear()
@@ -111,6 +111,17 @@ class CreatePublic(unittest.TestCase):
             driver.find_element_by_id("Nomer_doma_House_number").send_keys("7")
             driver.find_element_by_id("Kvartira_Flat").clear()
             driver.find_element_by_id("Kvartira_Flat").send_keys("745")
+
+            driver.find_element_by_name("Seriya_Series").click()
+            driver.find_element_by_name("Seriya_Series").clear()
+            driver.find_element_by_name("Seriya_Series").send_keys("1111")
+            #driver.find_element_by_name("Nomer_Number").click()
+            #driver.find_element_by_name("Nomer_Number").clear()
+            driver.find_element_by_name("Nomer_Number").send_keys("123456789")
+            driver.find_element_by_xpath("//input[@id='date-mask' and @name='Data_vyidachi_Date_of_issue']").send_keys("12.12.1999")
+            driver.find_element_by_name("Kem_vyidan_Issued_by").send_keys("УФМС Динозаврики")
+            driver.find_element_by_name("Kod_podrazdeleniya_Code").send_keys("123")
+
             driver.find_element_by_xpath("//input[@id='1' and @name='Direction']").click()
             driver.find_element_by_name("Data_pribyitiya_v_RF_ubyitiya_iz_RF").clear()
             driver.find_element_by_name("Data_pribyitiya_v_RF_ubyitiya_iz_RF").send_keys("11")

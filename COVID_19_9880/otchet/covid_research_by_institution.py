@@ -68,77 +68,75 @@ class CovidResearchByInstitution(unittest.TestCase):
     def test_covid_research_by_institution(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
+        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
+        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
         driver.find_element_by_id("form:passwordInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
-        driver.find_element_by_id("reportsForm:j_idt75:12:j_idt77").click()
+        driver.find_element_by_id("reportsForm:j_idt74:12:j_idt76").click()
 
         #фильтры
-        driver.find_element_by_id("buildForm:j_idt76_input").click()
-        driver.find_element_by_id("buildForm:j_idt76_input").clear()
-        driver.find_element_by_id("buildForm:j_idt76_input").send_keys("01.08.2021")
-        driver.find_element_by_id("buildForm:j_idt78_input").click()
-        driver.find_element_by_id("buildForm:j_idt78_input").clear()
-        driver.find_element_by_id("buildForm:j_idt78_input").send_keys("16.08.2021")
+        driver.find_element_by_id("buildForm:j_idt75_input").click()
+        driver.find_element_by_id("buildForm:j_idt75_input").clear()
+        driver.find_element_by_id("buildForm:j_idt75_input").send_keys("01.08.2021")
+        driver.find_element_by_id("buildForm:j_idt77_input").click()
+        driver.find_element_by_id("buildForm:j_idt77_input").clear()
+        driver.find_element_by_id("buildForm:j_idt77_input").send_keys("16.08.2021")
 
-        driver.find_element_by_id("buildForm:j_idt82:j_idt85").click()
+        driver.find_element_by_id("buildForm:j_idt81:j_idt84").click()
         time.sleep(2)
-        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").click()
-        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").clear()
-        driver.find_element_by_id("buildForm:j_idt82:j_idt90:j_idt92:0:filter").send_keys("Сбербанк")
+        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").click()
+        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").clear()
+        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").send_keys("Веселая")
         time.sleep(2)
         # driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
-        driver.find_element_by_xpath("//td[contains(text(), 'Ветеранов 114 корпус 1')]").click()
-        driver.find_element_by_id("buildForm:j_idt82:j_idt95").click()
+        driver.find_element_by_xpath("//td[contains(text(), 'ООО \"ВЕСЕЛАЯ УЛЫБКА\"')]").click()
+        driver.find_element_by_id("buildForm:j_idt81:j_idt94").click()
 
-        driver.find_element_by_id("buildForm:j_idt98").click()
+        driver.find_element_by_id("buildForm:j_idt97").click()
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt98_panel").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt97_panel").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt98_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+            "#buildForm\:j_idt97_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt97_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
-            "#buildForm\:j_idt98_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt97_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector("body").click()
 
-        driver.find_element_by_id("buildForm:j_idt100").click()
+        driver.find_element_by_id("buildForm:j_idt99").click()
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt100_panel").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt99_panel").click()
         #driver.find_element_by_css_selector(
         #    "#buildForm\:j_idt100_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
         #time.sleep(2)
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt100_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
 
         driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("buildForm:j_idt79").click()
+        driver.find_element_by_id("buildForm:j_idt78").click()
         time.sleep(2)
 
-        assert (driver.find_element_by_id("dataForm:j_idt113").text == "01.08.2021")
-        assert (driver.find_element_by_id("dataForm:j_idt115").text == "16.08.2021")
-        assert (driver.find_element_by_id("dataForm:j_idt117").text == "НИИ Пастера; 5, Северный; ФБУЗ \"Центр гигиены и эпидемиологии в городе Санкт-Петербург\", ул. Оборонная, д. 35")
-        assert (driver.find_element_by_id("dataForm:j_idt119").text == "Определение наличия РНК SARS-CoV-2")
-        assert (driver.find_element_by_id("dataForm:j_idt121").text == "Набор реагентов для выявления РНК коронавируса SARS-CoV-2 методом ОТ-ПЦР в режиме реального времени \"РеалБест РНК SARS-CoV-2\"")
-        assert (driver.find_element_by_id("dataForm:j_idt125").text == "4")
+        assert (driver.find_element_by_id("dataForm:j_idt112").text == "01.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt114").text == "16.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt116").text == "1, Юго-Западный; ФБУЗ \"Центр гигиены и эпидемиологии в городе Санкт-Петербург\", ул. Оборонная, д. 35")
+        assert (driver.find_element_by_id("dataForm:j_idt118").text == "Определение наличия РНК SARS-CoV-2")
+        assert (driver.find_element_by_id("dataForm:j_idt120").text == "Набор реагентов для выявления РНК коронавируса SARS-CoV-2 методом ОТ-ПЦР в режиме реального времени \"РеалБест РНК SARS-CoV-2\"")
+        assert (driver.find_element_by_id("dataForm:j_idt124").text == "2")
 
         driver.find_element_by_id("buildForm:exportBtn").click()
         time.sleep(3)
@@ -150,14 +148,13 @@ class CovidResearchByInstitution(unittest.TestCase):
 
         wb = load_workbook(newest)
         sheet_ranges = wb['1']
-        str1 = sheet_ranges['A23'].value
-        status1 = sheet_ranges['A24'].value
+        str1 = sheet_ranges['A22'].value
+        status1 = sheet_ranges['A23'].value
         status2 = sheet_ranges['A28'].value
         status22 = sheet_ranges['A30'].value
 
-        assert (str1 == "Учреждение, направившее материал: ПАО \"Сбербанк\" (Ветеранов 114 корпус 1)")
+        assert (str1 == "Учреждение, направившее материал: ООО \"ВЕСЕЛАЯ УЛЫБКА\"")
         assert (status1 or status2 or status22 == "SARS-CoV-2 - подтверждено")
-        assert (status2 or status1 or status22 == "На исследовании")
 
     def is_element_present(self, how, what):
         try:
