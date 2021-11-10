@@ -152,10 +152,10 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:description").send_keys(u"Нет")
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id5").click()
+        driver.find_element_by_id("itemForm:j_id6").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
         time.sleep(2)
 
         driver.find_element_by_css_selector(

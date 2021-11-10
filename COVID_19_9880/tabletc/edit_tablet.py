@@ -64,14 +64,14 @@ class EditTablet(unittest.TestCase):
             "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_id("tableForm:j_idt82_input").clear()
-        driver.find_element_by_id("tableForm:j_idt82_input").send_keys("11.11.1111")
-        driver.find_element_by_id("tableForm:j_idt85").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt82_input").send_keys("01.09.2021")
+        driver.find_element_by_id("tableForm:j_idt85").send_keys("621П1073458")
         time.sleep(1)
         driver.find_element_by_id("tableForm:j_idt88").click()
         time.sleep(2)
-        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="05В102447"
+        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="621П1073458"
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(4) + "]").text == "11.11.11 11:11"
+            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(4) + "]").text == "01.09.21 08:03"
 
         wait = WebDriverWait(driver, 10)
         current_window = driver.current_window_handle
@@ -81,19 +81,24 @@ class EditTablet(unittest.TestCase):
         wait.until(ec.new_window_is_opened(old_windows))
         new_window = [i for i in driver.window_handles if i not in old_windows]
         driver.switch_to.window(new_window[0])
+        driver.find_element_by_css_selector("body.main-body").click()
+
+        driver.find_element_by_css_selector("a[href='#itemForm:tabView:j_idt130']").click()
+        driver.find_element_by_xpath("//ul[@class='ui-tabs-nav ui-helper-reset ui-widget-header ui-corner-all']").click()
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
-        for date in "11111111 1111":
-            driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.09.21 08:03")
         time.sleep(2)
         driver.find_element_by_css_selector("body").click()
         window_before = driver.window_handles[1]
         driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[2]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id16").click()
-        driver.find_element_by_id("tableForm:main-table:j_id16").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id16").send_keys(u"един")
+        driver.find_element_by_id("tableForm:main-table:j_id15").click()
+        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(
@@ -104,19 +109,19 @@ class EditTablet(unittest.TestCase):
         driver.find_element_by_css_selector("#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id4").click()
-        time.sleep(40)
+        driver.find_element_by_id("itemForm:j_id5").click()
+        time.sleep(15)
         driver.close()
         driver.switch_to.window(current_window)
         time.sleep(3)
         driver.refresh()
         time.sleep(3)
-        driver.find_element_by_id("tableForm:j_idt85").send_keys("05В102447")
+        driver.find_element_by_id("tableForm:j_idt85").send_keys("621П1073458")
         driver.find_element_by_id("tableForm:j_idt82_input").clear()
         driver.find_element_by_id("tableForm:j_idt88").click()
         time.sleep(11)
         assert driver.find_element_by_xpath(
-            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "05В102447"
+            "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "621П1073458"
 
     def is_element_present(self, how, what):
         try:

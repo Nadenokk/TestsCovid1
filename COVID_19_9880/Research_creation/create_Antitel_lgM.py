@@ -64,9 +64,9 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id16").click()
-        driver.find_element_by_id("tableForm:main-table:j_id16").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id16").send_keys(u"един")
+        driver.find_element_by_id("tableForm:main-table:j_id15").click()
+        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
+        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
         driver.find_element_by_css_selector("#tableForm").click()
         time.sleep(2)
         driver.find_element_by_css_selector(
@@ -274,15 +274,15 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:terapy").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id5").click()
+        driver.find_element_by_id("itemForm:j_id6").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
         time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#itemForm\:j_id21").click()
-        time.sleep(2)
+        driver.find_element_by_css_selector("#itemForm\:j_id22").click()
+        time.sleep(5)
         driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Влаборатории1").click()
-        driver.find_element_by_css_selector("#itemForm\:j_id31").click()
+        driver.find_element_by_css_selector("#itemForm\:j_id32").click()
         time.sleep(2)
 
         driver.find_element_by_xpath(
@@ -293,7 +293,7 @@ class CreateAntitellGm(unittest.TestCase):
         driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_label").click()
         #driver.find_element_by_css_selector("#itemForm\:tabView\:antiResult_items").click()
         driver.find_element_by_id("itemForm:tabView:antiResult_1").click()
-        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
         time.sleep(2)
 
         driver.find_element_by_css_selector("#buttonsForm\:createAntibodiesG")

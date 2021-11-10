@@ -83,10 +83,13 @@ class NewTablet(unittest.TestCase):
         #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_id("j_idt73").click()
         time.sleep(3)
+        driver.find_element_by_xpath(
+            "//ul[@class='ui-tabs-nav ui-helper-reset ui-widget-header ui-corner-all']").click()
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
-        for date in "0101 12021110":
-            driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.11.2021 10:10")
         time.sleep(2)
         #driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.11.2021 10:10")
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
@@ -111,9 +114,12 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_css_selector("body.main-body").click()
         #проба
         driver.find_element_by_xpath(
-            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:j_idt119").click()
-        driver.find_element_by_id("addByBarcodeForm:j_idt317").send_keys(barcode+Keys.ENTER)
+            "//ul[@class='ui-tabs-nav ui-helper-reset ui-widget-header ui-corner-all']").click()
+        driver.find_element_by_xpath(
+            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='0']").click()
+
+        driver.find_element_by_id("itemForm:tabView:j_idt113").click()
+        driver.find_element_by_id("addByBarcodeForm:j_idt323").send_keys(barcode+Keys.ENTER)
         time.sleep(12)
         driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
 
@@ -139,7 +145,7 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-materialDate_input").send_keys("21.02.2021 10:00")
-        driver.find_element_by_css_selector("#covidResearchForm\:tabView\:j_id176").click()
+        driver.find_element_by_css_selector("body.main-body").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").click()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").clear()
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-lastName").send_keys(u"СаблинАнтител")
@@ -330,10 +336,10 @@ class NewTablet(unittest.TestCase):
         driver.find_element_by_id("covidResearchForm:tabView:covid-researches-terapy").click()
         #driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         #time.sleep(2)
-        driver.find_element_by_id("covidResearchForm:j_idt548").click()
+        driver.find_element_by_id("covidResearchForm:j_idt559").click()
         time.sleep(20)
 
-        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
 
         time.sleep(2)
 

@@ -84,10 +84,10 @@ class CovidResearchByInstitution(unittest.TestCase):
         #фильтры
         driver.find_element_by_id("buildForm:j_idt75_input").click()
         driver.find_element_by_id("buildForm:j_idt75_input").clear()
-        driver.find_element_by_id("buildForm:j_idt75_input").send_keys("01.08.2021")
+        driver.find_element_by_id("buildForm:j_idt75_input").send_keys("01.08.21 00:00")
         driver.find_element_by_id("buildForm:j_idt77_input").click()
         driver.find_element_by_id("buildForm:j_idt77_input").clear()
-        driver.find_element_by_id("buildForm:j_idt77_input").send_keys("16.08.2021")
+        driver.find_element_by_id("buildForm:j_idt77_input").send_keys("16.08.21 23:59")
 
         driver.find_element_by_id("buildForm:j_idt81:j_idt84").click()
         time.sleep(2)
