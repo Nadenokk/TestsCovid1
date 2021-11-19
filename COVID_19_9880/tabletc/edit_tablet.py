@@ -83,10 +83,7 @@ class EditTablet(unittest.TestCase):
         driver.switch_to.window(new_window[0])
         driver.find_element_by_css_selector("body.main-body").click()
 
-        driver.find_element_by_css_selector("a[href='#itemForm:tabView:j_idt130']").click()
-        driver.find_element_by_xpath("//ul[@class='ui-tabs-nav ui-helper-reset ui-widget-header ui-corner-all']").click()
-        driver.find_element_by_xpath(
-            "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
+
         driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
         driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.09.21 08:03")
