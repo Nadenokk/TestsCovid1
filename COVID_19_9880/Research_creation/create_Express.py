@@ -52,7 +52,7 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
         driver.find_element_by_css_selector(u"a[title=\"Создание заявки на исследование 2\"] > span").click()
         driver.find_element_by_css_selector("#buttonsForm\:createExpress").click()
 
@@ -271,15 +271,18 @@ class CreateExpress(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:terapy").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id6").click()
+        driver.find_element_by_id("itemForm:j_id5").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
-        time.sleep(2)
-        driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Отправленвлабораторию1").click()
+        time.sleep(5)
+        driver.find_element_by_id("itemForm:j_id12_button").click()
+        driver.find_element_by_id("itemForm:j_id12_menu").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#itemForm\:j_id22").click()
         time.sleep(5)
-        driver.find_element_by_css_selector("#itemForm\:covid-researches-doAction-Влаборатории1").click()
-        driver.find_element_by_css_selector("#itemForm\:j_id32").click()
+        driver.find_element_by_id("itemForm:j_id12_button").click()
+        driver.find_element_by_id("itemForm:j_id12_menu").click()
+        time.sleep(2)
+        driver.find_element_by_css_selector("#itemForm\:j_id22").click()
         time.sleep(2)
 
         driver.find_element_by_xpath(
@@ -297,7 +300,7 @@ class CreateExpress(unittest.TestCase):
             "C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\210630_11_621В1287765-621В912437.xlsx")
         time.sleep(5)
         '''
-        driver.find_element_by_id("itemForm:j_id5").click()
+        driver.find_element_by_id("itemForm:j_id4").click()
         time.sleep(2)
         driver.find_element_by_css_selector("#buttonsForm\:createExpress")
 

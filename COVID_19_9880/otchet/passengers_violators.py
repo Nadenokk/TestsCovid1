@@ -78,34 +78,34 @@ class PassengersViolators(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
-        driver.find_element_by_id("reportsForm:j_idt74:18:j_idt76").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+        driver.find_element_by_id("reportsForm:j_idt80:18:j_idt82").click()
 
         #фильтры
-        driver.find_element_by_id("buildForm:j_idt75_input").click()
-        driver.find_element_by_id("buildForm:j_idt75_input").clear()
+        driver.find_element_by_id("buildForm:j_idt81_input").click()
+        driver.find_element_by_id("buildForm:j_idt81_input").clear()
         for date in "1202.60.10":
-            driver.find_element_by_id("buildForm:j_idt75_input").send_keys(Keys.HOME, date)
-        driver.find_element_by_id("buildForm:j_idt77_input").click()
-        driver.find_element_by_id("buildForm:j_idt77_input").clear()
+            driver.find_element_by_id("buildForm:j_idt81_input").send_keys(Keys.HOME, date)
+        driver.find_element_by_id("buildForm:j_idt83_input").click()
+        driver.find_element_by_id("buildForm:j_idt83_input").clear()
         for date in "1202.80.61":
-            driver.find_element_by_id("buildForm:j_idt77_input").send_keys(Keys.HOME, date)
+            driver.find_element_by_id("buildForm:j_idt83_input").send_keys(Keys.HOME, date)
 
-        driver.find_element_by_id("buildForm:j_idt78").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt78_panel").click()
+        driver.find_element_by_id("buildForm:j_idt84").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt84_panel").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt78_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(170) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector("body").click()
-
-        driver.find_element_by_id("buildForm:j_idt80").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt80_panel").click()
-        driver.find_element_by_css_selector(
-            "#buildForm\:j_idt80_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(86) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt84_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(170) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector("body").click()
 
         driver.find_element_by_id("buildForm:j_idt86").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt86_panel").click()
+        driver.find_element_by_css_selector(
+            "#buildForm\:j_idt86_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(86) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_css_selector("body").click()
+
+        driver.find_element_by_id("buildForm:j_idt92").click()
         time.sleep(3)
-        driver.find_element_by_id("buildForm:j_idt88").click()
+        driver.find_element_by_id("buildForm:j_idt94").click()
         time.sleep(3)
 
         rootpath = 'C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\otchet\\downloads_exel'

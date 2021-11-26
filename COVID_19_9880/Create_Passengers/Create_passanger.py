@@ -51,8 +51,8 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
-        driver.find_element_by_id("tableForm:j_idt74").click()
+        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
+        driver.find_element_by_id("tableForm:j_idt80").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()
         driver.find_element_by_id("itemForm:tabView:lastName").send_keys(u"СаблинПасс89")
@@ -138,8 +138,8 @@ class CreatePassanger(unittest.TestCase):
         #driver.find_element_by_xpath("//button[@id='itemForm:tabView:j_id110']/span[2]").click()
         driver.find_element_by_css_selector("body.main-body").send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id5").click()
-        driver.find_element_by_id("tableForm:j_idt74")
+        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element_by_id("tableForm:j_idt80")
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

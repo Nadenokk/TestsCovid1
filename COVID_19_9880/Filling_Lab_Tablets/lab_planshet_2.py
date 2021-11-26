@@ -53,12 +53,12 @@ class LabPlanshet2(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
 
         driver.find_element_by_css_selector(
-            "#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         driver.find_element_by_css_selector("span.ui-icon.ui-icon-triangle-1-s").click()
         driver.find_element_by_css_selector(
-            "#filtersform\:j_idt79_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_id("filtersform:j_idt81").click()
+            "#filtersform\:j_idt85_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+        driver.find_element_by_id("filtersform:j_idt87").click()
         time.sleep(40)
         driver.find_elements_by_css_selector(
             "#tableForm\:main-table_paginator_bottom > a.ui-paginator-last.ui-state-default.ui-corner-all")[-1].click()
@@ -69,7 +69,7 @@ class LabPlanshet2(unittest.TestCase):
         iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
             0].text
 
-        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(3) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(3) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты. Версия 2.0.\"] > span").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()
@@ -91,7 +91,7 @@ class LabPlanshet2(unittest.TestCase):
         driver.find_element_by_id("barcodeForm:barcode-input").send_keys(Keys.ENTER)
         time.sleep(10)
         assert driver.find_element_by_css_selector("#tabletForm\:tube_1_content > span.content-value").text == iss
-        driver.find_element_by_id("buttonsForm:j_idt85").click()
+        driver.find_element_by_id("buttonsForm:j_idt91").click()
         time.sleep(2)
         #driver.find_element_by_css_selector("#buttonsForm\:j_idt79")
                

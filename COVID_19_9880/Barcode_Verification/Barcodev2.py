@@ -50,10 +50,10 @@ class Barcode2(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt66 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
         #print (driver.find_element_by_css_selector("#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)
-        driver.find_element_by_id("filtersform:j_idt81").click()
+        driver.find_element_by_id("filtersform:j_idt87").click()
         time.sleep(25)
         print (driver.find_element_by_xpath("//span[@class='ui-paginator-current']").text)
         

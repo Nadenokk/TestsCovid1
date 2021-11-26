@@ -78,65 +78,65 @@ class CovidResearchByInstitution(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
-        driver.find_element_by_id("reportsForm:j_idt74:12:j_idt76").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+        driver.find_element_by_id("reportsForm:j_idt80:12:j_idt82").click()
 
         #фильтры
-        driver.find_element_by_id("buildForm:j_idt75_input").click()
-        driver.find_element_by_id("buildForm:j_idt75_input").clear()
-        driver.find_element_by_id("buildForm:j_idt75_input").send_keys("01.08.21 00:00")
-        driver.find_element_by_id("buildForm:j_idt77_input").click()
-        driver.find_element_by_id("buildForm:j_idt77_input").clear()
-        driver.find_element_by_id("buildForm:j_idt77_input").send_keys("16.08.21 23:59")
+        driver.find_element_by_id("buildForm:j_idt81_input").click()
+        driver.find_element_by_id("buildForm:j_idt81_input").clear()
+        driver.find_element_by_id("buildForm:j_idt81_input").send_keys("01.08.21 00:00")
+        driver.find_element_by_id("buildForm:j_idt83_input").click()
+        driver.find_element_by_id("buildForm:j_idt83_input").clear()
+        driver.find_element_by_id("buildForm:j_idt83_input").send_keys("16.08.21 23:59")
 
-        driver.find_element_by_id("buildForm:j_idt81:j_idt84").click()
+        driver.find_element_by_id("buildForm:j_idt87:j_idt90").click()
         time.sleep(2)
-        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").click()
-        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").clear()
-        driver.find_element_by_id("buildForm:j_idt81:j_idt89:j_idt91:0:filter").send_keys("Веселая")
+        driver.find_element_by_id("buildForm:j_idt87:j_idt95:j_idt97:0:filter").click()
+        driver.find_element_by_id("buildForm:j_idt87:j_idt95:j_idt97:0:filter").clear()
+        driver.find_element_by_id("buildForm:j_idt87:j_idt95:j_idt97:0:filter").send_keys("Веселая")
         time.sleep(2)
         # driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
         driver.find_element_by_xpath("//td[contains(text(), 'ООО \"ВЕСЕЛАЯ УЛЫБКА\"')]").click()
-        driver.find_element_by_id("buildForm:j_idt81:j_idt94").click()
+        driver.find_element_by_id("buildForm:j_idt87:j_idt100").click()
 
-        driver.find_element_by_id("buildForm:j_idt97").click()
+        driver.find_element_by_id("buildForm:j_idt103").click()
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt97_panel").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt103_panel").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt97_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
+            "#buildForm\:j_idt103_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt97_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt103_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt97_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt103_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector("body").click()
 
-        driver.find_element_by_id("buildForm:j_idt99").click()
+        driver.find_element_by_id("buildForm:j_idt105").click()
         # driver.find_element_by_id("buildForm:j_idt79_label").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt99_panel").click()
+        driver.find_element_by_css_selector("#buildForm\:j_idt105_panel").click()
         #driver.find_element_by_css_selector(
         #    "#buildForm\:j_idt100_panel > div.ui-widget-header.ui-corner-all.ui-selectcheckboxmenu-header.ui-helper-clearfix > div.ui-chkbox.ui-widget > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active > span").click()
         #time.sleep(2)
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt105_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt105_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(3) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt105_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt105_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(6) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         driver.find_element_by_css_selector(
-            "#buildForm\:j_idt99_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
+            "#buildForm\:j_idt105_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
 
         driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("buildForm:j_idt78").click()
+        driver.find_element_by_id("buildForm:j_idt84").click()
         time.sleep(2)
 
-        assert (driver.find_element_by_id("dataForm:j_idt112").text == "01.08.2021")
-        assert (driver.find_element_by_id("dataForm:j_idt114").text == "16.08.2021")
-        assert (driver.find_element_by_id("dataForm:j_idt116").text == "1, Юго-Западный; ФБУЗ \"Центр гигиены и эпидемиологии в городе Санкт-Петербург\", ул. Оборонная, д. 35")
-        assert (driver.find_element_by_id("dataForm:j_idt118").text == "Определение наличия РНК SARS-CoV-2")
-        assert (driver.find_element_by_id("dataForm:j_idt120").text == "Набор реагентов для выявления РНК коронавируса SARS-CoV-2 методом ОТ-ПЦР в режиме реального времени \"РеалБест РНК SARS-CoV-2\"")
-        assert (driver.find_element_by_id("dataForm:j_idt124").text == "2")
+        assert (driver.find_element_by_id("dataForm:j_idt118").text == "01.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt120").text == "16.08.2021")
+        assert (driver.find_element_by_id("dataForm:j_idt122").text == "1, Юго-Западный; ФБУЗ \"Центр гигиены и эпидемиологии в городе Санкт-Петербург\", ул. Оборонная, д. 35")
+        assert (driver.find_element_by_id("dataForm:j_idt124").text == "Определение наличия РНК SARS-CoV-2")
+        assert (driver.find_element_by_id("dataForm:j_idt126").text == "Набор реагентов для выявления РНК коронавируса SARS-CoV-2 методом ОТ-ПЦР в режиме реального времени \"РеалБест РНК SARS-CoV-2\"")
+        assert (driver.find_element_by_id("dataForm:j_idt130").text == "2")
 
         driver.find_element_by_id("buildForm:exportBtn").click()
         time.sleep(3)
