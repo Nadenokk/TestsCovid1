@@ -75,16 +75,16 @@ class Barcode1(unittest.TestCase):
         driver.find_element_by_css_selector("#filtersform\:barcode-number").send_keys("7800651936")
         driver.find_element_by_css_selector("#filtersform\:barcode-number").send_keys(Keys.ENTER)
         time.sleep(10)
-        driver.find_element_by_id("toolbarform:j_idt73").click()
+        driver.find_element_by_id("toolbarform:j_idt79").click()
         time.sleep(2)
-        driver.find_element_by_id("genForm:j_idt100_input").click()
-        driver.find_element_by_id("genForm:j_idt100_input").clear()
-        driver.find_element_by_id("genForm:j_idt100_input").send_keys("15")
+        driver.find_element_by_id("genForm:j_idt106_input").click()
+        driver.find_element_by_id("genForm:j_idt106_input").clear()
+        driver.find_element_by_id("genForm:j_idt106_input").send_keys("15")
         time.sleep(2)
-        driver.find_element_by_id("genForm:j_idt102").click()
+        driver.find_element_by_id("genForm:j_idt108").click()
         time.sleep(9)
         #driver.find_element_by_css_selector("#growlForm\:growl_container > div.ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-helper-hidden.ui-shadow.ui-growl-info > div > div.ui-growl-message > p")
-        driver.find_element_by_id("filtersform:j_idt81")
+        driver.find_element_by_id("filtersform:j_idt87")
     
               
     def is_element_present(self, how, what):

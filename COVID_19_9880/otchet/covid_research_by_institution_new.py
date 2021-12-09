@@ -143,7 +143,7 @@ class CovidResearchByInstitutionNew(unittest.TestCase):
         str1 = sheet_ranges['A21'].value
         str2 = sheet_ranges['A48'].value
 
-        print(str1)
+
         assert (str1 == "Учреждение, направившее материал: АО \"АТОМПРОЕКТ\"")
 
 
