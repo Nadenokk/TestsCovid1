@@ -10,14 +10,17 @@ import logging, os
 import sys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
 
 class Barcode1(unittest.TestCase):
 
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
-        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
+        self.driver = webdriver.Ie(executable_path='C:/Users/wd10/Desktop/IEDriverServer.exe')
         self.driver.set_window_size(1024, 600)
         self.driver.maximize_window()
         self.driver.implicitly_wait(60)
