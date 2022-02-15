@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import autoit
+import paramiko
+from io import StringIO
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -24,7 +26,23 @@ import os
 import config
 import datetime
 import time
-class Barcode1(unittest.TestCase):
+import io
+class Medspravka(unittest.TestCase):
+
+    def ssh_client(self):
+
+        # Абсолютный путь закрытого ключа
+        private = paramiko.RSAKey.from_private_key_file(r'C:\Users\wd10\PycharmProjects\TestsCov\med\medspr_id_rsa')
+        # Создаем экземпляр
+        ssh = paramiko.SSHClient()
+        # Загрузить системный ключ HostKeys
+        ssh.load_system_host_keys()
+        # Автоматически добавить политику, сохранить имя хоста и ключевую информацию удаленного хоста. Если вы не добавите его, то хост, который не записан в локальном файле know_hosts, не сможет подключиться, и значение по умолчанию будет отклонено
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        # Подключиться к удаленному хосту, пароль здесь не нужен, это файл закрытого ключа
+        ssh.connect('192.168.0.101', port=22, username='admin', pkey=private)
+        # Выполнение заказа
+
 
     def setUp(self):
         options = webdriver.ChromeOptions()
