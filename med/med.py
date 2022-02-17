@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import shutil
+
 import autoit
 import paramiko
 from io import StringIO
@@ -6,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import logging, os
@@ -29,20 +31,6 @@ import time
 import io
 class Medspravka(unittest.TestCase):
 
-    def ssh_client(self):
-
-        # Абсолютный путь закрытого ключа
-        private = paramiko.RSAKey.from_private_key_file(r'C:\Users\wd10\PycharmProjects\TestsCov\med\medspr_id_rsa')
-        # Создаем экземпляр
-        ssh = paramiko.SSHClient()
-        # Загрузить системный ключ HostKeys
-        ssh.load_system_host_keys()
-        # Автоматически добавить политику, сохранить имя хоста и ключевую информацию удаленного хоста. Если вы не добавите его, то хост, который не записан в локальном файле know_hosts, не сможет подключиться, и значение по умолчанию будет отклонено
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        # Подключиться к удаленному хосту, пароль здесь не нужен, это файл закрытого ключа
-        ssh.connect('192.168.0.101', port=22, username='admin', pkey=private)
-        # Выполнение заказа
-
 
     def setUp(self):
         options = webdriver.ChromeOptions()
@@ -59,26 +47,41 @@ class Medspravka(unittest.TestCase):
         autoit.win_activate("Безопасность Windows")
         autoit.send("{TAB}")
         autoit.send("{ENTER}")
+        time.sleep(1)
         driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
 
-        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\vich"
+        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\vichnew"
+        dir_brak = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\defect"
+        dir_good = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\good"
+        dir_bug = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bug"
         names = os.listdir(dir_name)
         for name in names:
-            #print(names)
-            #print(name)
-            #print (dir_name + "\\"+name)
             driver.find_element(By.ID, 'uploadForm1')
             driver.find_element(By.ID, 'uploadFile').send_keys(dir_name + "\\"+name)
-            time.sleep(1)
+            #time.sleep(1)
             driver.find_element(By.XPATH, '//input[@value="Загрузить"]').click()
-            #button = driver.find_element(By.XPATH, '//input[@type="file"]').click()
-            #button.sendFile("C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\ВИЧ_серт_шаблон_загрузка_медсправка.xml")
-            time.sleep(3)
-            driver.find_element(By.XPATH, '//input[@id="submitForm"]').click()
-            autoit.win_wait("Безопасность Windows")
-            autoit.win_activate("Безопасность Windows")
-            autoit.send("{TAB}")
-            autoit.send("{ENTER}")
-            driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
+            try:
+                # с ошибкой
+                if driver.find_element(By.XPATH, "//*[contains(@id,'submitForm') and contains(@style, 'not-allowed')]"):
+                    shutil.copy(dir_name + "\\" + name, dir_bug + "\\" + name)
+            except NoSuchElementException:
+                try:
+                    # успешные
+                    driver.find_element(By.XPATH, "//input[@id='submitForm']").click()
+                    autoit.win_wait("Безопасность Windows")
+                    autoit.win_activate("Безопасность Windows")
+                    autoit.send("{TAB}")
+                    autoit.send("{ENTER}")
+                    driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
+                    shutil.copy(dir_name + "\\" + name, dir_good + "\\" + name)
+                except ElementNotVisibleException:
+                    #брак
+                    driver.find_element(By.XPATH, "//input[@id='submitForm1']").click()
+                    autoit.win_wait("Безопасность Windows")
+                    autoit.win_activate("Безопасность Windows")
+                    autoit.send("{TAB}")
+                    autoit.send("{ENTER}")
+                    shutil.copy(dir_name + "\\" + name, dir_brak + "\\" + name)
+                    driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
+                    driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
         driver.close()
-
