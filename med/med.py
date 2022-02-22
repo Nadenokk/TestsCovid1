@@ -50,20 +50,36 @@ class Medspravka(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
 
-        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\vichnew"
+        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bugnew"
         dir_brak = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\defect"
         dir_good = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\good"
         dir_bug = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bug"
         names = os.listdir(dir_name)
+        count = len(names)
+        print('Всего протоколов ', count)
         for name in names:
+            print(name)
             driver.find_element(By.ID, 'uploadForm1')
             driver.find_element(By.ID, 'uploadFile').send_keys(dir_name + "\\"+name)
-            #time.sleep(1)
+            time.sleep(1)
             driver.find_element(By.XPATH, '//input[@value="Загрузить"]').click()
+            time.sleep(2)
             try:
                 # с ошибкой
                 if driver.find_element(By.XPATH, "//*[contains(@id,'submitForm') and contains(@style, 'not-allowed')]"):
-                    shutil.copy(dir_name + "\\" + name, dir_bug + "\\" + name)
+                    try:
+                        driver.find_element(By.XPATH, "//input[@id='submitForm1']").click()
+                        print("1!!!!!!")
+                        autoit.win_wait("Безопасность Windows")
+                        autoit.win_activate("Безопасность Windows")
+                        autoit.send("{TAB}")
+                        autoit.send("{ENTER}")
+                        shutil.copy(dir_name + "\\" + name, dir_brak + "\\" + name)
+                        driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
+                        driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
+                    except ElementNotVisibleException:
+                        print("!!!!!!")
+                        shutil.copy(dir_name + "\\" + name, dir_bug + "\\" + name)
             except NoSuchElementException:
                 try:
                     # успешные
@@ -84,4 +100,7 @@ class Medspravka(unittest.TestCase):
                     shutil.copy(dir_name + "\\" + name, dir_brak + "\\" + name)
                     driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
                     driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
+
+            count = count - 1
+            print('Осталось загрузить ', count)
         driver.close()

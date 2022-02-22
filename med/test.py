@@ -56,7 +56,7 @@ class Medspravka(unittest.TestCase):
         self.driver = webdriver.Ie()
 
     def test_medspravka(self):
-        sftp_get(ip='31.187.96.100', user="nadya", remote_file="/home/nadya/namepapka/2221234567890.XML",
+        sftp_get(ip='31.187.96.100', user="nadya", remote_file="/home/nadya/namepapka/s2221234567890.XML",
                  local_file=r'C:\Users\wd10\PycharmProjects\TestsCov\med\vichnewssh\my2221234567890.XML')
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
@@ -80,7 +80,6 @@ class Medspravka(unittest.TestCase):
             # time.sleep(1)
             driver.find_element(By.XPATH, '//input[@value="Загрузить"]').click()
             # button = driver.find_element(By.XPATH, '//input[@type="file"]').click()
-            # button.sendFile("C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\ВИЧ_серт_шаблон_загрузка_медсправка.xml")
             # time.sleep(3)
             driver.find_element(By.XPATH, '//input[@id="submitForm"]').click()
             autoit.win_wait("Безопасность Windows")
