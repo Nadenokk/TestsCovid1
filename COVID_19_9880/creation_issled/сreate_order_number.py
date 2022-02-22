@@ -48,7 +48,7 @@ class CreateOrderNumber(unittest.TestCase):
     def test_create_order_number(self):
         driver = self.driver
         # driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
         driver.find_element_by_id("form:usernameInput").send_keys("supervisor")

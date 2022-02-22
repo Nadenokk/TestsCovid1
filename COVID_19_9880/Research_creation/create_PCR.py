@@ -43,7 +43,7 @@ class CreatePCR(unittest.TestCase):
     def test_create_pcr(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -144,8 +144,8 @@ class CreatePCR(unittest.TestCase):
 
         driver.find_element_by_id("itemForm:tabView:city_input").click()
         driver.find_element_by_id("itemForm:tabView:city_input").clear()
-        driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Ярослав")
-        driver.find_element_by_xpath("//span[@id='itemForm:tabView:city_panel']/ul[1]/li[1]/span").click()
+        driver.find_element_by_id("itemForm:tabView:city_input").send_keys(u"Ярославль"+Keys.TAB)
+        #driver.find_element_by_xpath("//span[@id='itemForm:tabView:city_panel']/ul[1]/li[1]/span").click()
         #driver.find_element_by_css_selector("span.ui-autocomplete-query").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").click()
         driver.find_element_by_id("itemForm:tabView:homeAddressStreet_input").clear()
@@ -183,8 +183,8 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:tabView:workAddressRegion_1").click()
         driver.find_element_by_id("itemForm:tabView:workAddressCity_input").click()
         driver.find_element_by_id("itemForm:tabView:workAddressCity_input").clear()
-        driver.find_element_by_id("itemForm:tabView:workAddressCity_input").send_keys(u"Яросла")
-        driver.find_element_by_xpath("//span[@id='itemForm:tabView:workAddressCity_panel']/ul/li/span").click()
+        driver.find_element_by_id("itemForm:tabView:workAddressCity_input").send_keys(u"Ярославль"+Keys.TAB)
+        #driver.find_element_by_xpath("//span[@id='itemForm:tabView:workAddressCity_panel']/ul/li/span").click()
         driver.find_element_by_id("itemForm:tabView:workAddressStreet_input").click()
         driver.find_element_by_id("itemForm:tabView:workAddressStreet_input").clear()
         driver.find_element_by_id("itemForm:tabView:workAddressStreet_input").send_keys(u"Мира")
