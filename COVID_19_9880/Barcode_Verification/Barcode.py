@@ -20,7 +20,7 @@ class Barcode1(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")	
-        self.driver = webdriver.Ie(executable_path='C:/Users/wd10/Desktop/IEDriverServer.exe')
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
         self.driver.set_window_size(1024, 600)
         self.driver.maximize_window()
         self.driver.implicitly_wait(60)
