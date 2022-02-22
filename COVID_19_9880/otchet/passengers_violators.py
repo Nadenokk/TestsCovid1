@@ -68,7 +68,7 @@ class PassengersViolators(unittest.TestCase):
     def test_passengers_violators(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -78,7 +78,7 @@ class PassengersViolators(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(14) > a > div").click()
         driver.find_element_by_id("reportsForm:j_idt80:18:j_idt82").click()
 
         #фильтры

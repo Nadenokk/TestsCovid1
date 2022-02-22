@@ -68,7 +68,7 @@ class CovidResearchByInstitutionNew(unittest.TestCase):
     def test_covid_research_by_institution_new(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -78,7 +78,7 @@ class CovidResearchByInstitutionNew(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(14) > a > div").click()
         driver.find_element_by_id("reportsForm:j_idt80:2:j_idt82").click()
 
         #фильтры
@@ -94,8 +94,8 @@ class CovidResearchByInstitutionNew(unittest.TestCase):
         driver.find_element_by_id("buildForm:j_idt84").click()
         time.sleep(2)
         #driver.find_element_by_id("buildForm:j_idt79_label").click()
-        driver.find_element_by_css_selector("#buildForm\:j_idt84_panel").click()
-        time.sleep(5)
+        #driver.find_element_by_css_selector("#buildForm\:j_idt84_panel").click()
+        #time.sleep(5)
         driver.find_element_by_css_selector(
             "#buildForm\:j_idt84_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(39) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
         # driver.find_element_by_css_selector("#buildForm\:j_idt79_panel").click()

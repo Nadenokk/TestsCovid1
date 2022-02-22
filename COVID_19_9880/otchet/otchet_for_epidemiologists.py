@@ -68,7 +68,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
     def test_otchet_for_epidemiologists(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         # driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -78,7 +78,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(13) > a > div").click()
+            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(14) > a > div").click()
         driver.find_element_by_id("reportsForm:j_idt80:8:j_idt82").click()
 
         #фильтры
@@ -105,7 +105,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("buildForm:j_idt94:j_idt102:j_idt104:0:filter").click()
         driver.find_element_by_id("buildForm:j_idt94:j_idt102:j_idt104:0:filter").clear()
-        driver.find_element_by_id("buildForm:j_idt94:j_idt102:j_idt104:0:filter").send_keys("ГЭ")
+        driver.find_element_by_id("buildForm:j_idt94:j_idt102:j_idt104:0:filter").send_keys("ГЭ"+Keys.ENTER)
         time.sleep(2)
         #driver.find_element_by_id("buildForm:j_idt89:j_idt96").click()
         driver.find_element_by_xpath("//td[contains(text(), 'ООО \"ГЭК\"')]").click()

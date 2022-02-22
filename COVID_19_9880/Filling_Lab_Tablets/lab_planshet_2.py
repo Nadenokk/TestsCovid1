@@ -42,7 +42,7 @@ class LabPlanshet2(unittest.TestCase):
     def test_lab_planshet(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
-        driver.get("http://rpn19.ru:9880/business/dashboard/dashboard.xhtml")
+        driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -69,7 +69,7 @@ class LabPlanshet2(unittest.TestCase):
         iss = driver.find_elements_by_css_selector("#tableForm\:main-table_data > tr:nth-child(1) > td:nth-child(3)")[
             0].text
 
-        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(3) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(4) > a > div").click()
         driver.find_element_by_css_selector(u"a[title=\"Лабораторные планшеты. Версия 2.0.\"] > span").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()
         #driver.find_element_by_id("barcodeForm:j_idt97").click()
