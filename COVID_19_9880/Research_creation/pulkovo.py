@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class CreatePCR(unittest.TestCase):
+class CreatePulcovo(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
@@ -46,7 +46,7 @@ class CreatePCR(unittest.TestCase):
     def test_create_antitel(self):
         self.genlog()
     '''
-    def test_create_pcr(self):
+    def test_create_pulcovo(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")

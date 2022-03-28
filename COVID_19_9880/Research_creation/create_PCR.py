@@ -273,6 +273,7 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_id("itemForm:j_id5").click()
         driver.find_element_by_css_selector("div > div > div.ui-growl-message > p")
         time.sleep(5)
+        '''
         driver.find_element_by_id("itemForm:j_id12_button").click()
         driver.find_element_by_id("itemForm:j_id12_menu").click()
         time.sleep(2)
@@ -284,6 +285,7 @@ class CreatePCR(unittest.TestCase):
         driver.find_element_by_css_selector("#itemForm\:j_id22").click()
         time.sleep(2)
         time.sleep(2)
+        '''
 
         driver.find_element_by_xpath(
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()

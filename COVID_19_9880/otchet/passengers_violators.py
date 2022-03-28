@@ -79,7 +79,7 @@ class PassengersViolators(unittest.TestCase):
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
             "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(14) > a > div").click()
-        driver.find_element_by_id("reportsForm:j_idt80:18:j_idt82").click()
+        driver.find_element_by_id("reportsForm:j_idt80:20:j_idt82").click()
 
         #фильтры
         driver.find_element_by_id("buildForm:j_idt81_input").click()

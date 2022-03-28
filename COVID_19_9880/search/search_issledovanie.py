@@ -167,7 +167,7 @@ class SearchIssled(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt241:j_idt243:filter").click()
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt241:j_idt243:filter").clear()
-        driver.find_element_by_id("selectSendInstitutionsForm:j_idt241:j_idt243:filter").send_keys("Хеликс")
+        driver.find_element_by_id("selectSendInstitutionsForm:j_idt241:j_idt243:filter").send_keys("Хеликс" + Keys.ENTER)
         time.sleep(2)
         driver.find_element_by_xpath("//td[contains(text(), '7802122535')]").click()
         driver.find_element_by_id("selectSendInstitutionsForm:j_idt253").click()
@@ -204,7 +204,7 @@ class SearchIssled(unittest.TestCase):
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "1Ц318971"
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(9) + "]").text == "Добровольцы"
-
+        '''
         #по результату исследования
         driver.find_element_by_css_selector(
             "#filtersForm\:j_idt170 > ul.ui-selectcheckboxmenu-multiple-container.ui-widget.ui-inputfield.ui-state-default.ui-corner-all > li:nth-child(1) > span").click()
@@ -245,6 +245,7 @@ class SearchIssled(unittest.TestCase):
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(2) + "]/td[" + str(2) + "]").text == "821Ч4090034"
         assert driver.find_element_by_xpath(
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(3) + "]/td[" + str(2) + "]").text == "821Ч4090173"
+        '''
 
 
 
