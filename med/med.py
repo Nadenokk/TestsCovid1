@@ -50,10 +50,10 @@ class Medspravka(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
 
-        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bugnew"
+        dir_name = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bug"
         dir_brak = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\defect"
         dir_good = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\good"
-        dir_bug = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bug"
+        dir_bug = "C:\\Users\\wd10\\PycharmProjects\\TestsCov\\med\\bugnew"
         names = os.listdir(dir_name)
         count = len(names)
         print('Всего протоколов ', count)
@@ -66,10 +66,10 @@ class Medspravka(unittest.TestCase):
             time.sleep(2)
             try:
                 # с ошибкой
-                if driver.find_element(By.XPATH, "//*[contains(@id,'submitForm') and contains(@style, 'not-allowed')]"):
+                if driver.find_element(By.XPATH, "//input[@id='submitForm' and contains(@style, 'not-allowed')]"):
                     try:
                         driver.find_element(By.XPATH, "//input[@id='submitForm1']").click()
-                        print("1!!!!!!")
+                        print("брак, но нашел первую кнопку невидимой")
                         autoit.win_wait("Безопасность Windows")
                         autoit.win_activate("Безопасность Windows")
                         autoit.send("{TAB}")
@@ -78,7 +78,7 @@ class Medspravka(unittest.TestCase):
                         driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
                         driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
                     except ElementNotVisibleException:
-                        print("!!!!!!")
+                        print("!!!!!! нашел элемент невидимым и не кликнул на второй элемент ")
                         shutil.copy(dir_name + "\\" + name, dir_bug + "\\" + name)
             except NoSuchElementException:
                 try:
@@ -91,7 +91,7 @@ class Medspravka(unittest.TestCase):
                     driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
                     shutil.copy(dir_name + "\\" + name, dir_good + "\\" + name)
                 except ElementNotVisibleException:
-                    #брак
+                    # брак
                     driver.find_element(By.XPATH, "//input[@id='submitForm1']").click()
                     autoit.win_wait("Безопасность Windows")
                     autoit.win_activate("Безопасность Windows")

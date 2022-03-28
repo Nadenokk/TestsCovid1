@@ -34,6 +34,7 @@ def sftp_get(ip, user, local_file,remote_file, port=443):
         sftp = paramiko.SFTPClient.from_transport(t)
 
         yesterday = time.strftime('%d%m%Y', time.gmtime(time.time() - 86400))
+        yesterdayd= time.strftime('%d%m%Y', time.gmtime(time.time() - 86400))
         yestermonth = time.strftime('%m%Y', time.gmtime(time.time() - 86400))
         files = sftp.listdir(remote_file + '/' + yestermonth + '/' + yesterday)
         print (files)
@@ -102,7 +103,7 @@ if __name__ == '__main__':
         driver.find_element(By.XPATH, '//input[@value="Загрузить"]').click()
         try:
             # с ошибкой
-            if driver.find_element(By.XPATH, "//*[contains(@id,'submitForm') and contains(@style, 'not-allowed')]"):
+            if driver.find_element(By.XPATH, "//input[@id='submitForm' and contains(@style, 'not-allowed')]"):
                 try:
                     driver.find_element(By.XPATH, "//input[@id='submitForm1']").click()
                     print("брак, но нашел первую кнопку невидимой")
@@ -114,7 +115,7 @@ if __name__ == '__main__':
                     driver.find_element(By.XPATH, "//div[@id='msgSendResult']/a").click()
                     driver.find_element(By.XPATH, "//div[@id='usual']/a[2]").click()
                 except ElementNotVisibleException:
-                    print("!!!!!! нашел элемент невидимым и не кликнул на первый элемент ")
+                    print("!!!!!! нашел элемент невидимым и не кликнул на второй элемент ")
                     shutil.copy(dir_name + "\\" + name, dir_bug + "\\" + name)
         except NoSuchElementException:
             try:
