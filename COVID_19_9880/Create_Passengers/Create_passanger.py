@@ -51,7 +51,7 @@ class CreatePassanger(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
+        driver.find_element_by_css_selector("#j_idt71 > div.nano.layout-tabmenu-nav > ul > li:nth-child(7) > a > div").click()
         driver.find_element_by_id("tableForm:j_idt80").click()
         driver.find_element_by_id("itemForm:tabView:lastName").click()
         driver.find_element_by_id("itemForm:tabView:lastName").clear()

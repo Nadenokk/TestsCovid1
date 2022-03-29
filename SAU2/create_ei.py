@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest, time
 import random
 import string
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import datetime
+
 class CreateEi(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
@@ -29,9 +26,8 @@ class CreateEi(unittest.TestCase):
     
     def test_create_ei(self):
         driver = self.driver
-        # Label: Test
-        # ERROR: Caught exception [ERROR: Unsupported command [resizeWindow | 1920,937 | ]]
         driver.get("http://sau.rpn19.ru:11080/business/dashboard/dashboard.xhtml#")
+        now = datetime.datetime.now()
         driver.find_element_by_id("form:usernameInput").click()
         driver.find_element_by_id("form:passwordInput").clear()
         driver.find_element_by_id("form:usernameInput").clear()
@@ -97,7 +93,7 @@ class CreateEi(unittest.TestCase):
         driver.find_element_by_id("tableFieldItemForm:comment").clear()
         driver.find_element_by_id("tableFieldItemForm:comment").send_keys(u"Динозаврик")
         driver.find_element_by_xpath("//button[@id='tableFieldItemForm:j_idt205']/span").click()
-        time.sleep(2)
+        time.sleep(3)
         driver.find_element_by_xpath("//button[@id='j_idt78:j_idt97:tf_contactTableList_add']/span[2]").click()
         driver.find_element_by_id("tableFieldItemForm:data").click()
         driver.find_element_by_id("tableFieldItemForm:data").clear()
@@ -284,7 +280,7 @@ class CreateEi(unittest.TestCase):
         time.sleep(1)
         driver.find_element_by_id("tableFieldItemForm2:dischargeDate_input").click()
         driver.find_element_by_id("tableFieldItemForm2:dischargeDate_input").clear()
-        driver.find_element_by_id("tableFieldItemForm2:dischargeDate_input").send_keys("28.03.2022")
+        driver.find_element_by_id("tableFieldItemForm2:dischargeDate_input").send_keys(now.strftime("%d.%m.%Y"))
         driver.find_element_by_id("tableFieldItemForm2:j_idt207_content").click()
         driver.find_element_by_id("tableFieldItemForm2:treatmentOutcome_label").click()
         driver.find_element_by_id("tableFieldItemForm2:treatmentOutcome_1").click()
@@ -431,8 +427,10 @@ class CreateEi(unittest.TestCase):
         driver.find_element_by_id("tableFieldItemForm2:dose2").send_keys("1")
         driver.find_element_by_xpath("//button[@id='tableFieldItemForm2:saveTableButton2']/span").click()
         driver.find_element_by_link_text(u"Служебные поля").click()
+        numberIss = driver.find_element_by_id("j_idt78:docNumber").get_attribute("value")
         driver.find_element_by_xpath("//button[@id='j_idt78:j_idt81']/span").click()
         time.sleep(4)
+        assert (driver.find_element_by_id("dialogForm:j_idt209_content").text) == "Эпидемиологический номер " + numberIss + " присвоен пациенту"
         driver.find_element_by_xpath("//button[@id='dialogForm:j_idt211']/span").click()
     
     def is_element_present(self, how, what):

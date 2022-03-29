@@ -78,7 +78,7 @@ class OtchetForEpidemiologists(unittest.TestCase):
         driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
         driver.find_element_by_css_selector(
-            "#j_idt72 > div.nano.layout-tabmenu-nav > ul > li:nth-child(14) > a > div").click()
+            "#j_idt71 > div.nano.layout-tabmenu-nav > ul > li:nth-child(15) > a > div").click()
         driver.find_element_by_id("reportsForm:j_idt80:10:j_idt82").click()
 
         #фильтры
