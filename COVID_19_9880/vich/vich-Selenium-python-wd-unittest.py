@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+
+import unittest, time
 import random
 class Vich(unittest.TestCase):
     def setUp(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
-        self.driver = webdriver.Chrome("C:/Users/user/Desktop/test/chromedriver.exe")
+        self.driver = webdriver.Chrome("C:/Users/user/Downloads/chromedriver.exe")
         self.driver.set_window_size(1024, 600)
         self.driver.maximize_window()
         self.driver.implicitly_wait(60)
@@ -25,8 +22,6 @@ class Vich(unittest.TestCase):
 
     def test_vich(self):
         driver = self.driver
-        # Label: Test
-        # ERROR: Caught exception [ERROR: Unsupported command [resizeWindow | 1920,937 | ]]
         number=self.generate_random_cel()
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
         driver.find_element(By.ID,"form:usernameInput").click()
