@@ -53,7 +53,7 @@ class CreatePublic(unittest.TestCase):
 
             driver = self.driver
             #driver.get("http://195.19.96.255:8981")
-            driver.get("http://rpn19.ru:9880")
+            driver.get("https://pub.rpn19.ru/forms/35")
             driver.refresh()
             driver.find_element_by_id("Familiya_").click()
             driver.find_element_by_id("Familiya_").clear()
