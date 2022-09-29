@@ -28,6 +28,9 @@ from otchet.otchet_for_epidemiologists import OtchetForEpidemiologists
 from otchet.passengers_violators import PassengersViolators
 from search.search_issledovanie import SearchIssled
 from Research_creation.pulkovo import CreatePulcovo
+from vich.vich_sert import Vich
+from vich.vich_negative import Vich3
+from vich.positiv_VICH import Vich2
 # Get all tests
 tc1 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitellGg)
 tc2 = unittest.TestLoader().loadTestsFromTestCase(CreateAntitellGglGm)
@@ -49,17 +52,20 @@ tc16 = unittest.TestLoader().loadTestsFromTestCase(LabPlanshet3)
 tc18 = unittest.TestLoader().loadTestsFromTestCase(EditTablet)
 tc19 = unittest.TestLoader().loadTestsFromTestCase(NewTablet)
 tc20 = unittest.TestLoader().loadTestsFromTestCase(DownloadDTVector)
-tc21 = unittest.TestLoader().loadTestsFromTestCase(CreateOrder)
+#tc21 = unittest.TestLoader().loadTestsFromTestCase(CreateOrder)
 #tc22 = unittest.TestLoader().loadTestsFromTestCase(CreateOrderNumber)
-#tc23 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitution)
+tc23 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitution)
 tc24 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitutionNew)
 tc25 = unittest.TestLoader().loadTestsFromTestCase(CovidResearchByInstitutionNewBySections)
 tc26 = unittest.TestLoader().loadTestsFromTestCase(OtchetForEpidemiologists)
 tc27 = unittest.TestLoader().loadTestsFromTestCase(PassengersViolators)
-tc28 = unittest.TestLoader().loadTestsFromTestCase(SearchIssled)
+#tc28 = unittest.TestLoader().loadTestsFromTestCase(SearchIssled)
 tc30 = unittest.TestLoader().loadTestsFromTestCase(CreatePulcovo)
+tc31 = unittest.TestLoader().loadTestsFromTestCase(Vich)
+tc32 = unittest.TestLoader().loadTestsFromTestCase(Vich3)
+tc33 = unittest.TestLoader().loadTestsFromTestCase(Vich2)
 # Create a test suite combining
 smokeTest = unittest.TestSuite([tc1, tc2, tc3, tc4, tc5, tc6, tc7, tc8, tc9, tc10, tc11, tc12, tc13, tc14, tc15,
-                                 tc16, tc18, tc19, tc20, tc21, tc24, tc25, tc26, tc27, tc28, tc30])
+                                 tc16, tc18, tc19, tc20, tc23, tc24, tc25, tc26, tc27, tc30, tc31, tc32, tc33])
 smokeTest._cleanup = False
 unittest.TextTestRunner(verbosity=2).run(smokeTest)

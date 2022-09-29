@@ -58,139 +58,139 @@ class Cart(unittest.TestCase):
     def test_create_cart(self):
         driver = self.driver
         driver.get("http://auraep.ru:8180/business/dashboard/dashboard.xhtml")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("supervisor")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("supervisor")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
 
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(2) > a").click()
-        driver.find_element_by_id("toolbarform:j_idt73").click()
-        driver.find_element_by_id("itemForm:tabView:name").click()
-        driver.find_element_by_id("itemForm:tabView:name").clear()
+        driver.find_element(By.ID,"toolbarform:j_idt73").click()
+        driver.find_element(By.ID,"itemForm:tabView:name").click()
+        driver.find_element(By.ID,"itemForm:tabView:name").clear()
         name=self.generate_random_string()
-        driver.find_element_by_id("itemForm:tabView:name").send_keys(name)
-        driver.find_element_by_id("itemForm:tabView:startDate_input").click()
-        #driver.find_element_by_id("itemForm:tabView:startDate_input").clear()
+        driver.find_element(By.ID,"itemForm:tabView:name").send_keys(name)
+        driver.find_element(By.ID,"itemForm:tabView:startDate_input").click()
+        #driver.find_element(By.ID,"itemForm:tabView:startDate_input").clear()
         for date in "1202.80.30":
-            driver.find_element_by_id("itemForm:tabView:startDate_input").send_keys(Keys.HOME, date)
+            driver.find_element(By.ID,"itemForm:tabView:startDate_input").send_keys(Keys.HOME, date)
         time.sleep(2)
-        driver.find_element_by_css_selector("body").click()
-        driver.find_element_by_id("itemForm:tabView:finishDate_input").click()
-        driver.find_element_by_id("itemForm:tabView:finishDate_input").clear()
+        driver.find_element(By.CSS_SELECTOR,"body").click()
+        driver.find_element(By.ID,"itemForm:tabView:finishDate_input").click()
+        driver.find_element(By.ID,"itemForm:tabView:finishDate_input").clear()
         for date in "2202.80.30":
-            driver.find_element_by_id("itemForm:tabView:finishDate_input").send_keys(Keys.HOME, date)
+            driver.find_element(By.ID,"itemForm:tabView:finishDate_input").send_keys(Keys.HOME, date)
         time.sleep(2)
 
-        driver.find_element_by_css_selector("#itemForm\:tabView\:projectManager_label").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:projectManager_items").click()
-        driver.find_element_by_id("itemForm:tabView:projectManager_3").click()
+        driver.find_element(By.CSS_SELECTOR,"#itemForm\:tabView\:projectManager_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#itemForm\:tabView\:projectManager_items").click()
+        driver.find_element(By.ID,"itemForm:tabView:projectManager_3").click()
 
-        driver.find_element_by_id("itemForm:tabView:categories").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:categories_panel").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"itemForm:tabView:categories").click()
+        driver.find_element(By.CSS_SELECTOR,"#itemForm\:tabView\:categories_panel").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#itemForm\:tabView\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#itemForm\:tabView\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(5) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#itemForm\:tabView\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(7) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector("body").click()
+        driver.find_element(By.CSS_SELECTOR,"body").click()
 
-        driver.find_element_by_css_selector("#itemForm\:tabView\:projectPlan_label").click()
-        driver.find_element_by_css_selector("#itemForm\:tabView\:projectPlan_items").click()
-        driver.find_element_by_id("itemForm:tabView:projectPlan_3").click()
+        driver.find_element(By.CSS_SELECTOR,"#itemForm\:tabView\:projectPlan_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#itemForm\:tabView\:projectPlan_items").click()
+        driver.find_element(By.ID,"itemForm:tabView:projectPlan_3").click()
 
-        driver.find_element_by_id("itemForm:tabView:description").click()
-        driver.find_element_by_id("itemForm:tabView:description").clear()
-        driver.find_element_by_id("itemForm:tabView:description").send_keys("Описание")
+        driver.find_element(By.ID,"itemForm:tabView:description").click()
+        driver.find_element(By.ID,"itemForm:tabView:description").clear()
+        driver.find_element(By.ID,"itemForm:tabView:description").send_keys("Описание")
 
-        driver.find_element_by_id("itemForm:tabView:foldersTemplateName").click()
-        driver.find_element_by_id("itemForm:tabView:foldersTemplateName").clear()
-        driver.find_element_by_id("itemForm:tabView:foldersTemplateName").send_keys("Шаблон")
-        driver.find_element_by_xpath(
+        driver.find_element(By.ID,"itemForm:tabView:foldersTemplateName").click()
+        driver.find_element(By.ID,"itemForm:tabView:foldersTemplateName").clear()
+        driver.find_element(By.ID,"itemForm:tabView:foldersTemplateName").send_keys("Шаблон")
+        driver.find_element(By.XPATH,
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("itemForm:tabView:plannedBudget").click()
-        driver.find_element_by_id("itemForm:tabView:plannedBudget").clear()
-        driver.find_element_by_id("itemForm:tabView:plannedBudget").send_keys("500")
-        driver.find_element_by_id("itemForm:tabView:financialProjectNumber").click()
-        driver.find_element_by_id("itemForm:tabView:financialProjectNumber").clear()
-        driver.find_element_by_id("itemForm:tabView:financialProjectNumber").send_keys("1")
-        driver.find_element_by_id("itemForm:tabView:tf_income_add").click()
-        driver.find_element_by_id("tableFieldItemForm:date_input").click()
-        driver.find_element_by_id("tableFieldItemForm:date_input").clear()
+        driver.find_element(By.ID,"itemForm:tabView:plannedBudget").click()
+        driver.find_element(By.ID,"itemForm:tabView:plannedBudget").clear()
+        driver.find_element(By.ID,"itemForm:tabView:plannedBudget").send_keys("500")
+        driver.find_element(By.ID,"itemForm:tabView:financialProjectNumber").click()
+        driver.find_element(By.ID,"itemForm:tabView:financialProjectNumber").clear()
+        driver.find_element(By.ID,"itemForm:tabView:financialProjectNumber").send_keys("1")
+        driver.find_element(By.ID,"itemForm:tabView:tf_income_add").click()
+        driver.find_element(By.ID,"tableFieldItemForm:date_input").click()
+        driver.find_element(By.ID,"tableFieldItemForm:date_input").clear()
         for date in "2202.80.30":
-            driver.find_element_by_id("tableFieldItemForm:date_input").send_keys(Keys.HOME, date)
+            driver.find_element(By.ID,"tableFieldItemForm:date_input").send_keys(Keys.HOME, date)
         time.sleep(2)
 
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("tableFieldItemForm:moneyFlow_selectBtn").click()
+        driver.find_element(By.ID,"tableFieldItemForm:moneyFlow_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_css_selector("#tableForm").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
 
-        driver.find_element_by_id("tableFieldItemForm:description").click()
-        driver.find_element_by_id("tableFieldItemForm:description").clear()
-        driver.find_element_by_id("tableFieldItemForm:description").send_keys("Комментарий")
+        driver.find_element(By.ID,"tableFieldItemForm:description").click()
+        driver.find_element(By.ID,"tableFieldItemForm:description").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:description").send_keys("Комментарий")
 
-        driver.find_element_by_id("tableFieldItemForm:plan").click()
-        driver.find_element_by_id("tableFieldItemForm:plan").clear()
-        driver.find_element_by_id("tableFieldItemForm:plan").send_keys("1")
+        driver.find_element(By.ID,"tableFieldItemForm:plan").click()
+        driver.find_element(By.ID,"tableFieldItemForm:plan").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:plan").send_keys("1")
 
-        driver.find_element_by_id("tableFieldItemForm:fact").click()
-        driver.find_element_by_id("tableFieldItemForm:fact").clear()
-        driver.find_element_by_id("tableFieldItemForm:fact").send_keys("1")
-        driver.find_element_by_id("tableFieldItemForm:saveTableButton").click()
+        driver.find_element(By.ID,"tableFieldItemForm:fact").click()
+        driver.find_element(By.ID,"tableFieldItemForm:fact").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:fact").send_keys("1")
+        driver.find_element(By.ID,"tableFieldItemForm:saveTableButton").click()
 
-        driver.find_element_by_id("itemForm:tabView:tf_outcome_add").click()
+        driver.find_element(By.ID,"itemForm:tabView:tf_outcome_add").click()
         time.sleep(2)
-        driver.find_element_by_id("tableFieldItemForm:date_input").click()
-        driver.find_element_by_id("tableFieldItemForm:date_input").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:date_input").click()
+        driver.find_element(By.ID,"tableFieldItemForm:date_input").clear()
         for date in "2202.80.30":
-            driver.find_element_by_id("tableFieldItemForm:date_input").send_keys(Keys.HOME, date)
+            driver.find_element(By.ID,"tableFieldItemForm:date_input").send_keys(Keys.HOME, date)
         time.sleep(2)
 
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("tableFieldItemForm:moneyFlow_selectBtn").click()
+        driver.find_element(By.ID,"tableFieldItemForm:moneyFlow_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_css_selector("#tableForm").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
 
-        driver.find_element_by_id("tableFieldItemForm:description").click()
-        driver.find_element_by_id("tableFieldItemForm:description").clear()
-        driver.find_element_by_id("tableFieldItemForm:description").send_keys("Комментарий")
+        driver.find_element(By.ID,"tableFieldItemForm:description").click()
+        driver.find_element(By.ID,"tableFieldItemForm:description").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:description").send_keys("Комментарий")
 
-        driver.find_element_by_id("tableFieldItemForm:plan").click()
-        driver.find_element_by_id("tableFieldItemForm:plan").clear()
-        driver.find_element_by_id("tableFieldItemForm:plan").send_keys("1")
+        driver.find_element(By.ID,"tableFieldItemForm:plan").click()
+        driver.find_element(By.ID,"tableFieldItemForm:plan").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:plan").send_keys("1")
 
-        driver.find_element_by_id("tableFieldItemForm:fact").click()
-        driver.find_element_by_id("tableFieldItemForm:fact").clear()
-        driver.find_element_by_id("tableFieldItemForm:fact").send_keys("1")
-        driver.find_element_by_id("tableFieldItemForm:saveTableButton").click()
-        driver.find_element_by_id("itemForm:tabView:j_id72").click()
-        driver.find_element_by_id("toolbarform:j_idt73")
-        driver.find_element_by_id("tableForm:main-table:j_id11").click()
-        driver.find_element_by_id("tableForm:main-table:j_id11").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id11").send_keys(name)
+        driver.find_element(By.ID,"tableFieldItemForm:fact").click()
+        driver.find_element(By.ID,"tableFieldItemForm:fact").clear()
+        driver.find_element(By.ID,"tableFieldItemForm:fact").send_keys("1")
+        driver.find_element(By.ID,"tableFieldItemForm:saveTableButton").click()
+        driver.find_element(By.ID,"itemForm:tabView:j_id72").click()
+        driver.find_element(By.ID,"toolbarform:j_idt73")
+        driver.find_element(By.ID,"tableForm:main-table:j_id11").click()
+        driver.find_element(By.ID,"tableForm:main-table:j_id11").clear()
+        driver.find_element(By.ID,"tableForm:main-table:j_id11").send_keys(name)
         time.sleep(2)
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == name
 
 

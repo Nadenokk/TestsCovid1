@@ -64,125 +64,125 @@ class BankDetails(unittest.TestCase):
     def test_bank_details(self):
         driver = self.driver
         driver.get("http://auraep.ru:8180/business/dashboard/dashboard.xhtml")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("tuilp")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("tuilp")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("tuilp")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("tuilp")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
 
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Реестр клиентов\"] > span").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Реестр клиентов\"] > span").click()
         #Юридическое лицо
-        driver.find_element_by_id("tableForm:j_idt74").click()
-        driver.find_element_by_css_selector("#selectTypeForm\:j_idt93_label").click()
-        driver.find_element_by_css_selector("#selectTypeForm\:j_idt93_items").click()
-        driver.find_element_by_id("selectTypeForm:j_idt93_1").click()
+        driver.find_element(By.ID,"tableForm:j_idt74").click()
+        driver.find_element(By.CSS_SELECTOR,"#selectTypeForm\:j_idt93_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#selectTypeForm\:j_idt93_items").click()
+        driver.find_element(By.ID,"selectTypeForm:j_idt93_1").click()
         time.sleep(2)
-        driver.find_element_by_id("selectTypeForm:j_idt95").click()
+        driver.find_element(By.ID,"selectTypeForm:j_idt95").click()
         name = self.generate_random_string()
-        driver.find_element_by_id("legalForm:j_idt331:name").click()
-        driver.find_element_by_id("legalForm:j_idt331:name").clear()
-        driver.find_element_by_id("legalForm:j_idt331:name").send_keys(name)
-        driver.find_element_by_css_selector("#legalForm\:j_idt331\:categories").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"legalForm:j_idt331:name").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:name").clear()
+        driver.find_element(By.ID,"legalForm:j_idt331:name").send_keys(name)
+        driver.find_element(By.CSS_SELECTOR,"#legalForm\:j_idt331\:categories").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#legalForm\:j_idt331\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#legalForm\:j_idt331\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        #driver.find_element_by_id("legalForm:j_idt332:j_idt334").click()
+        #driver.find_element(By.ID,"legalForm:j_idt332:j_idt334").click()
 
-        driver.find_element_by_id("legalForm:j_idt331:shortName").click()
-        driver.find_element_by_id("legalForm:j_idt331:shortName").clear()
-        driver.find_element_by_id("legalForm:j_idt331:shortName").send_keys(u"СаблинАнтител")
-        driver.find_element_by_id("legalForm:j_idt331:seoName").click()
-        driver.find_element_by_id("legalForm:j_idt331:seoName").clear()
-        driver.find_element_by_id("legalForm:j_idt331:seoName").send_keys(u"Евгеньевич")
-        driver.find_element_by_id("legalForm:j_idt331:email").click()
-        driver.find_element_by_id("legalForm:j_idt331:email").clear()
-        driver.find_element_by_id("legalForm:j_idt331:email").send_keys("shamkin@proweb.ru")
-        driver.find_element_by_css_selector("#legalForm\:j_idt331\:userCategory_label").click()
-        driver.find_element_by_css_selector("#legalForm\:j_idt331\:userCategory_items").click()
-        driver.find_element_by_id("legalForm:j_idt331:userCategory_2").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:shortName").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:shortName").clear()
+        driver.find_element(By.ID,"legalForm:j_idt331:shortName").send_keys(u"СаблинАнтител")
+        driver.find_element(By.ID,"legalForm:j_idt331:seoName").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:seoName").clear()
+        driver.find_element(By.ID,"legalForm:j_idt331:seoName").send_keys(u"Евгеньевич")
+        driver.find_element(By.ID,"legalForm:j_idt331:email").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:email").clear()
+        driver.find_element(By.ID,"legalForm:j_idt331:email").send_keys("shamkin@proweb.ru")
+        driver.find_element(By.CSS_SELECTOR,"#legalForm\:j_idt331\:userCategory_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#legalForm\:j_idt331\:userCategory_items").click()
+        driver.find_element(By.ID,"legalForm:j_idt331:userCategory_2").click()
         time.sleep(2)
         #банковские реквизиты
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='1']").click()
-        driver.find_element_by_id("legalForm:j_idt331:bankTable:j_idt416").click()
-        driver.find_element_by_id("legalBankForm:name").send_keys("Сбербанк")
+        driver.find_element(By.ID,"legalForm:j_idt331:bankTable:j_idt416").click()
+        driver.find_element(By.ID,"legalBankForm:name").send_keys("Сбербанк")
         filial = self.generate_random_string()
-        driver.find_element_by_id("legalBankForm:branchName").send_keys(filial)
+        driver.find_element(By.ID,"legalBankForm:branchName").send_keys(filial)
         inn=self.generate_random_string_number()
-        driver.find_element_by_id("legalBankForm:branchINN").send_keys(inn)
-        driver.find_element_by_id("legalBankForm:bik").send_keys("123456789")
-        driver.find_element_by_id("legalBankForm:mainAccount").send_keys("123456789")
-        driver.find_element_by_id("legalBankForm:corrAccount").send_keys("123456789")
-        driver.find_element_by_id("legalBankForm:j_idt582").click()
-        assert driver.find_element_by_xpath("//tbody[@id='legalForm:j_idt332:bankTable_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == filial
-        assert driver.find_element_by_xpath("//tbody[@id='legalForm:j_idt332:bankTable_data']//tr[" + str(1) + "]/td[" + str(3) + "]").text == inn
-        driver.find_element_by_id("legalForm:j_idt521").click()
+        driver.find_element(By.ID,"legalBankForm:branchINN").send_keys(inn)
+        driver.find_element(By.ID,"legalBankForm:bik").send_keys("123456789")
+        driver.find_element(By.ID,"legalBankForm:mainAccount").send_keys("123456789")
+        driver.find_element(By.ID,"legalBankForm:corrAccount").send_keys("123456789")
+        driver.find_element(By.ID,"legalBankForm:j_idt582").click()
+        assert driver.find_element(By.XPATH,"//tbody[@id='legalForm:j_idt332:bankTable_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == filial
+        assert driver.find_element(By.XPATH,"//tbody[@id='legalForm:j_idt332:bankTable_data']//tr[" + str(1) + "]/td[" + str(3) + "]").text == inn
+        driver.find_element(By.ID,"legalForm:j_idt521").click()
         time.sleep(3)
-        name3 = driver.find_element_by_xpath(
+        name3 = driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text
         assert (re.match(r'(?i)' + re.sub(r'\s', '', name) + r'$', re.sub(r'\s', '', name3)))
-        driver.find_element_by_id("tableForm:table:0:j_idt90").click()
-        driver.find_element_by_id("j_idt901:j_idt902").click()
+        driver.find_element(By.ID,"tableForm:table:0:j_idt90").click()
+        driver.find_element(By.ID,"j_idt901:j_idt902").click()
         time.sleep(2)
 
         #ИП
-        driver.find_element_by_id("tableForm:j_idt76").click()
-        driver.find_element_by_css_selector("#selectTypeForm\:j_idt94_label").click()
-        driver.find_element_by_css_selector("#selectTypeForm\:j_idt94_items").click()
-        driver.find_element_by_id("selectTypeForm:j_idt94_2").click()
+        driver.find_element(By.ID,"tableForm:j_idt76").click()
+        driver.find_element(By.CSS_SELECTOR,"#selectTypeForm\:j_idt94_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#selectTypeForm\:j_idt94_items").click()
+        driver.find_element(By.ID,"selectTypeForm:j_idt94_2").click()
         time.sleep(2)
-        driver.find_element_by_id("selectTypeForm:j_idt96").click()
+        driver.find_element(By.ID,"selectTypeForm:j_idt96").click()
 
         name = self.generate_random_string()
-        driver.find_element_by_id("singleForm:j_idt612:name").click()
-        driver.find_element_by_id("singleForm:j_idt612:name").clear()
-        driver.find_element_by_id("singleForm:j_idt612:name").send_keys(name)
-        driver.find_element_by_css_selector("#singleForm\:j_idt612\:categories").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"singleForm:j_idt612:name").click()
+        driver.find_element(By.ID,"singleForm:j_idt612:name").clear()
+        driver.find_element(By.ID,"singleForm:j_idt612:name").send_keys(name)
+        driver.find_element(By.CSS_SELECTOR,"#singleForm\:j_idt612\:categories").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#singleForm\:j_idt612\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(1) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#singleForm\:j_idt612\:categories_panel > div.ui-selectcheckboxmenu-items-wrapper > ul > li:nth-child(2) > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default > span").click()
-        # driver.find_element_by_id("legalForm:j_idt332:j_idt334").click()
+        # driver.find_element(By.ID,"legalForm:j_idt332:j_idt334").click()
 
-        driver.find_element_by_id("singleForm:j_idt612:shortName").click()
-        driver.find_element_by_id("singleForm:j_idt612:shortName").clear()
-        driver.find_element_by_id("singleForm:j_idt612:shortName").send_keys(u"СаблинПАСС")
-        driver.find_element_by_id("singleForm:j_idt612:email").click()
-        driver.find_element_by_id("singleForm:j_idt612:email").clear()
-        driver.find_element_by_id("singleForm:j_idt612:email").send_keys("shamkin@proweb.ru")
-        driver.find_element_by_css_selector("#singleForm\:j_idt612\:userCategory_label").click()
-        driver.find_element_by_css_selector("#singleForm\:j_idt612\:userCategory_items").click()
-        driver.find_element_by_id("singleForm:j_idt612:userCategory_2").click()
+        driver.find_element(By.ID,"singleForm:j_idt612:shortName").click()
+        driver.find_element(By.ID,"singleForm:j_idt612:shortName").clear()
+        driver.find_element(By.ID,"singleForm:j_idt612:shortName").send_keys(u"СаблинПАСС")
+        driver.find_element(By.ID,"singleForm:j_idt612:email").click()
+        driver.find_element(By.ID,"singleForm:j_idt612:email").clear()
+        driver.find_element(By.ID,"singleForm:j_idt612:email").send_keys("shamkin@proweb.ru")
+        driver.find_element(By.CSS_SELECTOR,"#singleForm\:j_idt612\:userCategory_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#singleForm\:j_idt612\:userCategory_items").click()
+        driver.find_element(By.ID,"singleForm:j_idt612:userCategory_2").click()
         time.sleep(2)
         #Банковские реквизиты
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//a[@href='#singleForm:j_idt612:j_idt669']").click()
-        driver.find_element_by_id("singleForm:j_idt612:bankTable:j_idt692").click()
-        driver.find_element_by_id("singleBankForm:name").send_keys("Сбербанк")
+        driver.find_element(By.ID,"singleForm:j_idt612:bankTable:j_idt692").click()
+        driver.find_element(By.ID,"singleBankForm:name").send_keys("Сбербанк")
         filial = self.generate_random_string()
-        driver.find_element_by_id("singleBankForm:branchName").send_keys(filial)
+        driver.find_element(By.ID,"singleBankForm:branchName").send_keys(filial)
         inn = self.generate_random_string_number()
-        driver.find_element_by_id("singleBankForm:branchINN").send_keys(inn)
-        driver.find_element_by_id("singleBankForm:bik").send_keys("123456789")
-        driver.find_element_by_id("singleBankForm:mainAccount").send_keys("123456789")
-        driver.find_element_by_id("singleBankForm:corrAccount").send_keys("123456789")
-        driver.find_element_by_id("singleBankForm:j_idt853").click()
-        assert driver.find_element_by_xpath(
+        driver.find_element(By.ID,"singleBankForm:branchINN").send_keys(inn)
+        driver.find_element(By.ID,"singleBankForm:bik").send_keys("123456789")
+        driver.find_element(By.ID,"singleBankForm:mainAccount").send_keys("123456789")
+        driver.find_element(By.ID,"singleBankForm:corrAccount").send_keys("123456789")
+        driver.find_element(By.ID,"singleBankForm:j_idt853").click()
+        assert driver.find_element(By.XPATH,
             "//tbody[@id='singleForm:j_idt612:bankTable_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text == filial
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,
             "//tbody[@id='singleForm:j_idt612:bankTable_data']//tr[" + str(1) + "]/td[" + str(3) + "]").text == inn
-        driver.find_element_by_id("singleForm:j_idt792").click()
+        driver.find_element(By.ID,"singleForm:j_idt792").click()
         time.sleep(3)
-        name4 = driver.find_element_by_xpath(
+        name4 = driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:table_data']//tr[" + str(1) + "]/td[" + str(2) + "]").text
         assert (re.match(r'(?i)' + re.sub(r'\s', '', name) + r'$', re.sub(r'\s', '', name4)))
 
-        driver.find_element_by_id("tableForm:table:0:j_idt90").click()
-        driver.find_element_by_id("j_idt901:j_idt902").click()
+        driver.find_element(By.ID,"tableForm:table:0:j_idt90").click()
+        driver.find_element(By.ID,"j_idt901:j_idt902").click()
         time.sleep(2)
 

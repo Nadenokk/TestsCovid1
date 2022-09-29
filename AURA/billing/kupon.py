@@ -58,29 +58,29 @@ class Kupon(unittest.TestCase):
     def test_kupon(self):
         driver = self.driver
         driver.get("http://auraep.ru:8180/business/dashboard/dashboard.xhtml")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("tuilp")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("tuilp")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("tuilp")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("tuilp")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Купоны\"] > span").click()
-        driver.find_element_by_id("tableForm:j_idt73").click()
-        driver.find_element_by_id("itemForm:tabView:name").send_keys(self.generate_random_string())
-        driver.find_element_by_css_selector("span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
-        driver.find_element_by_xpath("//table[@id = 'itemForm:tabView:discountType']//span").click()
-        driver.find_element_by_id("itemForm:tabView:discountValue").send_keys("50")
-        driver.find_element_by_id("itemForm:tabView:startDate_input").send_keys("01.12.2020")
-        driver.find_element_by_id("itemForm:tabView:finishDate_input").send_keys("01.12.2030")
-        driver.find_element_by_id("itemForm:j_idt280").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Купоны\"] > span").click()
+        driver.find_element(By.ID,"tableForm:j_idt73").click()
+        driver.find_element(By.ID,"itemForm:tabView:name").send_keys(self.generate_random_string())
+        driver.find_element(By.CSS_SELECTOR,"span.ui-radiobutton-icon.ui-icon.ui-icon-blank.ui-c").click()
+        driver.find_element(By.XPATH,"//table[@id = 'itemForm:tabView:discountType']//span").click()
+        driver.find_element(By.ID,"itemForm:tabView:discountValue").send_keys("50")
+        driver.find_element(By.ID,"itemForm:tabView:startDate_input").send_keys("01.12.2020")
+        driver.find_element(By.ID,"itemForm:tabView:finishDate_input").send_keys("01.12.2030")
+        driver.find_element(By.ID,"itemForm:j_idt280").click()
         time.sleep(2)
 
-        table_id = driver.find_element_by_id("tableForm:main-table_data")
+        table_id = driver.find_element(By.ID,"tableForm:main-table_data")
         rows = table_id.find_elements(By.TAG_NAME, "tr")  # get all of the rows in the table
         for row in rows[1:]:
         # Get the columns (all the column 2)
             col = row.find_elements(By.TAG_NAME, "td")[0]  # note: index start from 0, 1 is col 2
-            assert (driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").text != col.text)
+            assert (driver.find_element(By.XPATH,"//tbody[@id='tableForm:main-table_data']//tr[" + str(1) + "]/td[" + str(1) + "]").text != col.text)

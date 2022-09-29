@@ -20,52 +20,33 @@ class DownloadDTVector(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    '''    
-    def genlog(self):    
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.INFO)
-        if not os.path.exists("Logs"):
-            os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Create_PCR.log'))
-        handler.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        try:
-            self.create_pcr()
-        except Exception as e:
-            logger.error('Error detected', exc_info=True)
-        else:
-            logger.info('Test complete without errors')    
-
-    def test_create_pcr(self):
-        self.genlog()
-    '''
-
     def test_download_rez_DT_vector(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
+        #driver.get("http://127.0.0.1:48080/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
-            "#j_idt71 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Загрузка результатов\"] > span").click()
-        driver.find_element_by_id("toolbarform:j_idt79").click()
-        button = driver.find_element_by_id("j_idt91:j_idt93_input")
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("borisova")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("Gi8BbtDN")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
+            "#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Загрузка результатов\"] > span").click()
+        x = driver.find_element(By.CSS_SELECTOR,u"a[title=\"Загрузка результатов\"] > span").get_attribute("textContent")
+
+        driver.find_element(By.ID,"toolbarform:j_idt78").click()
+        button = driver.find_element(By.ID,"j_idt90:j_idt92_input")
         button.send_keys("C:\\Users\\user\\PycharmProjects\\TestsCovid1\\COVID_19_9880\\rezultat_issledov\\test.xlsx")
         time.sleep(10)
-        string=driver.find_element_by_id("messageInError").text
+        string=driver.find_element(By.ID,"messageInError").text
         str = string.split("\n")
         assert str[0] == 'Пожалуйста, не закрывайте диалоговое окно до завершения работы'
         time.sleep(4)
-        driver.find_element_by_xpath("//span[@id='messageInError' and contains(text(), "'Результат'")]")
+        driver.find_element(By.XPATH,"//span[@id='messageInError' and contains(text(), "'Результат'")]")
 
     def is_element_present(self, how, what):
         try:
@@ -73,30 +54,6 @@ class DownloadDTVector(unittest.TestCase):
         except NoSuchElementException as e:
             return False
         return True
-
-    def is_alert_present(self):
-        try:
-            self.driver.switch_to_alert()
-        except NoAlertPresentException as e:
-            return False
-        return True
-
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally:
-            self.accept_next_alert = True
-
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mb:fillAidsRequest xmlns:mb="http://iac.spb.ru/mb#">
+	<mb:aidsBlank>
+		<mb:Request>
+			<mb:blankInfo>
+				<mb:id>4001270785192</mb:id>
+				<mb:moId>111281</mb:moId>
+				<mb:duplicate>
+					<mb:duplicateId/>
+					<mb:isDuplicated>false</mb:isDuplicated>
+				</mb:duplicate>
+				<mb:isSpoiled>false</mb:isSpoiled>
+			</mb:blankInfo>
+			<mb:clientInfo>
+				<mb:fullname>Abboskhonov Jakhongir</mb:fullname>
+				<mb:rusname>Аббосхонов Джахонгир Абдуазизхонович</mb:rusname>
+				<mb:birthdate>28.10.1987</mb:birthdate>
+				<mb:documentType>Паспорт</mb:documentType>
+				<mb:documentNumber>FA 2681534</mb:documentNumber>
+				<mb:documentDate>03.05.2021</mb:documentDate>
+				<mb:docIssuer>УЗБЕКИСТАН</mb:docIssuer>
+				<mb:citizen>215</mb:citizen>
+				<mb:residence>215</mb:residence>
+			</mb:clientInfo>
+			<mb:conclusion>
+				<mb:testingDate>23.11.2021</mb:testingDate>
+				<mb:validityPeriodBegin>23.11.2021</mb:validityPeriodBegin>
+				<mb:validityPeriodEnd>22.11.2022</mb:validityPeriodEnd>
+				<mb:serialOfTestSystem>D-0151 серия: 2618 до 15.04.2023</mb:serialOfTestSystem>
+				<mb:doctorFio>Каримова  Р.И.</mb:doctorFio>
+				<mb:specialist>Каримова  Р.И.</mb:specialist>
+				<mb:directorFio>Мосевич О.С.</mb:directorFio>
+				<mb:result>0</mb:result>
+			</mb:conclusion>
+			<mb:dateFormat>dd.MM.yyyy</mb:dateFormat>
+		</mb:Request>
+	</mb:aidsBlank>
+</mb:fillAidsRequest>

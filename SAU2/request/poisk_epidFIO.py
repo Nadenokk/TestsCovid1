@@ -52,21 +52,21 @@ class CreateOrder(unittest.TestCase):
         driver = self.driver
         #driver.get("http://auraep.ru:11080/documents/")
         driver.get("http://46.61.193.136:8383/documents/projects-list#")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("supervisor")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("supervisor")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt67 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Поиск эпидслучаев\"] > span").click()
-        driver.find_element_by_id("filtersForm:j_idt105").send_keys("Козлов")
-        driver.find_element_by_id("filtersForm:j_idt108").send_keys("Александр")
-        driver.find_element_by_id("filtersForm:j_idt168").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Поиск эпидслучаев\"] > span").click()
+        driver.find_element(By.ID,"filtersForm:j_idt105").send_keys("Козлов")
+        driver.find_element(By.ID,"filtersForm:j_idt108").send_keys("Александр")
+        driver.find_element(By.ID,"filtersForm:j_idt168").click()
         time.sleep(10)
-        assert driver.find_element_by_xpath("//tr[" + str(4) + "]/td[" + str(2) + "]").text=="КОЗЛОВА"
+        assert driver.find_element(By.XPATH,"//tr[" + str(4) + "]/td[" + str(2) + "]").text=="КОЗЛОВА"
 
     def is_element_present(self, how, what):
         try:

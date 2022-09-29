@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mb:fillAidsRequest xmlns:mb="http://iac.spb.ru/mb#">
+	<mb:aidsBlank>
+		<mb:Request>
+			<mb:blankInfo>
+				<mb:id>4001271108317</mb:id>
+				<mb:moId>111281</mb:moId>
+				<mb:duplicate>
+					<mb:duplicateId/>
+					<mb:isDuplicated>false</mb:isDuplicated>
+				</mb:duplicate>
+				<mb:isSpoiled>false</mb:isSpoiled>
+			</mb:blankInfo>
+			<mb:clientInfo>
+				<mb:fullname>Abdialimov Shakhriyor</mb:fullname>
+				<mb:rusname>Абдиалимов Шахриёр Рустам угли</mb:rusname>
+				<mb:birthdate>04.04.2001</mb:birthdate>
+				<mb:documentType>Паспорт</mb:documentType>
+				<mb:documentNumber>AB 6498989</mb:documentNumber>
+				<mb:documentDate>13.04.2017</mb:documentDate>
+				<mb:docIssuer>УЗБЕКИСТАН</mb:docIssuer>
+				<mb:citizen>215</mb:citizen>
+				<mb:residence>215</mb:residence>
+			</mb:clientInfo>
+			<mb:conclusion>
+				<mb:testingDate>14.04.2022</mb:testingDate>
+				<mb:validityPeriodBegin>14.04.2022</mb:validityPeriodBegin>
+				<mb:validityPeriodEnd>13.04.2023</mb:validityPeriodEnd>
+				<mb:serialOfTestSystem>D-0151 серия: 2618 до 15.04.2023</mb:serialOfTestSystem>
+				<mb:doctorFio>Каримова  Р.И.</mb:doctorFio>
+				<mb:specialist>Каримова  Р.И.</mb:specialist>
+				<mb:directorFio>Мосевич О.С.</mb:directorFio>
+				<mb:result>0</mb:result>
+			</mb:conclusion>
+			<mb:dateFormat>dd.MM.yyyy</mb:dateFormat>
+		</mb:Request>
+	</mb:aidsBlank>
+</mb:fillAidsRequest>

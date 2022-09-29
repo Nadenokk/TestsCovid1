@@ -18,93 +18,50 @@ class ExpressTestStatus(unittest.TestCase):
         self.driver.implicitly_wait(60)
         self.verificationErrors = []
         self.accept_next_alert = True
-    ''' 
-    def genlog(self):    
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.INFO)
-        if not os.path.exists("Logs"):
-            os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Express_test_status.log'))
-        handler.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        try:
-            self.express_test_status()
-        except Exception as e:
-            logger.error('Error detected', exc_info=True)
-        else:
-            logger.info('Test complete without errors')    
-    
-    def test_express_test_status(self):
-        self.genlog()
-    '''
+
     def test_express_status(self):
         driver = self.driver
         barcode = "7800560979"
         iss = u"10Х396522" # u - кодировка utf-8
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
+        #driver.get("http://127.0.0.1:48080/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt71 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(10) > a > div").click()
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("borisova")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("Gi8BbtDN")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,"#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(7) > a > div").click()
 
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(barcode)
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(10)
-        assert driver.find_element_by_id("expressForm:j_idt83").text == iss
+        assert driver.find_element(By.ID,"expressForm:j_idt82").text == iss
 
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("negative")
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys("negative")
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(5)
-        #driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt96").text == iss
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(barcode)
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
+        #driver.find_element(By.CSS_SELECTOR,"#growlForm\:growl_container > div > div > div.ui-growl-message > p")
+        assert driver.find_element(By.CSS_SELECTOR,"#expressForm\:j_idt95").text == iss
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(barcode)
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(10)
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt83").text == iss
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("positive")
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
+        assert driver.find_element(By.CSS_SELECTOR,"#expressForm\:j_idt82").text == iss
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys("positive")
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(5)
-        #driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
-        assert driver.find_element_by_css_selector("#expressForm\:j_idt88").text == iss
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys("clear-lists")
-        driver.find_element_by_css_selector("#expressForm\:inputValueId").send_keys(Keys.ENTER)
+        #driver.find_element(By.CSS_SELECTOR,"#growlForm\:growl_container > div > div > div.ui-growl-message > p")
+        assert driver.find_element(By.CSS_SELECTOR,"#expressForm\:j_idt87").text == iss
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys("clear-lists")
+        driver.find_element(By.CSS_SELECTOR,"#expressForm\:inputValueId").send_keys(Keys.ENTER)
         time.sleep(3)
-        driver.find_element_by_css_selector("#growlForm\:growl_container > div > div > div.ui-growl-message > p")
-        #assert driver.find_element_by_css_selector("#expressForm:j_idt93").text != iss
-        #assert driver.find_element_by_css_selector("#expressForm:j_idt85").text != iss
+        driver.find_element(By.CSS_SELECTOR,"#growlForm\:growl_container > div > div > div.ui-growl-message > p")
+
     
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -56,86 +56,86 @@ class CreateOrder(unittest.TestCase):
         driver = self.driver
         driver.get("http://auraep.ru:11080/documents/")
         #driver.get("http://46.61.193.136:8383/documents/projects-list#")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("supervisor")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("supervisor")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("supervisor")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt65 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a").click()
-        driver.find_element_by_css_selector(u"a[title=\"Сформировать экстренное извещение\"] > span").click()
-        driver.find_element_by_id("searchForm:lastName").send_keys(self.generate_random_string())
-        driver.find_element_by_id("searchForm:firstName").send_keys(self.generate_random_string())
-        driver.find_element_by_id("searchForm:patronymicName").send_keys(self.generate_random_string())
-        driver.find_element_by_id("searchForm:dateFrom_input").click()
-        driver.find_element_by_id("searchForm:dateFrom_input").clear()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Сформировать экстренное извещение\"] > span").click()
+        driver.find_element(By.ID,"searchForm:lastName").send_keys(self.generate_random_string())
+        driver.find_element(By.ID,"searchForm:firstName").send_keys(self.generate_random_string())
+        driver.find_element(By.ID,"searchForm:patronymicName").send_keys(self.generate_random_string())
+        driver.find_element(By.ID,"searchForm:dateFrom_input").click()
+        driver.find_element(By.ID,"searchForm:dateFrom_input").clear()
         time.sleep(2)
-        driver.find_element_by_id("searchForm:dateFrom_input").send_keys("11")
+        driver.find_element(By.ID,"searchForm:dateFrom_input").send_keys("11")
         time.sleep(1)
-        driver.find_element_by_id("searchForm:dateFrom_input").send_keys("11")
+        driver.find_element(By.ID,"searchForm:dateFrom_input").send_keys("11")
         time.sleep(1)
-        driver.find_element_by_id("searchForm:dateFrom_input").send_keys("1111")
+        driver.find_element(By.ID,"searchForm:dateFrom_input").send_keys("1111")
         time.sleep(2)
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-search']").click()
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-stethoscope']").click()
         #заполнение карточки
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//label[@for='j_idt73:j_idt92:sex:0']").click()
-        driver.find_element_by_id("j_idt73:j_idt92:tf_addressesList_add").click()
+        driver.find_element(By.ID,"j_idt73:j_idt92:tf_addressesList_add").click()
 
-        driver.find_element_by_css_selector("#tableFieldItemForm\:cityArea_label").click()
-        driver.find_element_by_css_selector("#tableFieldItemForm\:cityArea_items").click()
-        driver.find_element_by_id("tableFieldItemForm:cityArea_1").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableFieldItemForm\:cityArea_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableFieldItemForm\:cityArea_items").click()
+        driver.find_element(By.ID,"tableFieldItemForm:cityArea_1").click()
         time.sleep(2)
-        driver.find_element_by_id("tableFieldItemForm:saveTableButton").click()
+        driver.find_element(By.ID,"tableFieldItemForm:saveTableButton").click()
         time.sleep(2)
         #заполнение место работы
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='2']").click()
-        driver.find_element_by_id("j_idt73:j_idt92:tf_jobs_add").click()
+        driver.find_element(By.ID,"j_idt73:j_idt92:tf_jobs_add").click()
         time.sleep(2)
 
         window_before = driver.window_handles[0]
-        driver.find_element_by_id("tableFieldItemForm2:orgName_selectBtn").click()
+        driver.find_element(By.ID,"tableFieldItemForm2:orgName_selectBtn").click()
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id5").click()
-        driver.find_element_by_id("tableForm:main-table:j_id5").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id5").send_keys(u"сбер")
-        driver.find_element_by_css_selector("#tableForm").click()
+        driver.find_element(By.ID,"tableForm:main-table:j_id5").click()
+        driver.find_element(By.ID,"tableForm:main-table:j_id5").clear()
+        driver.find_element(By.ID,"tableForm:main-table:j_id5").send_keys(u"сбер")
+        driver.find_element(By.CSS_SELECTOR,"#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(3)
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,
             "//label[@class='ui-selectonemenu-label ui-inputfield ui-corner-all' and @id='tableFieldItemForm2:cityArea_label']").text=="Кировский"
         time.sleep(2)
         '''
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_label").click()
-        driver.find_element_by_css_selector("#tableFieldItemForm2\:cityArea_items").click()
-        driver.find_element_by_id("tableFieldItemForm2:cityArea_1").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableFieldItemForm2\:cityArea_label").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableFieldItemForm2\:cityArea_items").click()
+        driver.find_element(By.ID,"tableFieldItemForm2:cityArea_1").click()
         '''
-        driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
+        driver.find_element(By.ID,"tableFieldItemForm2:saveTableButton2").click()
 
 
         #заполнение диагноза
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//li[@class='ui-tabs-header ui-state-default ui-corner-top' and @data-index='3']").click()
-        driver.find_element_by_id("j_idt73:j_idt92:tf_diagnoses_add").click()
-        driver.find_element_by_id("tableFieldItemForm2:diagnose_input").send_keys("головокружение")
-        driver.find_element_by_id("tableFieldItemForm2:diagnose_panel").click()
-        driver.find_element_by_id("tableFieldItemForm2:saveTableButton2").click()
+        driver.find_element(By.ID,"j_idt73:j_idt92:tf_diagnoses_add").click()
+        driver.find_element(By.ID,"tableFieldItemForm2:diagnose_input").send_keys("головокружение")
+        driver.find_element(By.ID,"tableFieldItemForm2:diagnose_panel").click()
+        driver.find_element(By.ID,"tableFieldItemForm2:saveTableButton2").click()
 
-        driver.find_element_by_id("j_idt73:j_idt76").click()
+        driver.find_element(By.ID,"j_idt73:j_idt76").click()
         time.sleep(4)
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,
                 "//span[@class='ui-dialog-title' and @id='dialogForm:j_idt186_title']").text=="Внимание"
         time.sleep(3)
 

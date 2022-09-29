@@ -24,6 +24,7 @@ class Vich(unittest.TestCase):
         driver = self.driver
         number=self.generate_random_cel()
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
+        #driver.get("http://127.0.0.1:48080/business/dashboard/dashboard.xhtml")
         driver.find_element(By.ID,"form:usernameInput").click()
         driver.find_element(By.ID,"form:usernameInput").clear()
         driver.find_element(By.ID,"form:usernameInput").send_keys("a.yakovenko@webdom.net")
@@ -31,7 +32,8 @@ class Vich(unittest.TestCase):
         driver.find_element(By.ID,"form:passwordInput").clear()
         driver.find_element(By.ID,"form:passwordInput").send_keys("dBE<9HFC")
         driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
-        driver.find_element(By.XPATH,"//div[@id='j_idt71']/div/ul/li[12]/a/div/div[2]").click()
+        driver.find_element(By.CSS_SELECTOR,
+                            "#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(9) > a > div").click()
         driver.find_element(By.CSS_SELECTOR,u"a[title=\"Сертификаты ВИЧ\"] > span").click()
         driver.find_element(By.XPATH,"//button[@id='tableForm:j_idt82']/span").click()
         time.sleep(2)
@@ -43,8 +45,8 @@ class Vich(unittest.TestCase):
         driver.find_element(By.ID,"bsoIncomeForm:incomeDate_input").click()
         driver.find_element(By.ID, "bsoIncomeForm:incomeDate_input").send_keys("18.03.2020")
         driver.find_element(By.ID, "bsoIncomeForm:firstBarcode").click()
+        driver.find_element(By.XPATH,"//button[@id='bsoIncomeForm:j_idt108']/span").click()
         driver.find_element(By.XPATH,"//button[@id='bsoIncomeForm:j_idt107']/span").click()
-        driver.find_element(By.XPATH,"//button[@id='bsoIncomeForm:j_idt106']/span").click()
         time.sleep(2)
         driver.find_element(By.ID,"tableForm:main-table:j_id10").click()
         driver.find_element(By.ID,"tableForm:main-table:j_id10").clear()
@@ -52,8 +54,6 @@ class Vich(unittest.TestCase):
         time.sleep(2)
         assert driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == number
-
-
 
 if __name__ == "__main__":
     unittest.main()

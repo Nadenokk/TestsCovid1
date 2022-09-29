@@ -42,46 +42,21 @@ class Barcode2(unittest.TestCase):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
+        #driver.get("http://127.0.0.1:48080/business/dashboard/dashboard.xhtml")
         #driver.get("https://rpn19.ru:11443/documents/")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector("#j_idt71 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(11) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Поиск штрих-кодов\"] > span").click()
-        #print (driver.find_element_by_css_selector("#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)
-        driver.find_element_by_id("filtersform:j_idt87").click()
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("borisova")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("Gi8BbtDN")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,"#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Поиск штрих-кодов\"] > span").click()
+        #print (driver.find_element(By.CSS_SELECTOR,"#tableForm\:main-table_paginator_bottom > span.ui-paginator-current").text)
+        driver.find_element(By.ID,"filtersform:j_idt87").click()
         time.sleep(25)
-        print (driver.find_element_by_xpath("//span[@class='ui-paginator-current']").text)
-        
-              
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-                
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-                  
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-                
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
+        print (driver.find_element(By.XPATH,"//span[@class='ui-paginator-current']").text)
         
 if __name__ == "__main__":
     unittest.main()

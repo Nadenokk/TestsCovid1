@@ -27,129 +27,77 @@ class EditTablet(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    '''    
-    def genlog(self):    
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.INFO)
-        if not os.path.exists("Logs"):
-            os.mkdir("Logs")
-        handler = logging.FileHandler(str('logs/' + (time.strftime(''%d.%m.%Y_%H.%M_'', (time.localtime())))  + 'Barcode.log'))
-        handler.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        try:
-            self.barcode()
-        except Exception as e:
-            logger.error('Error detected', exc_info=True)
-        else:
-            logger.info('Test complete without errors')    
-
-    def test_barcode(self):
-        self.genlog()
-    '''
-
     def test_edit_tablet(self):
         driver = self.driver
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://test.rpn19.ru/business/dashboard/dashboard.xhtml")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("borisova")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Gi8BbtDN")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
-            "#j_idt71 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(8) > a > div > div.layout-tabmenu-tooltip-text").click()
-        #driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_id("tableForm:j_idt88_input").clear()
-        driver.find_element_by_id("tableForm:j_idt88_input").send_keys("01.09.2021")
-        driver.find_element_by_id("tableForm:j_idt91").send_keys("621П1073458")
+        #driver.get("http://127.0.0.1:48080/business/dashboard/dashboard.xhtml")
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("borisova")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("Gi8BbtDN")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
+            "#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(5) > a > div > div.layout-tabmenu-tooltip-text").click()
+        #driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.ID,"tableForm:j_idt87_input").clear()
+        #driver.find_element(By.ID,"tableForm:j_idt87_input").send_keys("01.09.2021")
+        driver.find_element(By.ID,"tableForm:j_idt90").send_keys("621П1073458")
         time.sleep(1)
-        driver.find_element_by_id("tableForm:j_idt94").click()
+        driver.find_element(By.ID,"tableForm:j_idt93").click()
         time.sleep(2)
-        assert driver.find_element_by_xpath("//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="621П1073458"
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,"//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text=="621П1073458"
+        assert driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(4) + "]").text == "01.09.21 08:03"
 
         wait = WebDriverWait(driver, 10)
         current_window = driver.current_window_handle
         old_windows = driver.window_handles
         actionChains = ActionChains(driver)
-        actionChains.double_click(driver.find_element_by_id("tableForm:main-table_data")).perform()
+        actionChains.double_click(driver.find_element(By.ID,"tableForm:main-table_data")).perform()
         wait.until(ec.new_window_is_opened(old_windows))
         new_window = [i for i in driver.window_handles if i not in old_windows]
         driver.switch_to.window(new_window[0])
-        driver.find_element_by_css_selector("body.main-body").click()
+        driver.find_element(By.CSS_SELECTOR,"body.main-body").click()
 
 
-        driver.find_element_by_id("itemForm:tabView:compileDate_input").click()
-        driver.find_element_by_id("itemForm:tabView:compileDate_input").clear()
-        driver.find_element_by_id("itemForm:tabView:compileDate_input").send_keys("01.09.21 08:03")
+        driver.find_element(By.ID,"itemForm:tabView:compileDate_input").click()
+        driver.find_element(By.ID,"itemForm:tabView:compileDate_input").clear()
+        driver.find_element(By.ID,"itemForm:tabView:compileDate_input").send_keys("01.09.21 08:03")
         time.sleep(2)
-        driver.find_element_by_css_selector("body").click()
+        driver.find_element(By.CSS_SELECTOR,"body").click()
         window_before = driver.window_handles[1]
-        driver.find_element_by_id("itemForm:tabView:labContractor_selectBtn").click()
+        driver.find_element(By.ID,"itemForm:tabView:labContractor_selectBtn").click()
         window_after = driver.window_handles[2]
         driver.switch_to.window(window_after)
-        driver.find_element_by_id("tableForm:main-table:j_id15").click()
-        driver.find_element_by_id("tableForm:main-table:j_id15").clear()
-        driver.find_element_by_id("tableForm:main-table:j_id15").send_keys(u"един")
-        driver.find_element_by_css_selector("#tableForm").click()
+        driver.find_element(By.ID,"tableForm:main-table:j_id15").click()
+        driver.find_element(By.ID,"tableForm:main-table:j_id15").clear()
+        driver.find_element(By.ID,"tableForm:main-table:j_id15").send_keys(u"един")
+        driver.find_element(By.CSS_SELECTOR,"#tableForm").click()
         time.sleep(2)
-        driver.find_element_by_css_selector(
+        driver.find_element(By.CSS_SELECTOR,
             "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable").click()
-        # driver.find_element_by_css_selector(
+        # driver.find_element(By.CSS_SELECTOR,
         #    "#tableForm\:main-table_data > tr.ui-widget-content.ui-datatable-even.ui-datatable-selectable.ui-state-hover").click()
         time.sleep(2)
-        driver.find_element_by_css_selector("#tableForm\:choose").click()
+        driver.find_element(By.CSS_SELECTOR,"#tableForm\:choose").click()
         driver.switch_to.window(window_before)
         time.sleep(2)
-        driver.find_element_by_id("itemForm:j_id4").click()
+        driver.find_element(By.ID,"itemForm:j_id4").click()
         time.sleep(15)
         driver.close()
         driver.switch_to.window(current_window)
         time.sleep(3)
         driver.refresh()
         time.sleep(3)
-        driver.find_element_by_id("tableForm:j_idt91").send_keys("621П1073458")
-        driver.find_element_by_id("tableForm:j_idt88_input").clear()
-        driver.find_element_by_id("tableForm:j_idt94").click()
+        driver.find_element(By.ID,"tableForm:j_idt90").send_keys("621П1073458")
+        driver.find_element(By.ID,"tableForm:j_idt87_input").clear()
+        driver.find_element(By.ID,"tableForm:j_idt93").click()
         time.sleep(11)
-        assert driver.find_element_by_xpath(
+        assert driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == "621П1073458"
-
-    def is_element_present(self, how, what):
-        try:
-            self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e:
-            return False
-        return True
-
-    def is_alert_present(self):
-        try:
-            self.driver.switch_to_alert()
-        except NoAlertPresentException as e:
-            return False
-        return True
-
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally:
-            self.accept_next_alert = True
-
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
-
 
 if __name__ == "__main__":
     unittest.main()

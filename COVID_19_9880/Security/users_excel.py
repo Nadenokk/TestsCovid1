@@ -69,20 +69,20 @@ class OtchetIssledovanie(unittest.TestCase):
         #driver.get("http://195.19.96.255:8981/documents/")
         driver.get("http://auraep.ru:9880/business/dashboard/dashboard.xhtml#")
         # driver.get("https://rpn19.ru:11443/documents/")
-        driver.find_element_by_id("form:usernameInput").click()
-        driver.find_element_by_id("form:usernameInput").clear()
-        driver.find_element_by_id("form:usernameInput").send_keys("supervisor")
-        driver.find_element_by_id("form:passwordInput").click()
-        driver.find_element_by_id("form:passwordInput").clear()
-        driver.find_element_by_id("form:passwordInput").send_keys("Ivwdk1Rp")
-        driver.find_element_by_css_selector("span.ui-button-text.ui-c").click()
-        driver.find_element_by_css_selector(
+        driver.find_element(By.ID,"form:usernameInput").click()
+        driver.find_element(By.ID,"form:usernameInput").clear()
+        driver.find_element(By.ID,"form:usernameInput").send_keys("supervisor")
+        driver.find_element(By.ID,"form:passwordInput").click()
+        driver.find_element(By.ID,"form:passwordInput").clear()
+        driver.find_element(By.ID,"form:passwordInput").send_keys("Ivwdk1Rp")
+        driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
+        driver.find_element(By.CSS_SELECTOR,
             "#j_idt66 > div.nano.layout-tabmenu-nav > ul > li:nth-child(25) > a > div").click()
-        driver.find_element_by_css_selector(u"a[title=\"Пользователи\"] > span").click()
+        driver.find_element(By.CSS_SELECTOR,u"a[title=\"Пользователи\"] > span").click()
 
-        rol=driver.find_element_by_xpath("//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(5) + "]").text
-        email=driver.find_element_by_xpath("//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(6) + "]").text
-        driver.find_element_by_id("tableForm:j_idt77").click()
+        rol=driver.find_element(By.XPATH,"//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(5) + "]").text
+        email=driver.find_element(By.XPATH,"//tbody[@id='tableForm:usersTable_data']//tr[" + str(10) + "]/td[" + str(6) + "]").text
+        driver.find_element(By.ID,"tableForm:j_idt77").click()
 
         time.sleep(4)
 
