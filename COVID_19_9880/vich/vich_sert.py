@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
 import unittest, time
@@ -50,7 +51,7 @@ class Vich(unittest.TestCase):
         time.sleep(2)
         driver.find_element(By.ID,"tableForm:main-table:j_id10").click()
         driver.find_element(By.ID,"tableForm:main-table:j_id10").clear()
-        driver.find_element(By.ID,"tableForm:main-table:j_id10").send_keys(number)
+        driver.find_element(By.ID,"tableForm:main-table:j_id10").send_keys(number+ Keys.ENTER)
         time.sleep(2)
         assert driver.find_element(By.XPATH,
             "//tbody[@id='tableForm:main-table_data']/tr[" + str(1) + "]/td[" + str(1) + "]").text == number

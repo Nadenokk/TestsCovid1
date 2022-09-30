@@ -33,13 +33,13 @@ class SearchIssled(unittest.TestCase):
         driver.find_element(By.ID,"form:passwordInput").send_keys("Gi8BbtDN")
         driver.find_element(By.CSS_SELECTOR,"span.ui-button-text.ui-c").click()
         driver.find_element(By.CSS_SELECTOR,
-            "#j_idt72 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a").click()
+            "#j_idt70 > div.nano.layout-tabmenu-nav.has-scrollbar > ul > li:nth-child(6) > a").click()
         driver.find_element(By.CSS_SELECTOR,u"a[title=\"Поиск исследований\"] > span").click()
         #по виду исследования
-        driver.find_element(By.ID,"filtersForm:j_idt86_input").click()
-        driver.find_element(By.ID,"filtersForm:j_idt86_input").clear()
+        driver.find_element(By.ID,"filtersForm:j_idt79:j_idt84_input").click()
+        driver.find_element(By.ID,"filtersForm:j_idt79:j_idt84_input").clear()
         for date in "00:00 1202.80.71":
-            driver.find_element(By.ID,"filtersForm:j_idt86_input").send_keys(Keys.HOME, date)
+            driver.find_element(By.ID,"filtersForm:j_idt79:j_idt84_input").send_keys(Keys.HOME, date)
 
         driver.find_element(By.ID,"filtersForm:j_idt89_input").click()
         driver.find_element(By.ID,"filtersForm:j_idt89_input").clear()
